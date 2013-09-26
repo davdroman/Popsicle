@@ -38,13 +38,7 @@
 }
 
 - (void)setSubviewFrameAndAlpha:(UIView *)subview fromFrame:(CGRect)fromFrame toFrame:(CGRect)toFrame fromAlpha:(CGFloat)fromAlpha toAlpha:(CGFloat)toAlpha percentage:(CGFloat)percentage delay:(CGFloat)delay {
-    if (delay > 0) {
-        if (percentage > delay) {
-            percentage = (percentage-delay)/(1-delay);
-        } else {
-            percentage = 0;
-        }
-    }
+    percentage = MAX((percentage-delay)/(1-delay), 0);
     
     CGFloat newX = fromFrame.origin.x+(toFrame.origin.x-fromFrame.origin.x)*percentage;
     CGFloat newY = fromFrame.origin.y+(toFrame.origin.y-fromFrame.origin.y)*percentage;

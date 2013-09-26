@@ -12,7 +12,7 @@
 
 #import "UIColor+RGBA.h"
 
-#define LOGS_ENABLED YES
+#define LOGS_ENABLED NO
 
 @implementation MainViewController
 
