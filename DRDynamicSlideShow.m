@@ -8,6 +8,15 @@
 
 #import "DRDynamicSlideShow.h"
 
+typedef enum {
+    DRDynamicSlideShowEffectValueTypeCGFloat = 0,
+    DRDynamicSlideShowEffectValueTypeCGPoint = 1,
+    DRDynamicSlideShowEffectValueTypeCGSize = 2,
+    DRDynamicSlideShowEffectValueTypeCGRect = 3,
+    DRDynamicSlideShowEffectValueTypeCGAffineTransform = 4,
+    DRDynamicSlideShowEffectValueTypeUIColor = 5,
+} DRDynamicSlideShowEffectValueType;
+
 #pragma mark Interfaces Extensions
 
 @interface DRDynamicSlideShow ()
@@ -16,38 +25,138 @@
 
 @end
 
+@interface DRDynamicSlideShowEffect ()
+
+@property (nonatomic) DRDynamicSlideShowEffectValueType valueType;
+
+@end
+
 #pragma mark Implementations
 
 @implementation DRDynamicSlideShowEffect
 
-- (id)initWithSubview:(UIView *)subview page:(NSInteger)page fromFrame:(CGRect)fromFrame toFrame:(CGRect)toFrame fromAlpha:(CGFloat)fromAlpha toAlpha:(CGFloat)toAlpha {
+- (id)initWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath fromValue:(id)fromValue toValue:(id)toValue {
     if (self = [super init]) {
         [self setSubview:subview];
         [self setPage:page];
-        [self setFromFrame:fromFrame];
-        [self setToFrame:toFrame];
-        [self setFromAlpha:fromAlpha];
-        [self setToAlpha:toAlpha];
+        [self setKeyPath:keyPath];
+        [self setFromValue:fromValue];
+        [self setToValue:toValue];
+        [self setValueType:[self effectValueDataType]];
     }
     
     return self;
 }
 
-- (void)performWithPercentage:(CGFloat)percentage {
-    [self setSubviewFrameAndAlpha:self.subview fromFrame:self.fromFrame toFrame:self.toFrame fromAlpha:self.fromAlpha toAlpha:self.toAlpha percentage:percentage delay:self.delay];
+- (BOOL)valueTypeIsEqualTo:(const char *)typeChar {
+    NSString * valueDataTypeString = [[NSString alloc] initWithCString:[self.fromValue objCType] encoding:NSUTF8StringEncoding];
+    
+    NSString * comparationDataTypeString = [[NSString alloc] initWithCString:typeChar encoding:NSUTF8StringEncoding];
+    
+    if ([valueDataTypeString isEqualToString:comparationDataTypeString]) {
+        return YES;
+    }
+    
+    return NO;
 }
 
-- (void)setSubviewFrameAndAlpha:(UIView *)subview fromFrame:(CGRect)fromFrame toFrame:(CGRect)toFrame fromAlpha:(CGFloat)fromAlpha toAlpha:(CGFloat)toAlpha percentage:(CGFloat)percentage delay:(CGFloat)delay {
-    percentage = MAX((percentage-delay)/(1-delay), 0);
+- (DRDynamicSlideShowEffectValueType)effectValueDataType {
+    DRDynamicSlideShowEffectValueType valueDataType = 0;
     
-    CGFloat newX = fromFrame.origin.x+(toFrame.origin.x-fromFrame.origin.x)*percentage;
-    CGFloat newY = fromFrame.origin.y+(toFrame.origin.y-fromFrame.origin.y)*percentage;
-    CGFloat newWidth = fromFrame.size.width+(toFrame.size.width-fromFrame.size.width)*percentage;
-    CGFloat newHeight = fromFrame.size.height+(toFrame.size.height-fromFrame.size.height)*percentage;
-    CGFloat newAlpha = fromAlpha+(toAlpha-fromAlpha)*percentage;
+    if ([self.fromValue isKindOfClass:NSClassFromString(@"NSNumber")]) {
+        if ([self valueTypeIsEqualTo:@encode(CGFloat)]) {
+            valueDataType = DRDynamicSlideShowEffectValueTypeCGFloat;
+        }
+    } else if ([self.fromValue isKindOfClass:NSClassFromString(@"NSValue")]) {
+        if ([self valueTypeIsEqualTo:@encode(CGPoint)]) {
+            valueDataType = DRDynamicSlideShowEffectValueTypeCGPoint;
+        } else if ([self valueTypeIsEqualTo:@encode(CGSize)]) {
+            valueDataType = DRDynamicSlideShowEffectValueTypeCGSize;
+        } else if ([self valueTypeIsEqualTo:@encode(CGRect)]) {
+            valueDataType = DRDynamicSlideShowEffectValueTypeCGRect;
+        } else if ([self valueTypeIsEqualTo:@encode(CGAffineTransform)]) {
+            valueDataType = DRDynamicSlideShowEffectValueTypeCGAffineTransform;
+        }
+    } else {
+        valueDataType = DRDynamicSlideShowEffectValueTypeUIColor;
+    }
     
-    [subview setFrame:CGRectMake(newX, newY, newWidth, newHeight)];
-    [subview setAlpha:newAlpha];
+    return valueDataType;
+}
+
+- (CGFloat)partialValueWithFromValue:(CGFloat)fromValue toValue:(CGFloat)toValue percentage:(CGFloat)percentage {
+    return fromValue+(toValue-fromValue)*percentage;
+}
+
+- (void)performWithPercentage:(CGFloat)percentage {
+    percentage = MAX((percentage-self.delay)/(1-self.delay), 0);
+    
+    switch (self.valueType) {
+        case DRDynamicSlideShowEffectValueTypeCGFloat: {
+            CGFloat newFloat = [self partialValueWithFromValue:[self.fromValue floatValue] toValue:[self.toValue floatValue] percentage:percentage];
+            
+            [self.subview setValue:@(newFloat) forKeyPath:self.keyPath];
+        }
+            break;
+        case DRDynamicSlideShowEffectValueTypeCGPoint: {
+            CGFloat newX = [self partialValueWithFromValue:[self.fromValue CGPointValue].x toValue:[self.toValue CGPointValue].x percentage:percentage];
+            CGFloat newY = [self partialValueWithFromValue:[self.fromValue CGPointValue].y toValue:[self.toValue CGPointValue].y percentage:percentage];
+            
+            [self.subview setValue:[NSValue valueWithCGPoint:CGPointMake(newX, newY)] forKeyPath:self.keyPath];
+        }
+            break;
+        case DRDynamicSlideShowEffectValueTypeCGSize: {
+            CGFloat newWidth = [self partialValueWithFromValue:[self.fromValue CGSizeValue].width toValue:[self.toValue CGSizeValue].width percentage:percentage];
+            CGFloat newHeight = [self partialValueWithFromValue:[self.fromValue CGSizeValue].height toValue:[self.toValue CGSizeValue].height percentage:percentage];
+            
+            [self.subview setValue:[NSValue valueWithCGSize:CGSizeMake(newWidth, newHeight)] forKeyPath:self.keyPath];
+        }
+            break;
+        case DRDynamicSlideShowEffectValueTypeCGRect: {
+            CGFloat newX = [self partialValueWithFromValue:[self.fromValue CGRectValue].origin.x toValue:[self.toValue CGRectValue].origin.x percentage:percentage];
+            CGFloat newY = [self partialValueWithFromValue:[self.fromValue CGRectValue].origin.y toValue:[self.toValue CGRectValue].origin.y percentage:percentage];
+            CGFloat newWidth = [self partialValueWithFromValue:[self.fromValue CGRectValue].size.width toValue:[self.toValue CGRectValue].size.width percentage:percentage];
+            CGFloat newHeight = [self partialValueWithFromValue:[self.fromValue CGRectValue].size.height toValue:[self.toValue CGRectValue].size.height percentage:percentage];
+            
+            [self.subview setValue:[NSValue valueWithCGRect:CGRectMake(newX, newY, newWidth, newHeight)] forKeyPath:self.keyPath];
+        }
+            break;
+        case DRDynamicSlideShowEffectValueTypeCGAffineTransform: {
+            CGFloat newA = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].a toValue:[self.toValue CGAffineTransformValue].a percentage:percentage];
+            CGFloat newB = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].b toValue:[self.toValue CGAffineTransformValue].b percentage:percentage];
+            CGFloat newC = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].c toValue:[self.toValue CGAffineTransformValue].c percentage:percentage];
+            CGFloat newD = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].d toValue:[self.toValue CGAffineTransformValue].d percentage:percentage];
+            CGFloat newTx = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].tx toValue:[self.toValue CGAffineTransformValue].tx percentage:percentage];
+            CGFloat newTy = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].ty toValue:[self.toValue CGAffineTransformValue].ty percentage:percentage];
+            
+            [self.subview setValue:[NSValue valueWithCGAffineTransform:CGAffineTransformMake(newA, newB, newC, newD, newTx, newTy)] forKeyPath:self.keyPath];
+        }
+            break;
+        case DRDynamicSlideShowEffectValueTypeUIColor: {
+            CGFloat fromR = 0;
+            CGFloat fromG = 0;
+            CGFloat fromB = 0;
+            CGFloat fromA = 0;
+            CGFloat toR = 0;
+            CGFloat toG = 0;
+            CGFloat toB = 0;
+            CGFloat toA = 0;
+            
+            [(UIColor *)self.fromValue getRed:&fromR green:&fromG blue:&fromB alpha:&fromA];
+            [(UIColor *)self.toValue getRed:&toR green:&toG blue:&toB alpha:&toA];
+            
+            CGFloat newR = [self partialValueWithFromValue:fromR toValue:toR percentage:percentage];
+            CGFloat newG = [self partialValueWithFromValue:fromG toValue:toG percentage:percentage];
+            CGFloat newB = [self partialValueWithFromValue:fromB toValue:toB percentage:percentage];
+            CGFloat newA = [self partialValueWithFromValue:fromA toValue:toA percentage:percentage];
+            
+            [self.subview setValue:[UIColor colorWithRed:newR green:newG blue:newB alpha:newA] forKeyPath:self.keyPath];
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 @end

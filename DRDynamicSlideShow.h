@@ -14,13 +14,12 @@
 
 @property (strong, nonatomic) UIView * subview;
 @property (nonatomic) NSInteger page;
-@property (nonatomic) CGRect fromFrame;
-@property (nonatomic) CGFloat fromAlpha;
-@property (nonatomic) CGRect toFrame;
-@property (nonatomic) CGFloat toAlpha;
+@property (strong, nonatomic) NSString * keyPath;
+@property (strong, nonatomic) id fromValue;
+@property (strong, nonatomic) id toValue;
 @property (nonatomic) CGFloat delay;
 
-- (id)initWithSubview:(UIView *)subview page:(NSInteger)page fromFrame:(CGRect)fromFrame toFrame:(CGRect)toFrame fromAlpha:(CGFloat)fromAlpha toAlpha:(CGFloat)toAlpha;
+- (id)initWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath fromValue:(id)fromValue toValue:(id)toValue;
 
 @end
 
