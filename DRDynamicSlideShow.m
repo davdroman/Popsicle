@@ -35,6 +35,19 @@ typedef enum {
 
 @implementation DRDynamicSlideShowEffect
 
+- (id)initWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath toValue:(id)toValue {
+    if (self = [super init]) {
+        [self setSubview:subview];
+        [self setPage:page];
+        [self setKeyPath:keyPath];
+        [self setFromValue:[subview valueForKeyPath:keyPath]];
+        [self setToValue:toValue];
+        [self setValueType:[self effectValueDataType]];
+    }
+    
+    return self;
+}
+
 - (id)initWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath fromValue:(id)fromValue toValue:(id)toValue {
     if (self = [super init]) {
         [self setSubview:subview];
@@ -46,18 +59,6 @@ typedef enum {
     }
     
     return self;
-}
-
-- (BOOL)valueTypeIsEqualTo:(const char *)typeChar {
-    NSString * valueDataTypeString = [[NSString alloc] initWithCString:[self.fromValue objCType] encoding:NSUTF8StringEncoding];
-    
-    NSString * comparationDataTypeString = [[NSString alloc] initWithCString:typeChar encoding:NSUTF8StringEncoding];
-    
-    if ([valueDataTypeString isEqualToString:comparationDataTypeString]) {
-        return YES;
-    }
-    
-    return NO;
 }
 
 - (DRDynamicSlideShowEffectValueType)effectValueDataType {
@@ -84,8 +85,16 @@ typedef enum {
     return valueDataType;
 }
 
-- (CGFloat)partialValueWithFromValue:(CGFloat)fromValue toValue:(CGFloat)toValue percentage:(CGFloat)percentage {
-    return fromValue+(toValue-fromValue)*percentage;
+- (BOOL)valueTypeIsEqualTo:(const char *)typeChar {
+    NSString * valueDataTypeString = [[NSString alloc] initWithCString:[self.fromValue objCType] encoding:NSUTF8StringEncoding];
+    
+    NSString * comparationDataTypeString = [[NSString alloc] initWithCString:typeChar encoding:NSUTF8StringEncoding];
+    
+    if ([valueDataTypeString isEqualToString:comparationDataTypeString]) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 - (void)performWithPercentage:(CGFloat)percentage {
@@ -150,13 +159,19 @@ typedef enum {
             CGFloat newB = [self partialValueWithFromValue:fromB toValue:toB percentage:percentage];
             CGFloat newA = [self partialValueWithFromValue:fromA toValue:toA percentage:percentage];
             
-            [self.subview setValue:[UIColor colorWithRed:newR green:newG blue:newB alpha:newA] forKeyPath:self.keyPath];
+            UIColor * newColor = [[UIColor alloc] initWithRed:newR green:newG blue:newB alpha:newA];
+            
+            [self.subview setValue:newColor forKeyPath:self.keyPath];
         }
             break;
             
         default:
             break;
     }
+}
+
+- (CGFloat)partialValueWithFromValue:(CGFloat)fromValue toValue:(CGFloat)toValue percentage:(CGFloat)percentage {
+    return fromValue+(toValue-fromValue)*percentage;
 }
 
 @end
@@ -182,20 +197,20 @@ typedef enum {
     [dynamicEffects addObject:dynamicEffect];
 }
 
-- (void)addSubview:(UIView *)subview onPage:(NSInteger)page {
-    [subview setFrame:CGRectMake(subview.frame.origin.x+self.frame.size.width*page, subview.frame.origin.y, subview.frame.size.width, subview.frame.size.height)];
-    [self addSubview:subview];
-}
-
-#pragma mark Listeners
-
-- (void)didAddSubview:(UIView *)subview {
-    if (subview.frame.origin.x >= self.contentSize.width) {
-        NSInteger numberOfPages = floorf(subview.frame.origin.x/self.frame.size.width)+1;
+- (void)addSubview:(UIView *)view {
+    [super addSubview:view];
+    
+    if (view.frame.origin.x >= self.contentSize.width) {
+        NSInteger numberOfPages = floorf(view.frame.origin.x/self.frame.size.width)+1;
         
         [self setNumberOfPages:numberOfPages];
         [self setContentSize:CGSizeMake(self.frame.size.width*self.numberOfPages, self.contentSize.height)];
     }
+}
+
+- (void)addSubview:(UIView *)view onPage:(NSInteger)page {
+    [view setFrame:CGRectMake(view.frame.origin.x+self.frame.size.width*page, view.frame.origin.y, view.frame.size.width, view.frame.size.height)];
+    [self addSubview:view];
 }
 
 #pragma mark Useful Methods

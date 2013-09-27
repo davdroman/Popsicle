@@ -12,13 +12,14 @@
 
 @interface DRDynamicSlideShowEffect : NSObject
 
-@property (strong, nonatomic) UIView * subview;
+@property (strong, nonatomic) id subview;
 @property (nonatomic) NSInteger page;
 @property (strong, nonatomic) NSString * keyPath;
 @property (strong, nonatomic) id fromValue;
 @property (strong, nonatomic) id toValue;
 @property (nonatomic) CGFloat delay;
 
+- (id)initWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath toValue:(id)toValue;
 - (id)initWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath fromValue:(id)fromValue toValue:(id)toValue;
 
 @end
