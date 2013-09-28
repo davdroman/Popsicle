@@ -14,5 +14,6 @@
 
 @property (strong, nonatomic) UINavigationBar * navigationBar;
 @property (strong, nonatomic) DRDynamicSlideShow * slideShow;
+@property (strong, nonatomic) NSArray * viewsForPages;
 
 @end

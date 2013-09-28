@@ -35,33 +35,27 @@ typedef enum {
 
 @implementation DRDynamicSlideShowEffect
 
-- (id)initWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath toValue:(id)toValue {
-    if (self = [super init]) {
-        [self setSubview:subview];
-        [self setPage:page];
-        [self setKeyPath:keyPath];
-        [self setFromValue:[subview valueForKeyPath:keyPath]];
-        [self setToValue:toValue];
-        [self setValueType:[self effectValueDataType]];
-    }
++ (id)dynamicEffectWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath toValue:(id)toValue delay:(CGFloat)delay {
+    DRDynamicSlideShowEffect * dynamicEffect = [DRDynamicSlideShowEffect dynamicEffectWithSubview:subview page:page keyPath:keyPath fromValue:[subview valueForKeyPath:keyPath] toValue:toValue delay:delay];
     
-    return self;
+    return dynamicEffect;
 }
 
-- (id)initWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath fromValue:(id)fromValue toValue:(id)toValue {
-    if (self = [super init]) {
-        [self setSubview:subview];
-        [self setPage:page];
-        [self setKeyPath:keyPath];
-        [self setFromValue:fromValue];
-        [self setToValue:toValue];
-        [self setValueType:[self effectValueDataType]];
-    }
++ (id)dynamicEffectWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath fromValue:(id)fromValue toValue:(id)toValue delay:(CGFloat)delay {
+    DRDynamicSlideShowEffect * dynamicEffect = [[DRDynamicSlideShowEffect alloc] init];
     
-    return self;
+    [dynamicEffect setSubview:subview];
+    [dynamicEffect setPage:page];
+    [dynamicEffect setKeyPath:keyPath];
+    [dynamicEffect setFromValue:fromValue];
+    [dynamicEffect setToValue:toValue];
+    [dynamicEffect setDelay:delay];
+    [dynamicEffect setValueType:[dynamicEffect getEffectValueDataType]];
+    
+    return dynamicEffect;
 }
 
-- (DRDynamicSlideShowEffectValueType)effectValueDataType {
+- (DRDynamicSlideShowEffectValueType)getEffectValueDataType {
     DRDynamicSlideShowEffectValueType valueDataType = 0;
     
     if ([self.fromValue isKindOfClass:NSClassFromString(@"NSNumber")]) {
@@ -183,14 +177,29 @@ typedef enum {
 - (id)init {
     if (self = [super init]) {
         dynamicEffects = [NSMutableArray new];
+        tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollToNextPage)];
+        [self addGestureRecognizer:tapGestureRecognizer];
         
         [self setDelegate:self];
         [self setPagingEnabled:YES];
         [self setShowsHorizontalScrollIndicator:NO];
         [self setShowsVerticalScrollIndicator:NO];
+        
+        [self setScrollsPageWithTouch:YES];
     }
     
     return self;
+}
+
+- (void)scrollToNextPage {
+    [self resetCurrentDynamicEffects];
+    [self performCurrentDynamicEffectsWithPercentage:0];
+    
+    if (currentPage+1 < self.numberOfPages) {
+        [UIView animateWithDuration:0.425 animations:^{
+            [self setContentOffset:CGPointMake(self.contentOffset.x+self.frame.size.width, self.contentOffset.y)];
+        }];
+    }
 }
 
 - (void)addDynamicEffect:(DRDynamicSlideShowEffect *)dynamicEffect {
@@ -213,6 +222,13 @@ typedef enum {
     [self addSubview:view];
 }
 
+#pragma mark Setter Overrides
+
+- (void)setScrollsPageWithTouch:(BOOL)scrollsPageWithTouch {
+    _scrollsPageWithTouch = scrollsPageWithTouch;
+    [tapGestureRecognizer setEnabled:scrollsPageWithTouch];
+}
+
 #pragma mark Useful Methods
 
 - (NSInteger)currentPage {
@@ -221,7 +237,9 @@ typedef enum {
     return page;
 }
 
-- (void)resetCurrentDynamicEffectsForPage:(NSInteger)page {
+- (void)resetCurrentDynamicEffects {
+    NSInteger page = [self currentPage];
+    
     currentDynamicEffects = [self dynamicEffectsForPage:page];
 }
 
@@ -235,9 +253,7 @@ typedef enum {
 #pragma mark Scroll View Delegate Methods
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    NSInteger page = [self currentPage];
-    
-    [self resetCurrentDynamicEffectsForPage:page];
+    [self resetCurrentDynamicEffects];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -246,7 +262,7 @@ typedef enum {
     if (currentPage != page) {
         [self performCurrentDynamicEffectsWithPercentage:(currentPage < page ? 1 : 0)];
         currentPage = page;
-        [self resetCurrentDynamicEffectsForPage:page];
+        [self resetCurrentDynamicEffects];
         if (self.didReachPageBlock) self.didReachPageBlock(page);
     }
     

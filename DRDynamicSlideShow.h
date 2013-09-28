@@ -19,8 +19,8 @@
 @property (strong, nonatomic) id toValue;
 @property (nonatomic) CGFloat delay;
 
-- (id)initWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath toValue:(id)toValue;
-- (id)initWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath fromValue:(id)fromValue toValue:(id)toValue;
++ (id)dynamicEffectWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath toValue:(id)toValue delay:(CGFloat)delay;
++ (id)dynamicEffectWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath fromValue:(id)fromValue toValue:(id)toValue delay:(CGFloat)delay;
 
 @end
 
@@ -28,9 +28,12 @@
     NSMutableArray * dynamicEffects;
     NSArray * currentDynamicEffects;
     NSInteger currentPage;
+    UITapGestureRecognizer * tapGestureRecognizer;
+    NSTimeInterval passedTimeInterval;
 }
 
 @property (readonly, nonatomic) NSInteger numberOfPages;
+@property (nonatomic) BOOL scrollsPageWithTouch;
 @property (strong, nonatomic) void (^didReachPageBlock)(NSInteger page);
 
 - (void)addDynamicEffect:(DRDynamicSlideShowEffect *)dynamicEffect;

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7594920D17F35952000E8362 /* suspicious@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7594920C17F35952000E8362 /* suspicious@2x.png */; };
-		75953BB417F4714F0083B786 /* win@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75953BB317F4714F0083B786 /* win@2x.png */; };
+		7595098F17F6DE2900D53FB3 /* DRDynamicSlideShowSubviews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7595098E17F6DE2900D53FB3 /* DRDynamicSlideShowSubviews.xib */; };
+		7595099117F70CA800D53FB3 /* magic_stick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7595099017F70CA800D53FB3 /* magic_stick@2x.png */; };
 		7599C47D17E8C4D5005AA366 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7599C47C17E8C4D5005AA366 /* Foundation.framework */; };
 		7599C47F17E8C4D5005AA366 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7599C47E17E8C4D5005AA366 /* CoreGraphics.framework */; };
 		7599C48117E8C4D5005AA366 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7599C48017E8C4D5005AA366 /* UIKit.framework */; };
@@ -37,8 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7594920C17F35952000E8362 /* suspicious@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "suspicious@2x.png"; sourceTree = "<group>"; };
-		75953BB317F4714F0083B786 /* win@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "win@2x.png"; sourceTree = "<group>"; };
+		7595098E17F6DE2900D53FB3 /* DRDynamicSlideShowSubviews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DRDynamicSlideShowSubviews.xib; sourceTree = "<group>"; };
+		7595099017F70CA800D53FB3 /* magic_stick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magic_stick@2x.png"; sourceTree = "<group>"; };
 		7599C47917E8C4D5005AA366 /* DRDynamicSlideShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRDynamicSlideShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7599C47C17E8C4D5005AA366 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7599C47E17E8C4D5005AA366 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,6 +125,7 @@
 				7599C48C17E8C4D5005AA366 /* AppDelegate.m */,
 				7599C4AB17E8C4E9005AA366 /* MainViewController.h */,
 				7599C4AC17E8C4E9005AA366 /* MainViewController.m */,
+				7595098E17F6DE2900D53FB3 /* DRDynamicSlideShowSubviews.xib */,
 				7599C4B117E8C9C8005AA366 /* DRDynamicSlideShow.h */,
 				7599C4B217E8C9C8005AA366 /* DRDynamicSlideShow.m */,
 				75D475AB17ECDF8C006D5E62 /* Images */,
@@ -175,8 +176,7 @@
 		75D475AB17ECDF8C006D5E62 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				75953BB317F4714F0083B786 /* win@2x.png */,
-				7594920C17F35952000E8362 /* suspicious@2x.png */,
+				7595099017F70CA800D53FB3 /* magic_stick@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -256,10 +256,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75953BB417F4714F0083B786 /* win@2x.png in Resources */,
-				7594920D17F35952000E8362 /* suspicious@2x.png in Resources */,
 				7599C48717E8C4D5005AA366 /* InfoPlist.strings in Resources */,
+				7595099117F70CA800D53FB3 /* magic_stick@2x.png in Resources */,
 				7599C48F17E8C4D5005AA366 /* Images.xcassets in Resources */,
+				7595098F17F6DE2900D53FB3 /* DRDynamicSlideShowSubviews.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

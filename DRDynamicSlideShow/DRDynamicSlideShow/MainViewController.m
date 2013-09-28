@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 David Román Aguirre. All rights reserved.
 //
 
-#import "MainViewController.h"
+@import QuartzCore;
 
-#import <QuartzCore/QuartzCore.h>
+#import "MainViewController.h"
 
 #import "UIColor+RGBA.h"
 
@@ -20,6 +20,7 @@
     if (self = [super init]) {
         self.navigationBar = [UINavigationBar new];
         self.slideShow = [DRDynamicSlideShow new];
+        self.viewsForPages = [NSArray new];
     }
     
     return self;
@@ -36,6 +37,7 @@
     
     #pragma mark Navigation Bar
     
+    [self.navigationBar setTranslucent:YES];
     [self.navigationBar setFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
     [self.navigationBar setBarTintColor:[UIColor colorWithAbsoluteRed:63 green:138 blue:229 alpha:1]];
     [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
@@ -49,139 +51,65 @@
     
     #pragma mark DRDynamicSlideShow
     
-    [self.slideShow setFrame:CGRectMake(0, self.navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-self.navigationBar.frame.size.height)];
+    [self.slideShow setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.slideShow setContentInset:UIEdgeInsetsMake(self.navigationBar.frame.size.height/2, 0, 0, 0)];
     [self.slideShow setAlpha:0];
     
     [self.slideShow setDidReachPageBlock:^(NSInteger reachedPage) {
-        if (LOGS_ENABLED) NSLog(@"Current Page: %i", reachedPage);
+        if (LOGS_ENABLED) NSLog(@"Current Page: %li", (long)reachedPage);
     }];
     
     [self.view insertSubview:self.slideShow belowSubview:self.navigationBar];
+    
+    #pragma mark DRDynamicSlideShow Subviews
+    
+    self.viewsForPages = [[NSBundle mainBundle] loadNibNamed:@"DRDynamicSlideShowSubviews" owner:self options:nil];
     
     [self addSlideShowSubviewsAndApplyEffects];
 }
 
 - (void)addSlideShowSubviewsAndApplyEffects {
+    for (UIView * pageView in self.viewsForPages) {
+        CGFloat verticalOrigin = self.slideShow.frame.size.height/2-pageView.frame.size.height/2;
+        
+        for (UIView * subview in pageView.subviews) {
+            [subview setFrame:CGRectMake(subview.frame.origin.x, verticalOrigin+subview.frame.origin.y, subview.frame.size.width, subview.frame.size.height)];
+            [self.slideShow addSubview:subview onPage:pageView.tag];
+        }
+    }
+    
     #pragma mark Page 0
     
-    UITextView * descriptionTextView = [self standartTextView];
-    [descriptionTextView setText:@"DRDynamicSlideShow is the best way to implement dynamic slide shows.\n\nIn fact, I'm a dynamic slide show!\n\nSlide your finger horizontally and you'll see how awesome I am."];
-    [descriptionTextView sizeToFit];
-    [descriptionTextView setCenter:CGPointMake(self.slideShow.center.x, self.slideShow.frame.size.height/2)];
+    UILabel * helloLabel = (UILabel *)[self.slideShow viewWithTag:1];
+
+    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:helloLabel page:0 keyPath:@"center" toValue:[NSValue valueWithCGPoint:CGPointMake(helloLabel.center.x+self.slideShow.frame.size.width, helloLabel.center.y-self.slideShow.frame.size.height)] delay:0]];
     
-    [self.slideShow addSubview:descriptionTextView onPage:0];
+    UITextView * descriptionTextView = (UITextView *)[self.slideShow viewWithTag:2];
     
-    DRDynamicSlideShowEffect * descriptionTextViewDynamicEffect = [[DRDynamicSlideShowEffect alloc] initWithSubview:descriptionTextView page:0 fromFrame:descriptionTextView.frame toFrame:CGRectMake(descriptionTextView.frame.origin.x+self.slideShow.frame.size.width, self.slideShow.frame.size.height, descriptionTextView.frame.size.width, descriptionTextView.frame.size.height) fromAlpha:1 toAlpha:0];
+    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:descriptionTextView page:0 keyPath:@"alpha" toValue:@0 delay:0]];
     
-    [self.slideShow addDynamicEffect:descriptionTextViewDynamicEffect];
-    
-    UILabel * helloLabel = [self standartTitleLabel];
-    [helloLabel setText:@"Hey there!"];
-    [helloLabel sizeToFit];
-    [helloLabel setCenter:CGPointMake(self.slideShow.center.x, descriptionTextView.frame.origin.y/2)];
-    
-    [self.slideShow addSubview:helloLabel onPage:0];
+    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:descriptionTextView page:0 keyPath:@"center" toValue:[NSValue valueWithCGPoint:CGPointMake(descriptionTextView.center.x+self.slideShow.frame.size.width, descriptionTextView.center.y+self.slideShow.frame.size.height*2)] delay:0]];
     
     #pragma mark Page 1
     
-    UITextView * secondDescriptionTextView = [self standartTextView];
-    [secondDescriptionTextView setText:@"So right now you're like this guy, right?"];
-    [secondDescriptionTextView sizeToFit];
-    [secondDescriptionTextView setCenter:CGPointMake(self.slideShow.frame.size.width/2, self.slideShow.frame.size.height/2-40)];
+    UIImageView * magicStickImageView = (UIImageView *)[self.slideShow viewWithTag:3];
     
-    [self.slideShow addSubview:secondDescriptionTextView onPage:1];
+    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:magicStickImageView page:0 keyPath:@"alpha" fromValue:@0 toValue:@1 delay:0.75]];
     
-    DRDynamicSlideShowEffect * secondDescriptionTextViewDynamicEffect = [[DRDynamicSlideShowEffect alloc] initWithSubview:secondDescriptionTextView page:0 fromFrame:secondDescriptionTextView.frame toFrame:secondDescriptionTextView.frame fromAlpha:0 toAlpha:1];
+    UITextView * magicStickDescriptionTextView = (UITextView *)[self.slideShow viewWithTag:4];
     
-    [self.slideShow addDynamicEffect:secondDescriptionTextViewDynamicEffect];
-    
-    DRDynamicSlideShowEffect * secondDescriptionTextViewDynamicEffectFadeOut = [[DRDynamicSlideShowEffect alloc] initWithSubview:secondDescriptionTextView page:1 fromFrame:secondDescriptionTextView.frame toFrame:secondDescriptionTextView.frame fromAlpha:1 toAlpha:0];
-    
-    [self.slideShow addDynamicEffect:secondDescriptionTextViewDynamicEffectFadeOut];
-    
-    UIImageView * suspiciousImageView = [self standartMemeImageViewWithImageName:@"suspicious.png"];
-    
-    [self.slideShow addSubview:suspiciousImageView onPage:1];
-    
-    DRDynamicSlideShowEffect * suspiciousImageViewDynamicEffect = [[DRDynamicSlideShowEffect alloc] initWithSubview:suspiciousImageView page:0 fromFrame:suspiciousImageView.frame toFrame:CGRectMake(suspiciousImageView.frame.origin.x, suspiciousImageView.frame.origin.y-suspiciousImageView.frame.size.height, suspiciousImageView.frame.size.width, suspiciousImageView.frame.size.height) fromAlpha:1 toAlpha:1];
-    [suspiciousImageViewDynamicEffect setDelay:0.95];
-    
-    [self.slideShow addDynamicEffect:suspiciousImageViewDynamicEffect];
-    
-    DRDynamicSlideShowEffect * suspiciousImageViewDynamicEffectStay = [[DRDynamicSlideShowEffect alloc] initWithSubview:suspiciousImageView page:1 fromFrame:suspiciousImageViewDynamicEffect.toFrame toFrame:CGRectMake(suspiciousImageView.frame.origin.x+320, suspiciousImageView.frame.origin.y-suspiciousImageView.frame.size.height, suspiciousImageView.frame.size.width, suspiciousImageView.frame.size.height) fromAlpha:1 toAlpha:1];
-    
-    [self.slideShow addDynamicEffect:suspiciousImageViewDynamicEffectStay];
-    
-    DRDynamicSlideShowEffect * suspiciousImageViewDynamicEffectFadeOut = [[DRDynamicSlideShowEffect alloc] initWithSubview:suspiciousImageView page:2 fromFrame:suspiciousImageViewDynamicEffectStay.toFrame toFrame:suspiciousImageViewDynamicEffectStay.toFrame fromAlpha:1 toAlpha:0];
-    
-    [self.slideShow addDynamicEffect:suspiciousImageViewDynamicEffectFadeOut];
+    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:magicStickDescriptionTextView page:0 keyPath:@"transform" fromValue:[NSValue valueWithCGAffineTransform:CGAffineTransformMakeRotation(-0.9)] toValue:[NSValue valueWithCGAffineTransform:CGAffineTransformMakeRotation(0)] delay:0]];
     
     #pragma mark Page 2
     
-    UITextView * thirdDescriptionTextView = [self standartTextView];
-    [thirdDescriptionTextView setText:@"And... what if I told you I implemented each of these awesome effects in 2 lines of code?"];
-    [thirdDescriptionTextView sizeToFit];
-    [thirdDescriptionTextView setCenter:CGPointMake(self.slideShow.frame.size.width/2, self.slideShow.frame.size.height/2-40)];
+    UILabel * codeBracketsLabel = (UILabel *)[self.slideShow viewWithTag:5];
     
-    [self.slideShow addSubview:thirdDescriptionTextView onPage:2];
+    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:codeBracketsLabel page:1 keyPath:@"alpha" fromValue:@0 toValue:@1 delay:0.75]];
     
-    DRDynamicSlideShowEffect * thirdDescriptionTextViewDynamicEffect = [[DRDynamicSlideShowEffect alloc] initWithSubview:thirdDescriptionTextView page:1 fromFrame:thirdDescriptionTextView.frame toFrame:thirdDescriptionTextView.frame fromAlpha:0 toAlpha:1];
+    UITextView * codingDescriptionTextView = (UITextView *)[self.slideShow viewWithTag:6];
+    [codingDescriptionTextView setCenter:CGPointMake(codingDescriptionTextView.center.x-self.slideShow.frame.size.width, codingDescriptionTextView.center.y+self.slideShow.frame.size.height)];
     
-    [self.slideShow addDynamicEffect:thirdDescriptionTextViewDynamicEffect];
-    
-    DRDynamicSlideShowEffect * thirdDescriptionTextViewDynamicEffectFadeOut = [[DRDynamicSlideShowEffect alloc] initWithSubview:thirdDescriptionTextView page:2 fromFrame:thirdDescriptionTextView.frame toFrame:thirdDescriptionTextView.frame fromAlpha:1 toAlpha:0];
-    
-    [self.slideShow addDynamicEffect:thirdDescriptionTextViewDynamicEffectFadeOut];
-    
-    #pragma mark Page 3
-    
-    UILabel * enjoyLabel = [self standartTitleLabel];
-    [enjoyLabel setText:@"Enjoy!"];
-    [enjoyLabel sizeToFit];
-    [enjoyLabel setCenter:CGPointMake(self.slideShow.frame.size.width/2, self.slideShow.frame.size.height/2-40)];
-    
-    [self.slideShow addSubview:enjoyLabel onPage:3];
-    
-    DRDynamicSlideShowEffect * enjoyLabelDynamicEffect = [[DRDynamicSlideShowEffect alloc] initWithSubview:enjoyLabel page:2 fromFrame:enjoyLabel.frame toFrame:enjoyLabel.frame fromAlpha:0 toAlpha:1];
-    
-    [self.slideShow addDynamicEffect:enjoyLabelDynamicEffect];
-    
-    UIImageView * winImageView = [self standartMemeImageViewWithImageName:@"win.png"];
-    
-    [self.slideShow addSubview:winImageView onPage:3];
-    
-    DRDynamicSlideShowEffect * winImageViewDynamicEffect = [[DRDynamicSlideShowEffect alloc] initWithSubview:winImageView page:2 fromFrame:winImageView.frame toFrame:CGRectMake(winImageView.frame.origin.x, winImageView.frame.origin.y-winImageView.frame.size.height, winImageView.frame.size.width, winImageView.frame.size.height) fromAlpha:1 toAlpha:1];
-    [winImageViewDynamicEffect setDelay:0.95];
-    
-    [self.slideShow addDynamicEffect:winImageViewDynamicEffect];
-}
-
-- (UILabel *)standartTitleLabel {
-    UILabel * titleLabel = [UILabel new];
-    [titleLabel setFrame:CGRectMake(0, 0, self.slideShow.frame.size.width-20*2, 0)];
-    [titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:23]];
-    
-    return titleLabel;
-}
-
-- (UITextView *)standartTextView {
-    UITextView * textView = [UITextView new];
-    [textView setEditable:NO];
-    [textView setFrame:CGRectMake(0, 0, self.slideShow.frame.size.width-20*2, 0)];
-    [textView setTextAlignment:NSTextAlignmentCenter];
-    [textView setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:19]];
-    
-    return textView;
-}
-
-- (UIImageView *)standartMemeImageViewWithImageName:(NSString *)imageName {
-    UIImage * image = [UIImage imageNamed:imageName];
-    UIImageView * imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.slideShow.frame.size.height, image.size.width, image.size.height)];
-    [imageView setImage:image];
-    [imageView setCenter:CGPointMake(self.slideShow.frame.size.width/2, imageView.center.y)];
-    
-    return imageView;
+    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:codingDescriptionTextView page:1 keyPath:@"center" toValue:[NSValue valueWithCGPoint:CGPointMake(codingDescriptionTextView.center.x+self.slideShow.frame.size.width, codingDescriptionTextView.center.y-self.slideShow.frame.size.height)] delay:0]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
