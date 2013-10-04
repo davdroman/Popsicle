@@ -11,31 +11,21 @@ No external frameworks or UIView subclasses for subviews needed. Just add a `DRD
 
 Here's an super simple example of how to use `DRDynamicSlideShow`. You can check out the example app, too.
 
-First, you need to simply instantiate `DRDynamicSlideShow` like this:
+First, just need to add a `DRDynamicSlideShow` instance to your view.
 
-	DRDynamicSlideShow * dynamicSlideShow = [[DRDynamicSlideShow alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-	
-	[self.view addSubview:dynamicSlideShow];
+Then, you can use the following method to add subviews to it on the page you want:
 
-Then, you need to add some views to it.
+	[dynamicSlideShow addSubview:coolSubview onPage:0];
+	
+And finally you just need to add whatever effects you want to those subviews when the specified page is being swiped.
 
-	UIView * blueSquare = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-	[blueSquare setBackgroundColor:[UIColor blueColor]];
+	[self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:coolSubview page:0 keyPath:@"alpha" toValue:@0 delay:0]];
 	
-	[dynamicSlideShow addSubview:blueSquare onPage:0]; // You can also use addSubview:, but keep in mind that addSubview:onPage: is just simpler so you don't need to worry about calculating more than necessary.
-	
-	UIView * orangeSquare = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-	[orangeSquare setBackgroundColor:[UIColor orangeColor]];
-	
-	[dynamicSlideShow addSubview:orangeSquare onPage:1];
-	
-And finally you just need to add the effects you want to those subviews when the specified page is being dragged.
+	// OR
 
-	[self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:blueSquare page:0 keyPath:@"alpha" toValue:@0 delay:0]];
+	[self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:coolSubview page:0 keyPath:@"alpha" fromValue:@0 toValue:@1 delay:0]];
 	
-	[self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:orangeSquare page:0 keyPath:@"alpha" fromValue:@0 toValue:@1 delay:0]];
-	
-Notice that there are two methods for instantiating a `DRDynamicSlideShowEffect`. If you use the one that does not include the `fromValue` parameter, `fromValue` will be that subview's current value.
+Notice that there are two methods for instantiating a `DRDynamicSlideShowEffect`. If you want the subview to animate from the current state, just use `dynamicEffectWithSubview:page:keyPath:toValue:delay:`. Else, use `dynamicEffectWithSubview:page:keyPath:fromValue:toValue:delay:`.
 
 So, as you can see, all we need to add each effect is 1 line of code. Pretty amazing, isn't it? :)
 
