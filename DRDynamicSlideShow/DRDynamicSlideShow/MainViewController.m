@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 David Román Aguirre. All rights reserved.
 //
 
-@import QuartzCore;
-
 #import "MainViewController.h"
 
 #import "UIColor+RGBA.h"
@@ -64,10 +62,10 @@
     
     self.viewsForPages = [[NSBundle mainBundle] loadNibNamed:@"DRDynamicSlideShowSubviews" owner:self options:nil];
     
-    [self addSlideShowSubviewsAndApplyEffects];
+    [self setupSlideShowSubviewsAndAnimations];
 }
 
-- (void)addSlideShowSubviewsAndApplyEffects {
+- (void)setupSlideShowSubviewsAndAnimations {
     for (UIView * pageView in self.viewsForPages) {
         CGFloat verticalOrigin = self.slideShow.frame.size.height/2-pageView.frame.size.height/2;
         
@@ -114,9 +112,9 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [UIView animateWithDuration:0.7 animations:^{
+    [UIView animateWithDuration:0.6 delay:0.2 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         [self.slideShow setAlpha:1];
-    }];
+    } completion:nil];
 }
 
 @end
