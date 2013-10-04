@@ -11,23 +11,23 @@ No external frameworks or UIView subclasses for subviews needed. Just add a `DRD
 
 Here's an super simple example of how to use `DRDynamicSlideShow`. You can check out the example app, too.
 
-First, just need to add a `DRDynamicSlideShow` instance to your view.
+1. First, just need to add a `DRDynamicSlideShow` instance to your view.
 
-Then, you can use the following method to add subviews to it on the page you want:
+2. Then, you can use the following method to add subviews to it on the page you want (you can simply use `addSubview:` as well):
 
-	[dynamicSlideShow addSubview:coolSubview onPage:0];
+		[dynamicSlideShow addSubview:coolSubview onPage:0];
 	
-And finally you just need to add whatever effects you want to those subviews when the specified page is being swiped.
+3. Finally, you just need to add whatever effects you want to those subviews when the specified page is being swiped.
 
-	[self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:coolSubview page:0 keyPath:@"alpha" toValue:@0 delay:0]];
+		[self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:coolSubview page:0 keyPath:@"alpha" toValue:@0 delay:0]];
 	
-	// OR
+	or
 
-	[self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:coolSubview page:0 keyPath:@"alpha" fromValue:@0 toValue:@1 delay:0]];
+		[self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:coolSubview page:0 keyPath:@"alpha" fromValue:@0 toValue:@1 delay:0]];
 	
-Notice that there are two methods for instantiating a `DRDynamicSlideShowEffect`. If you want the subview to animate from the current state, just use `dynamicEffectWithSubview:page:keyPath:toValue:delay:`. Else, use `dynamicEffectWithSubview:page:keyPath:fromValue:toValue:delay:`.
+Notice there are two methods for instantiating `DRDynamicSlideShowEffect`. If you want the subview to animate from the current state, just use `dynamicEffectWithSubview:page:keyPath:toValue:delay:`. Else, use `dynamicEffectWithSubview:page:keyPath:fromValue:toValue:delay:`.
 
-So, as you can see, all we need to add each effect is 1 line of code. Pretty amazing, isn't it? :)
+So, as you can see, all we need for adding each effect is 1 line of code. Pretty amazing, isn't it? :)
 
 ## Known issues
 
