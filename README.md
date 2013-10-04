@@ -3,9 +3,11 @@ DRDynamicSlideShow
 
 A UIScrollView subclass to easily implement an amazing swiping interactive slide show, as IFTTT's.
 
-[New Demo Video](https://vimeo.com/75693078)
+**Check out the [demo video](https://vimeo.com/75693078)!**
 
-No external frameworks or subclasses for subviews needed. Just add a `DRDynamicSlideShow` to your view, and use `DRDynamicSlideShowAnimation`'s to let the magic happen.
+*GIF coming soon!*
+
+No external frameworks or subclasses for subviews needed. Just add a `DRDynamicSlideShow` to your view, and add `DRDynamicSlideShowAnimation`'s to it to let the magic happen.
 
 ## How to use
 
@@ -25,9 +27,9 @@ Here's an super simple example of how to use `DRDynamicSlideShow`. You can check
 
 		[self.slideShow addAnimation:[DRDynamicSlideShowAnimation animationForSubview:coolSubview page:0 keyPath:@"alpha" fromValue:@0 toValue:@1 delay:0]];
 
-Notice there are two ways for instantiating `DRDynamicSlideShowAnimation`. If you want the subview to animate from the current value, just use `animationForSubview:page:keyPath:toValue:delay:`. Else, use `animationForSubview:page:keyPath:fromValue:toValue:delay:`.
+Notice there are two ways for instantiating `DRDynamicSlideShowAnimation`. If you want the subview to animate **from its current value**, just use `animationForSubview:page:keyPath:toValue:delay:`. Else, use `animationForSubview:page:keyPath:fromValue:toValue:delay:`.
 
-So, as you can see, all we need for adding each animation is 1 line of code. Pretty amazing, isn't it? :)
+As you can see, all we need for adding each animation is actually **1 line of code**. Pretty amazing, isn't it? :)
 
 ## Known issues
 
