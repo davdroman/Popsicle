@@ -43,7 +43,7 @@ Slide your finger horizontally and you'll see how awesome it is.</string>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <string key="text">Cool, isn't it?
 
-You can add effects for lots of value types such as CGFloat, CGPoint, CGSize, CGRect and UIColor.</string>
+You can add animations for lots of value types such as CGFloat, CGPoint, CGSize, CGRect and UIColor.</string>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
@@ -74,7 +74,7 @@ You can add effects for lots of value types such as CGFloat, CGPoint, CGSize, CG
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <string key="text">And you know what's the best part?
 
-It takes just 1 line of code per effect!</string>
+It takes just 1 line of code per animation!</string>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
