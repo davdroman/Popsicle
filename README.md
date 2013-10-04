@@ -1,7 +1,7 @@
 DRDynamicSlideShow
 ==================
 
-An UIScrollView subclass to easily implement an amazing touch interactive and dynamic slide show, as IFTTT's.
+A UIScrollView subclass to easily implement an amazing swiping interactive slide show, as IFTTT's.
 
 [New Demo Video](https://vimeo.com/75693078)
 
