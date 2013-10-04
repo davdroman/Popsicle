@@ -3,9 +3,7 @@ DRDynamicSlideShow
 
 A UIScrollView subclass to easily implement an amazing swiping interactive slide show, as IFTTT's.
 
-<center>
-<img src="Screenshots/DRDynamicSlideShow.gif" />
-</center>
+![DRDynamicSlideShow GIF](Screenshots/DRDynamicSlideShow.gif)
 
 No external frameworks or subclasses for subviews needed. Just add a `DRDynamicSlideShow` to your view, and add `DRDynamicSlideShowAnimation`'s to it to let the magic happen.
 
