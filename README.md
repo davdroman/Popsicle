@@ -27,7 +27,7 @@ Here's an super simple example of how to use `DRDynamicSlideShow`. You can check
 
 Notice there are two ways for instantiating `DRDynamicSlideShowAnimation`. If you want the subview to animate **from its current value**, just use `animationForSubview:page:keyPath:toValue:delay:`. Else, use `animationForSubview:page:keyPath:fromValue:toValue:delay:`.
 
-As you can see, all we need for adding each animation is actually **1 line of code**. Pretty amazing, isn't it? :)
+As you can see, all we need for adding each animation is just **1 line of code**! Pretty amazing, isn't it? :)
 
 ## Known issues
 
