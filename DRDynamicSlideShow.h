@@ -10,7 +10,7 @@
 
 #pragma mark Interfaces
 
-@interface DRDynamicSlideShowEffect : NSObject
+@interface DRDynamicSlideShowAnimation : NSObject
 
 @property (strong, nonatomic) id subview;
 @property (nonatomic) NSInteger page;
@@ -19,24 +19,23 @@
 @property (strong, nonatomic) id toValue;
 @property (nonatomic) CGFloat delay;
 
-+ (id)dynamicEffectWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath toValue:(id)toValue delay:(CGFloat)delay;
-+ (id)dynamicEffectWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath fromValue:(id)fromValue toValue:(id)toValue delay:(CGFloat)delay;
++ (id)animationForSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath toValue:(id)toValue delay:(CGFloat)delay;
++ (id)animationForSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath fromValue:(id)fromValue toValue:(id)toValue delay:(CGFloat)delay;
 
 @end
 
 @interface DRDynamicSlideShow : UIScrollView <UIScrollViewDelegate> {
-    NSMutableArray * dynamicEffects;
-    NSArray * currentDynamicEffects;
+    NSMutableArray * animations;
+    NSArray * currentAnimations;
     NSInteger currentPage;
     UITapGestureRecognizer * tapGestureRecognizer;
-    NSTimeInterval passedTimeInterval;
 }
 
 @property (readonly, nonatomic) NSInteger numberOfPages;
-@property (nonatomic) BOOL scrollsPageWithTouch;
+@property (nonatomic) BOOL scrollsPageOnTap;
 @property (strong, nonatomic) void (^didReachPageBlock)(NSInteger page);
 
-- (void)addDynamicEffect:(DRDynamicSlideShowEffect *)dynamicEffect;
+- (void)addAnimation:(DRDynamicSlideShowAnimation *)animation;
 - (void)addSubview:(UIView *)subview onPage:(NSInteger)page;
 
 // @property (nonatomic) DRDynamicSlideShowDirection direction;

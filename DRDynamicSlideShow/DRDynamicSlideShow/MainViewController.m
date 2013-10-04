@@ -37,7 +37,6 @@
     
     #pragma mark Navigation Bar
     
-    [self.navigationBar setTranslucent:YES];
     [self.navigationBar setFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
     [self.navigationBar setBarTintColor:[UIColor colorWithAbsoluteRed:63 green:138 blue:229 alpha:1]];
     [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
@@ -82,34 +81,34 @@
     
     UILabel * helloLabel = (UILabel *)[self.slideShow viewWithTag:1];
 
-    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:helloLabel page:0 keyPath:@"center" toValue:[NSValue valueWithCGPoint:CGPointMake(helloLabel.center.x+self.slideShow.frame.size.width, helloLabel.center.y-self.slideShow.frame.size.height)] delay:0]];
+    [self.slideShow addAnimation:[DRDynamicSlideShowAnimation animationForSubview:helloLabel page:0 keyPath:@"center" toValue:[NSValue valueWithCGPoint:CGPointMake(helloLabel.center.x+self.slideShow.frame.size.width, helloLabel.center.y-self.slideShow.frame.size.height)] delay:0]];
     
     UITextView * descriptionTextView = (UITextView *)[self.slideShow viewWithTag:2];
     
-    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:descriptionTextView page:0 keyPath:@"alpha" toValue:@0 delay:0]];
+    [self.slideShow addAnimation:[DRDynamicSlideShowAnimation animationForSubview:descriptionTextView page:0 keyPath:@"alpha" toValue:@0 delay:0]];
     
-    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:descriptionTextView page:0 keyPath:@"center" toValue:[NSValue valueWithCGPoint:CGPointMake(descriptionTextView.center.x+self.slideShow.frame.size.width, descriptionTextView.center.y+self.slideShow.frame.size.height*2)] delay:0]];
+    [self.slideShow addAnimation:[DRDynamicSlideShowAnimation animationForSubview:descriptionTextView page:0 keyPath:@"center" toValue:[NSValue valueWithCGPoint:CGPointMake(descriptionTextView.center.x+self.slideShow.frame.size.width, descriptionTextView.center.y+self.slideShow.frame.size.height*2)] delay:0]];
     
     #pragma mark Page 1
     
     UIImageView * magicStickImageView = (UIImageView *)[self.slideShow viewWithTag:3];
     
-    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:magicStickImageView page:0 keyPath:@"alpha" fromValue:@0 toValue:@1 delay:0.75]];
+    [self.slideShow addAnimation:[DRDynamicSlideShowAnimation animationForSubview:magicStickImageView page:0 keyPath:@"alpha" fromValue:@0 toValue:@1 delay:0.75]];
     
     UITextView * magicStickDescriptionTextView = (UITextView *)[self.slideShow viewWithTag:4];
     
-    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:magicStickDescriptionTextView page:0 keyPath:@"transform" fromValue:[NSValue valueWithCGAffineTransform:CGAffineTransformMakeRotation(-0.9)] toValue:[NSValue valueWithCGAffineTransform:CGAffineTransformMakeRotation(0)] delay:0]];
+    [self.slideShow addAnimation:[DRDynamicSlideShowAnimation animationForSubview:magicStickDescriptionTextView page:0 keyPath:@"transform" fromValue:[NSValue valueWithCGAffineTransform:CGAffineTransformMakeRotation(-0.9)] toValue:[NSValue valueWithCGAffineTransform:CGAffineTransformMakeRotation(0)] delay:0]];
     
     #pragma mark Page 2
     
     UILabel * codeBracketsLabel = (UILabel *)[self.slideShow viewWithTag:5];
     
-    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:codeBracketsLabel page:1 keyPath:@"alpha" fromValue:@0 toValue:@1 delay:0.75]];
+    [self.slideShow addAnimation:[DRDynamicSlideShowAnimation animationForSubview:codeBracketsLabel page:1 keyPath:@"alpha" fromValue:@0 toValue:@1 delay:0.75]];
     
     UITextView * codingDescriptionTextView = (UITextView *)[self.slideShow viewWithTag:6];
     [codingDescriptionTextView setCenter:CGPointMake(codingDescriptionTextView.center.x-self.slideShow.frame.size.width, codingDescriptionTextView.center.y+self.slideShow.frame.size.height)];
     
-    [self.slideShow addDynamicEffect:[DRDynamicSlideShowEffect dynamicEffectWithSubview:codingDescriptionTextView page:1 keyPath:@"center" toValue:[NSValue valueWithCGPoint:CGPointMake(codingDescriptionTextView.center.x+self.slideShow.frame.size.width, codingDescriptionTextView.center.y-self.slideShow.frame.size.height)] delay:0]];
+    [self.slideShow addAnimation:[DRDynamicSlideShowAnimation animationForSubview:codingDescriptionTextView page:1 keyPath:@"center" toValue:[NSValue valueWithCGPoint:CGPointMake(codingDescriptionTextView.center.x+self.slideShow.frame.size.width, codingDescriptionTextView.center.y-self.slideShow.frame.size.height)] delay:0]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

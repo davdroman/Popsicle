@@ -9,13 +9,13 @@
 #import "DRDynamicSlideShow.h"
 
 typedef enum {
-    DRDynamicSlideShowEffectValueTypeCGFloat = 0,
-    DRDynamicSlideShowEffectValueTypeCGPoint = 1,
-    DRDynamicSlideShowEffectValueTypeCGSize = 2,
-    DRDynamicSlideShowEffectValueTypeCGRect = 3,
-    DRDynamicSlideShowEffectValueTypeCGAffineTransform = 4,
-    DRDynamicSlideShowEffectValueTypeUIColor = 5,
-} DRDynamicSlideShowEffectValueType;
+    DRDynamicSlideShowAnimationValueTypeCGFloat = 0,
+    DRDynamicSlideShowAnimationValueTypeCGPoint = 1,
+    DRDynamicSlideShowAnimationValueTypeCGSize = 2,
+    DRDynamicSlideShowAnimationValueTypeCGRect = 3,
+    DRDynamicSlideShowAnimationValueTypeCGAffineTransform = 4,
+    DRDynamicSlideShowAnimationValueTypeUIColor = 5,
+} DRDynamicSlideShowAnimationValueType;
 
 #pragma mark Interfaces Extensions
 
@@ -25,55 +25,55 @@ typedef enum {
 
 @end
 
-@interface DRDynamicSlideShowEffect ()
+@interface DRDynamicSlideShowAnimation ()
 
-@property (nonatomic) DRDynamicSlideShowEffectValueType valueType;
+@property (nonatomic) DRDynamicSlideShowAnimationValueType valueType;
 
 @end
 
 #pragma mark Implementations
 
-@implementation DRDynamicSlideShowEffect
+@implementation DRDynamicSlideShowAnimation
 
-+ (id)dynamicEffectWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath toValue:(id)toValue delay:(CGFloat)delay {
-    DRDynamicSlideShowEffect * dynamicEffect = [DRDynamicSlideShowEffect dynamicEffectWithSubview:subview page:page keyPath:keyPath fromValue:[subview valueForKeyPath:keyPath] toValue:toValue delay:delay];
++ (id)animationForSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath toValue:(id)toValue delay:(CGFloat)delay {
+    DRDynamicSlideShowAnimation * animation = [DRDynamicSlideShowAnimation animationForSubview:subview page:page keyPath:keyPath fromValue:[subview valueForKeyPath:keyPath] toValue:toValue delay:delay];
     
-    return dynamicEffect;
+    return animation;
 }
 
-+ (id)dynamicEffectWithSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath fromValue:(id)fromValue toValue:(id)toValue delay:(CGFloat)delay {
-    DRDynamicSlideShowEffect * dynamicEffect = [[DRDynamicSlideShowEffect alloc] init];
++ (id)animationForSubview:(UIView *)subview page:(NSInteger)page keyPath:(NSString *)keyPath fromValue:(id)fromValue toValue:(id)toValue delay:(CGFloat)delay {
+    DRDynamicSlideShowAnimation * animation = [[DRDynamicSlideShowAnimation alloc] init];
     
-    [dynamicEffect setSubview:subview];
-    [dynamicEffect setPage:page];
-    [dynamicEffect setKeyPath:keyPath];
-    [dynamicEffect setFromValue:fromValue];
-    [dynamicEffect setToValue:toValue];
-    [dynamicEffect setDelay:delay];
-    [dynamicEffect setValueType:[dynamicEffect getEffectValueDataType]];
+    [animation setSubview:subview];
+    [animation setPage:page];
+    [animation setKeyPath:keyPath];
+    [animation setFromValue:fromValue];
+    [animation setToValue:toValue];
+    [animation setDelay:delay];
+    [animation setValueType:[animation valueDataType]];
     
-    return dynamicEffect;
+    return animation;
 }
 
-- (DRDynamicSlideShowEffectValueType)getEffectValueDataType {
-    DRDynamicSlideShowEffectValueType valueDataType = 0;
+- (DRDynamicSlideShowAnimationValueType)valueDataType {
+    DRDynamicSlideShowAnimationValueType valueDataType = 0;
     
     if ([self.fromValue isKindOfClass:NSClassFromString(@"NSNumber")]) {
         if ([self valueTypeIsEqualTo:@encode(CGFloat)]) {
-            valueDataType = DRDynamicSlideShowEffectValueTypeCGFloat;
+            valueDataType = DRDynamicSlideShowAnimationValueTypeCGFloat;
         }
     } else if ([self.fromValue isKindOfClass:NSClassFromString(@"NSValue")]) {
         if ([self valueTypeIsEqualTo:@encode(CGPoint)]) {
-            valueDataType = DRDynamicSlideShowEffectValueTypeCGPoint;
+            valueDataType = DRDynamicSlideShowAnimationValueTypeCGPoint;
         } else if ([self valueTypeIsEqualTo:@encode(CGSize)]) {
-            valueDataType = DRDynamicSlideShowEffectValueTypeCGSize;
+            valueDataType = DRDynamicSlideShowAnimationValueTypeCGSize;
         } else if ([self valueTypeIsEqualTo:@encode(CGRect)]) {
-            valueDataType = DRDynamicSlideShowEffectValueTypeCGRect;
+            valueDataType = DRDynamicSlideShowAnimationValueTypeCGRect;
         } else if ([self valueTypeIsEqualTo:@encode(CGAffineTransform)]) {
-            valueDataType = DRDynamicSlideShowEffectValueTypeCGAffineTransform;
+            valueDataType = DRDynamicSlideShowAnimationValueTypeCGAffineTransform;
         }
     } else {
-        valueDataType = DRDynamicSlideShowEffectValueTypeUIColor;
+        valueDataType = DRDynamicSlideShowAnimationValueTypeUIColor;
     }
     
     return valueDataType;
@@ -82,9 +82,9 @@ typedef enum {
 - (BOOL)valueTypeIsEqualTo:(const char *)typeChar {
     NSString * valueDataTypeString = [[NSString alloc] initWithCString:[self.fromValue objCType] encoding:NSUTF8StringEncoding];
     
-    NSString * comparationDataTypeString = [[NSString alloc] initWithCString:typeChar encoding:NSUTF8StringEncoding];
+    NSString * comparisonDataTypeString = [[NSString alloc] initWithCString:typeChar encoding:NSUTF8StringEncoding];
     
-    if ([valueDataTypeString isEqualToString:comparationDataTypeString]) {
+    if ([valueDataTypeString isEqualToString:comparisonDataTypeString]) {
         return YES;
     }
     
@@ -95,27 +95,27 @@ typedef enum {
     percentage = MAX((percentage-self.delay)/(1-self.delay), 0);
     
     switch (self.valueType) {
-        case DRDynamicSlideShowEffectValueTypeCGFloat: {
+        case DRDynamicSlideShowAnimationValueTypeCGFloat: {
             CGFloat newFloat = [self partialValueWithFromValue:[self.fromValue floatValue] toValue:[self.toValue floatValue] percentage:percentage];
             
             [self.subview setValue:@(newFloat) forKeyPath:self.keyPath];
         }
             break;
-        case DRDynamicSlideShowEffectValueTypeCGPoint: {
+        case DRDynamicSlideShowAnimationValueTypeCGPoint: {
             CGFloat newX = [self partialValueWithFromValue:[self.fromValue CGPointValue].x toValue:[self.toValue CGPointValue].x percentage:percentage];
             CGFloat newY = [self partialValueWithFromValue:[self.fromValue CGPointValue].y toValue:[self.toValue CGPointValue].y percentage:percentage];
             
             [self.subview setValue:[NSValue valueWithCGPoint:CGPointMake(newX, newY)] forKeyPath:self.keyPath];
         }
             break;
-        case DRDynamicSlideShowEffectValueTypeCGSize: {
+        case DRDynamicSlideShowAnimationValueTypeCGSize: {
             CGFloat newWidth = [self partialValueWithFromValue:[self.fromValue CGSizeValue].width toValue:[self.toValue CGSizeValue].width percentage:percentage];
             CGFloat newHeight = [self partialValueWithFromValue:[self.fromValue CGSizeValue].height toValue:[self.toValue CGSizeValue].height percentage:percentage];
             
             [self.subview setValue:[NSValue valueWithCGSize:CGSizeMake(newWidth, newHeight)] forKeyPath:self.keyPath];
         }
             break;
-        case DRDynamicSlideShowEffectValueTypeCGRect: {
+        case DRDynamicSlideShowAnimationValueTypeCGRect: {
             CGFloat newX = [self partialValueWithFromValue:[self.fromValue CGRectValue].origin.x toValue:[self.toValue CGRectValue].origin.x percentage:percentage];
             CGFloat newY = [self partialValueWithFromValue:[self.fromValue CGRectValue].origin.y toValue:[self.toValue CGRectValue].origin.y percentage:percentage];
             CGFloat newWidth = [self partialValueWithFromValue:[self.fromValue CGRectValue].size.width toValue:[self.toValue CGRectValue].size.width percentage:percentage];
@@ -124,7 +124,7 @@ typedef enum {
             [self.subview setValue:[NSValue valueWithCGRect:CGRectMake(newX, newY, newWidth, newHeight)] forKeyPath:self.keyPath];
         }
             break;
-        case DRDynamicSlideShowEffectValueTypeCGAffineTransform: {
+        case DRDynamicSlideShowAnimationValueTypeCGAffineTransform: {
             CGFloat newA = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].a toValue:[self.toValue CGAffineTransformValue].a percentage:percentage];
             CGFloat newB = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].b toValue:[self.toValue CGAffineTransformValue].b percentage:percentage];
             CGFloat newC = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].c toValue:[self.toValue CGAffineTransformValue].c percentage:percentage];
@@ -135,7 +135,7 @@ typedef enum {
             [self.subview setValue:[NSValue valueWithCGAffineTransform:CGAffineTransformMake(newA, newB, newC, newD, newTx, newTy)] forKeyPath:self.keyPath];
         }
             break;
-        case DRDynamicSlideShowEffectValueTypeUIColor: {
+        case DRDynamicSlideShowAnimationValueTypeUIColor: {
             CGFloat fromR = 0;
             CGFloat fromG = 0;
             CGFloat fromB = 0;
@@ -176,7 +176,7 @@ typedef enum {
 
 - (id)init {
     if (self = [super init]) {
-        dynamicEffects = [NSMutableArray new];
+        animations = [NSMutableArray new];
         tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollToNextPage)];
         [self addGestureRecognizer:tapGestureRecognizer];
         
@@ -185,15 +185,15 @@ typedef enum {
         [self setShowsHorizontalScrollIndicator:NO];
         [self setShowsVerticalScrollIndicator:NO];
         
-        [self setScrollsPageWithTouch:YES];
+        [self setScrollsPageOnTap:YES];
     }
     
     return self;
 }
 
 - (void)scrollToNextPage {
-    [self resetCurrentDynamicEffects];
-    [self performCurrentDynamicEffectsWithPercentage:0];
+    [self resetCurrentAnimations];
+    [self performCurrentAnimationsWithPercentage:0];
     
     if (currentPage+1 < self.numberOfPages) {
         [UIView animateWithDuration:0.425 animations:^{
@@ -202,8 +202,8 @@ typedef enum {
     }
 }
 
-- (void)addDynamicEffect:(DRDynamicSlideShowEffect *)dynamicEffect {
-    [dynamicEffects addObject:dynamicEffect];
+- (void)addAnimation:(DRDynamicSlideShowAnimation *)animation {
+    [animations addObject:animation];
 }
 
 - (void)addSubview:(UIView *)view {
@@ -224,9 +224,9 @@ typedef enum {
 
 #pragma mark Setter Overrides
 
-- (void)setScrollsPageWithTouch:(BOOL)scrollsPageWithTouch {
-    _scrollsPageWithTouch = scrollsPageWithTouch;
-    [tapGestureRecognizer setEnabled:scrollsPageWithTouch];
+- (void)setScrollsPageOnTap:(BOOL)scrollsPageOnTap {
+    _scrollsPageOnTap = scrollsPageOnTap;
+    [tapGestureRecognizer setEnabled:scrollsPageOnTap];
 }
 
 #pragma mark Useful Methods
@@ -237,44 +237,44 @@ typedef enum {
     return page;
 }
 
-- (void)resetCurrentDynamicEffects {
+- (void)resetCurrentAnimations {
     NSInteger page = [self currentPage];
     
-    currentDynamicEffects = [self dynamicEffectsForPage:page];
+    currentAnimations = [self animationsForPage:page];
 }
 
-- (NSArray *)dynamicEffectsForPage:(NSInteger)page {
+- (NSArray *)animationsForPage:(NSInteger)page {
     NSPredicate * predicate = [NSPredicate predicateWithFormat:@"page == %i", page];
-    NSArray * filteredEffects = [dynamicEffects filteredArrayUsingPredicate:predicate];
+    NSArray * filteredAnimations = [animations filteredArrayUsingPredicate:predicate];
     
-    return filteredEffects;
+    return filteredAnimations;
 }
 
 #pragma mark Scroll View Delegate Methods
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self resetCurrentDynamicEffects];
+    [self resetCurrentAnimations];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSInteger page = [self currentPage];
     
     if (currentPage != page) {
-        [self performCurrentDynamicEffectsWithPercentage:(currentPage < page ? 1 : 0)];
+        [self performCurrentAnimationsWithPercentage:(currentPage < page ? 1 : 0)];
         currentPage = page;
-        [self resetCurrentDynamicEffects];
+        [self resetCurrentAnimations];
         if (self.didReachPageBlock) self.didReachPageBlock(page);
     }
     
     CGFloat horizontalScroll = self.contentOffset.x-self.frame.size.width*currentPage;
     CGFloat percentage = horizontalScroll/self.frame.size.width;
     
-    [self performCurrentDynamicEffectsWithPercentage:percentage];
+    [self performCurrentAnimationsWithPercentage:percentage];
 }
 
-- (void)performCurrentDynamicEffectsWithPercentage:(CGFloat)percentage {
-    for (DRDynamicSlideShowEffect * dynamicEffect in currentDynamicEffects) {
-        [dynamicEffect performWithPercentage:percentage];
+- (void)performCurrentAnimationsWithPercentage:(CGFloat)percentage {
+    for (DRDynamicSlideShowAnimation * animation in currentAnimations) {
+        [animation performWithPercentage:percentage];
     }
 }
 
