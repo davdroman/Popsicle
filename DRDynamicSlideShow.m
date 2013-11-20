@@ -8,14 +8,14 @@
 
 #import "DRDynamicSlideShow.h"
 
-typedef enum {
-    DRDynamicSlideShowAnimationValueTypeCGFloat = 0,
-    DRDynamicSlideShowAnimationValueTypeCGPoint = 1,
-    DRDynamicSlideShowAnimationValueTypeCGSize = 2,
-    DRDynamicSlideShowAnimationValueTypeCGRect = 3,
-    DRDynamicSlideShowAnimationValueTypeCGAffineTransform = 4,
-    DRDynamicSlideShowAnimationValueTypeUIColor = 5,
-} DRDynamicSlideShowAnimationValueType;
+typedef NS_ENUM(NSUInteger, DRDynamicSlideShowAnimationValueType) {
+    DRDynamicSlideShowAnimationValueTypeCGFloat,
+    DRDynamicSlideShowAnimationValueTypeCGPoint,
+    DRDynamicSlideShowAnimationValueTypeCGSize,
+    DRDynamicSlideShowAnimationValueTypeCGRect,
+    DRDynamicSlideShowAnimationValueTypeCGAffineTransform,
+    DRDynamicSlideShowAnimationValueTypeUIColor
+};
 
 #pragma mark Interfaces Extensions
 
