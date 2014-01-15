@@ -37,6 +37,6 @@ As you can see, all we need for adding each animation is just **1 line of code**
 
 ## License
 
-PDGestureTableView is available under the MIT license.
+DRDynamicSlideShow is available under the MIT license.
 
 Also, I'd really love to know you're using it in any of your projects, so send me an [**email**](mailto:dromaguirre@gmail.com) or a [**tweet**](http://twitter.com/Dromaguirre) and make my day :)
