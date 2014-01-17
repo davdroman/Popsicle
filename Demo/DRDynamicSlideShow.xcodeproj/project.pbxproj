@@ -22,7 +22,6 @@
 		7599C4A017E8C4D5005AA366 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7599C49E17E8C4D5005AA366 /* InfoPlist.strings */; };
 		7599C4A217E8C4D5005AA366 /* DRDynamicSlideShowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7599C4A117E8C4D5005AA366 /* DRDynamicSlideShowTests.m */; };
 		7599C4AD17E8C4E9005AA366 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7599C4AC17E8C4E9005AA366 /* MainViewController.m */; };
-		7599C4B017E8C732005AA366 /* UIColor+RGBA.m in Sources */ = {isa = PBXBuildFile; fileRef = 7599C4AF17E8C732005AA366 /* UIColor+RGBA.m */; };
 		7599C4B317E8C9C8005AA366 /* DRDynamicSlideShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7599C4B217E8C9C8005AA366 /* DRDynamicSlideShow.m */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +56,6 @@
 		7599C4A117E8C4D5005AA366 /* DRDynamicSlideShowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRDynamicSlideShowTests.m; sourceTree = "<group>"; };
 		7599C4AB17E8C4E9005AA366 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		7599C4AC17E8C4E9005AA366 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		7599C4AE17E8C732005AA366 /* UIColor+RGBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBA.h"; sourceTree = "<group>"; };
-		7599C4AF17E8C732005AA366 /* UIColor+RGBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGBA.m"; sourceTree = "<group>"; };
 		7599C4B117E8C9C8005AA366 /* DRDynamicSlideShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRDynamicSlideShow.h; sourceTree = "<group>"; };
 		7599C4B217E8C9C8005AA366 /* DRDynamicSlideShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRDynamicSlideShow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,7 +126,6 @@
 				7599C4B117E8C9C8005AA366 /* DRDynamicSlideShow.h */,
 				7599C4B217E8C9C8005AA366 /* DRDynamicSlideShow.m */,
 				75D475AB17ECDF8C006D5E62 /* Images */,
-				7599C4B417E8C9D7005AA366 /* Resources */,
 				7599C48317E8C4D5005AA366 /* Supporting Files */,
 			);
 			path = DRDynamicSlideShow;
@@ -162,15 +158,6 @@
 				7599C49E17E8C4D5005AA366 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		7599C4B417E8C9D7005AA366 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7599C4AE17E8C732005AA366 /* UIColor+RGBA.h */,
-				7599C4AF17E8C732005AA366 /* UIColor+RGBA.m */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		75D475AB17ECDF8C006D5E62 /* Images */ = {
@@ -279,7 +266,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7599C48D17E8C4D5005AA366 /* AppDelegate.m in Sources */,
-				7599C4B017E8C732005AA366 /* UIColor+RGBA.m in Sources */,
 				7599C4AD17E8C4E9005AA366 /* MainViewController.m in Sources */,
 				7599C4B317E8C9C8005AA366 /* DRDynamicSlideShow.m in Sources */,
 				7599C48917E8C4D5005AA366 /* main.m in Sources */,
@@ -357,7 +343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -390,7 +376,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -404,7 +390,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DRDynamicSlideShow/DRDynamicSlideShow-Prefix.pch";
 				INFOPLIST_FILE = "DRDynamicSlideShow/DRDynamicSlideShow-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -419,7 +405,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DRDynamicSlideShow/DRDynamicSlideShow-Prefix.pch";
 				INFOPLIST_FILE = "DRDynamicSlideShow/DRDynamicSlideShow-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

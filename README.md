@@ -1,17 +1,25 @@
 DRDynamicSlideShow
 ==================
 
-A UIScrollView subclass to easily implement an amazing swiping interactive slide show, as IFTTT's.
+<br />
 
 <p align="center">
-	<img src="https://raw.github.com/Dromaguirre/DRDynamicSlideShow/images/1.gif" alt="DRDynamicSlideShow GIF" title="DRDynamicSlideShow GIF" width="320" />
+	<img src="https://raw.github.com/Dromaguirre/DRDynamicSlideShow/images/1.gif" alt="DRDynamicSlideShow" title="DRDynamicSlideShow" width="320px" />
 </p>
 
-No external frameworks or subclasses for subviews needed. Just add a `DRDynamicSlideShow` to your view, and add `DRDynamicSlideShowAnimation`'s to it to let the magic happen.
+## Features
 
-## How to use
+- **1 line** of code per animation.
+- **Any type of value** can be animated.
+- **Block-driven**.
 
-Here's an super simple example of how to use `DRDynamicSlideShow`. You can check out the **example app**, too.
+## CocoaPods
+
+You can install DRDynamicSlideShow through CocoaPods adding the following to your Podfile:
+
+	pod 'DRDynamicSlideShow'
+
+## At a glance
 
 1. First, add a `DRDynamicSlideShow` instance to your view.
 
@@ -31,9 +39,13 @@ Notice there are two ways for instantiating `DRDynamicSlideShowAnimation`. If yo
 
 As you can see, all we need for adding each animation is just **1 line of code**! Pretty amazing, isn't it? :)
 
-## Known issues
+## Wish list
 
-- The animation used to go to next page by tapping the view does not consider `DRDynamicSlideShowAnimation`'s `delay` property.
+- Use [**DRPaginatedScrollView**](http://github.com/Dromaguirre/DRPaginatedScrollView)'s base.
+
+## Requirements
+
+- iOS 6 or higher.
 
 ## License
 

@@ -8,10 +8,6 @@
 
 #import "MainViewController.h"
 
-#import "UIColor+RGBA.h"
-
-#define LOGS_ENABLED NO
-
 @implementation MainViewController
 
 - (id)init {
@@ -34,8 +30,6 @@
     #pragma mark Navigation Bar
     
     [self.navigationBar setFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
-    [self.navigationBar setBarTintColor:[UIColor colorWithAbsoluteRed:63 green:138 blue:229 alpha:1]];
-    [self.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
     
     UINavigationItem * mainItem = [UINavigationItem new];
     [mainItem setTitle:@"DRDynamicSlideShow"];
@@ -51,7 +45,7 @@
     [self.slideShow setAlpha:0];
     
     [self.slideShow setDidReachPageBlock:^(NSInteger reachedPage) {
-        if (LOGS_ENABLED) NSLog(@"Current Page: %li", (long)reachedPage);
+        NSLog(@"Current Page: %i", reachedPage);
     }];
     
     [self.view insertSubview:self.slideShow belowSubview:self.navigationBar];
