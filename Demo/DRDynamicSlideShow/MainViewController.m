@@ -30,8 +30,6 @@
     #pragma mark View
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self.view.layer setCornerRadius:4.5];
-    [self.view.layer setMasksToBounds:YES];
     
     #pragma mark Navigation Bar
     
