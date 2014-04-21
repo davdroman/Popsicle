@@ -1,6 +1,6 @@
 DRDynamicSlideShow
 ==================
-Create beautiful, animated, paging UIScrollViews.  Easily animate views as the UIScollView gets paged. This is perfect for welcome screens and introduction views in iOS apps.
+Create beautiful, animated, paging UIScrollViews.  Easily animate views as the UIScrollView gets paged. This is perfect for welcome screens and introduction views in iOS apps.
 
 <p align="center">
 	<img src="https://raw.github.com/Dromaguirre/DRDynamicSlideShow/images/1.gif" alt="DRDynamicSlideShow" title="DRDynamicSlideShow" width="320px" />
