@@ -278,8 +278,8 @@ typedef NS_ENUM(NSUInteger, DRDynamicSlideShowAnimationValueType) {
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.didScroll) {
-        self.didScroll(scrollView.contentOffset);
+    if (self.didScrollBlock) {
+        self.didScrollBlock(scrollView.contentOffset);
     }
     NSInteger page = [self currentPage];
     
