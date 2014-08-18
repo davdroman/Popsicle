@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "DRDynamicSlideShow"
-    s.version      = "1.0"
+    s.version      = "1.0.1"
     s.summary      = "A UIScrollView subclass to easily implement an amazing swiping interactive slide show, as IFTTT's."
     s.homepage     = "https://github.com/Dromaguirre/DRDynamicSlideShow"
     s.screenshots  = "https://raw.github.com/Dromaguirre/DRDynamicSlideShow/screenshots/Screenshots/DRDynamicSlideShow.gif"
