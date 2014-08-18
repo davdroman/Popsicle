@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
     s.license      = 'Public Domain'
     s.author       = { "David Román" => "dromaguirre@gmail.com" }
     s.platform     = :ios, '6.0'
-    s.source       = { :git => "https://github.com/Dromaguirre/DRDynamicSlideShow.git", :tag => "1.0" }
+    s.source       = { :git => "https://github.com/Dromaguirre/DRDynamicSlideShow.git", :tag => "1.0.1" }
     s.source_files = 'DRDynamicSlideShow.{h,m}'
     s.framework    = 'UIKit'
     s.requires_arc = true
