@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7513055D19A28758003158DF /* DRDynamicSlideShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7513055C19A28758003158DF /* DRDynamicSlideShow.m */; };
 		7595098F17F6DE2900D53FB3 /* DRDynamicSlideShowSubviews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7595098E17F6DE2900D53FB3 /* DRDynamicSlideShowSubviews.xib */; };
 		7599C47D17E8C4D5005AA366 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7599C47C17E8C4D5005AA366 /* Foundation.framework */; };
 		7599C47F17E8C4D5005AA366 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7599C47E17E8C4D5005AA366 /* CoreGraphics.framework */; };
@@ -21,7 +22,6 @@
 		7599C4A017E8C4D5005AA366 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7599C49E17E8C4D5005AA366 /* InfoPlist.strings */; };
 		7599C4A217E8C4D5005AA366 /* DRDynamicSlideShowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7599C4A117E8C4D5005AA366 /* DRDynamicSlideShowTests.m */; };
 		7599C4AD17E8C4E9005AA366 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7599C4AC17E8C4E9005AA366 /* MainViewController.m */; };
-		7599C4B317E8C9C8005AA366 /* DRDynamicSlideShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7599C4B217E8C9C8005AA366 /* DRDynamicSlideShow.m */; };
 		9943BC9618D91F1C00BC835E /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9943BC9518D91F1C00BC835E /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7513055B19A28758003158DF /* DRDynamicSlideShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRDynamicSlideShow.h; path = ../../Source/DRDynamicSlideShow.h; sourceTree = "<group>"; };
+		7513055C19A28758003158DF /* DRDynamicSlideShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRDynamicSlideShow.m; path = ../../Source/DRDynamicSlideShow.m; sourceTree = "<group>"; };
 		7595098E17F6DE2900D53FB3 /* DRDynamicSlideShowSubviews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DRDynamicSlideShowSubviews.xib; sourceTree = "<group>"; };
 		7599C47917E8C4D5005AA366 /* DRDynamicSlideShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRDynamicSlideShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7599C47C17E8C4D5005AA366 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,8 +57,6 @@
 		7599C4A117E8C4D5005AA366 /* DRDynamicSlideShowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRDynamicSlideShowTests.m; sourceTree = "<group>"; };
 		7599C4AB17E8C4E9005AA366 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		7599C4AC17E8C4E9005AA366 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		7599C4B117E8C9C8005AA366 /* DRDynamicSlideShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRDynamicSlideShow.h; path = ../../DRDynamicSlideShow.h; sourceTree = "<group>"; };
-		7599C4B217E8C9C8005AA366 /* DRDynamicSlideShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRDynamicSlideShow.m; path = ../../DRDynamicSlideShow.m; sourceTree = "<group>"; };
 		9943BC9518D91F1C00BC835E /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,12 +117,13 @@
 		7599C48217E8C4D5005AA366 /* DRDynamicSlideShow */ = {
 			isa = PBXGroup;
 			children = (
-				9943BC9718D927EE00BC835E /* Dynamic Slideshow */,
 				7599C48B17E8C4D5005AA366 /* AppDelegate.h */,
 				7599C48C17E8C4D5005AA366 /* AppDelegate.m */,
 				9943BC9518D91F1C00BC835E /* Storyboard.storyboard */,
 				7599C4AB17E8C4E9005AA366 /* MainViewController.h */,
 				7599C4AC17E8C4E9005AA366 /* MainViewController.m */,
+				7513055B19A28758003158DF /* DRDynamicSlideShow.h */,
+				7513055C19A28758003158DF /* DRDynamicSlideShow.m */,
 				7599C48317E8C4D5005AA366 /* Supporting Files */,
 			);
 			path = DRDynamicSlideShow;
@@ -157,15 +158,6 @@
 				7599C49E17E8C4D5005AA366 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		9943BC9718D927EE00BC835E /* Dynamic Slideshow */ = {
-			isa = PBXGroup;
-			children = (
-				7599C4B117E8C9C8005AA366 /* DRDynamicSlideShow.h */,
-				7599C4B217E8C9C8005AA366 /* DRDynamicSlideShow.m */,
-			);
-			name = "Dynamic Slideshow";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,9 +257,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7513055D19A28758003158DF /* DRDynamicSlideShow.m in Sources */,
 				7599C48D17E8C4D5005AA366 /* AppDelegate.m in Sources */,
 				7599C4AD17E8C4E9005AA366 /* MainViewController.m in Sources */,
-				7599C4B317E8C9C8005AA366 /* DRDynamicSlideShow.m in Sources */,
 				7599C48917E8C4D5005AA366 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
