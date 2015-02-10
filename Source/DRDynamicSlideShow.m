@@ -92,7 +92,19 @@ typedef NS_ENUM(NSUInteger, DRDynamicSlideShowAnimationValueType) {
 }
 
 - (void)performWithPercentage:(CGFloat)percentage {
+    NSValue *fromValue = self.fromValue;
+    NSValue *toValue = self.toValue;
     percentage = MAX((percentage-self.delay)/(1-self.delay), 0);
+    if ([self.toValue isKindOfClass:[NSArray class]]) {
+        int numberOfToValues = [self.toValue count];
+        CGFloat divided = (CGFloat)1 / numberOfToValues;
+        int index = MIN(percentage / divided, numberOfToValues - 1);
+        percentage = ((CGFloat) percentage / divided) - index;
+        if (numberOfToValues > 1 && index > 0) {
+            fromValue = [self.toValue objectAtIndex:index - 1];
+        }
+        toValue = [self.toValue objectAtIndex:index];
+    }
     
     switch (self.valueType) {
         case DRDynamicSlideShowAnimationValueTypeCGFloat: {
@@ -102,35 +114,35 @@ typedef NS_ENUM(NSUInteger, DRDynamicSlideShowAnimationValueType) {
         }
             break;
         case DRDynamicSlideShowAnimationValueTypeCGPoint: {
-            CGFloat newX = [self partialValueWithFromValue:[self.fromValue CGPointValue].x toValue:[self.toValue CGPointValue].x percentage:percentage];
-            CGFloat newY = [self partialValueWithFromValue:[self.fromValue CGPointValue].y toValue:[self.toValue CGPointValue].y percentage:percentage];
+            CGFloat newX = [self partialValueWithFromValue:[fromValue CGPointValue].x toValue:[toValue CGPointValue].x percentage:percentage];
+            CGFloat newY = [self partialValueWithFromValue:[fromValue CGPointValue].y toValue:[toValue CGPointValue].y percentage:percentage];
             
             [self.subview setValue:[NSValue valueWithCGPoint:CGPointMake(newX, newY)] forKeyPath:self.keyPath];
         }
             break;
         case DRDynamicSlideShowAnimationValueTypeCGSize: {
-            CGFloat newWidth = [self partialValueWithFromValue:[self.fromValue CGSizeValue].width toValue:[self.toValue CGSizeValue].width percentage:percentage];
-            CGFloat newHeight = [self partialValueWithFromValue:[self.fromValue CGSizeValue].height toValue:[self.toValue CGSizeValue].height percentage:percentage];
+            CGFloat newWidth = [self partialValueWithFromValue:[fromValue CGSizeValue].width toValue:[toValue CGSizeValue].width percentage:percentage];
+            CGFloat newHeight = [self partialValueWithFromValue:[fromValue CGSizeValue].height toValue:[toValue CGSizeValue].height percentage:percentage];
             
             [self.subview setValue:[NSValue valueWithCGSize:CGSizeMake(newWidth, newHeight)] forKeyPath:self.keyPath];
         }
             break;
         case DRDynamicSlideShowAnimationValueTypeCGRect: {
-            CGFloat newX = [self partialValueWithFromValue:[self.fromValue CGRectValue].origin.x toValue:[self.toValue CGRectValue].origin.x percentage:percentage];
-            CGFloat newY = [self partialValueWithFromValue:[self.fromValue CGRectValue].origin.y toValue:[self.toValue CGRectValue].origin.y percentage:percentage];
-            CGFloat newWidth = [self partialValueWithFromValue:[self.fromValue CGRectValue].size.width toValue:[self.toValue CGRectValue].size.width percentage:percentage];
-            CGFloat newHeight = [self partialValueWithFromValue:[self.fromValue CGRectValue].size.height toValue:[self.toValue CGRectValue].size.height percentage:percentage];
+            CGFloat newX = [self partialValueWithFromValue:[fromValue CGRectValue].origin.x toValue:[toValue CGRectValue].origin.x percentage:percentage];
+            CGFloat newY = [self partialValueWithFromValue:[fromValue CGRectValue].origin.y toValue:[toValue CGRectValue].origin.y percentage:percentage];
+            CGFloat newWidth = [self partialValueWithFromValue:[fromValue CGRectValue].size.width toValue:[toValue CGRectValue].size.width percentage:percentage];
+            CGFloat newHeight = [self partialValueWithFromValue:[fromValue CGRectValue].size.height toValue:[toValue CGRectValue].size.height percentage:percentage];
             
             [self.subview setValue:[NSValue valueWithCGRect:CGRectMake(newX, newY, newWidth, newHeight)] forKeyPath:self.keyPath];
         }
             break;
         case DRDynamicSlideShowAnimationValueTypeCGAffineTransform: {
-            CGFloat newA = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].a toValue:[self.toValue CGAffineTransformValue].a percentage:percentage];
-            CGFloat newB = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].b toValue:[self.toValue CGAffineTransformValue].b percentage:percentage];
-            CGFloat newC = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].c toValue:[self.toValue CGAffineTransformValue].c percentage:percentage];
-            CGFloat newD = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].d toValue:[self.toValue CGAffineTransformValue].d percentage:percentage];
-            CGFloat newTx = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].tx toValue:[self.toValue CGAffineTransformValue].tx percentage:percentage];
-            CGFloat newTy = [self partialValueWithFromValue:[self.fromValue CGAffineTransformValue].ty toValue:[self.toValue CGAffineTransformValue].ty percentage:percentage];
+            CGFloat newA = [self partialValueWithFromValue:[fromValue CGAffineTransformValue].a toValue:[toValue CGAffineTransformValue].a percentage:percentage];
+            CGFloat newB = [self partialValueWithFromValue:[fromValue CGAffineTransformValue].b toValue:[toValue CGAffineTransformValue].b percentage:percentage];
+            CGFloat newC = [self partialValueWithFromValue:[fromValue CGAffineTransformValue].c toValue:[toValue CGAffineTransformValue].c percentage:percentage];
+            CGFloat newD = [self partialValueWithFromValue:[fromValue CGAffineTransformValue].d toValue:[toValue CGAffineTransformValue].d percentage:percentage];
+            CGFloat newTx = [self partialValueWithFromValue:[fromValue CGAffineTransformValue].tx toValue:[toValue CGAffineTransformValue].tx percentage:percentage];
+            CGFloat newTy = [self partialValueWithFromValue:[fromValue CGAffineTransformValue].ty toValue:[toValue CGAffineTransformValue].ty percentage:percentage];
             
             [self.subview setValue:[NSValue valueWithCGAffineTransform:CGAffineTransformMake(newA, newB, newC, newD, newTx, newTy)] forKeyPath:self.keyPath];
         }
