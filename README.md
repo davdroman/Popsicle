@@ -71,7 +71,7 @@ In the example below, you'll see how `PSFloatInterpolation` has been implemented
 
 @interface PSFloatInterpolation : PSInterpolation
 
-// This allows `PS()` macro to work correctly.
+// This allows PS() macro to work correctly.
 + (instancetype)interpolationWithStartTime:(float)startTime endTime:(float)endTime fromValue:(float)fromValue toValue:(float)toValue;
 
 @end
