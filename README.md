@@ -46,7 +46,7 @@ Next, you need to add some `PSInterpolation` instances to your `interpolator`. I
 
 _Note: for the sake of simplicity, Popsicle provides a great macro to create instances of `PSInterpolation`: `PS(INTERPOLATION_CLASS, START_TIME, END_TIME, FROM_VALUE, TO_VALUE)`. Also note you can specify multiple interpolations for multiple objects at once._
 
-Finally, just make your `interpolator` varie its `time` depending on whatever you want. For example, in case you're using a `UIScrollView`:
+Finally, just make your `interpolator` vary its `time` depending on whatever you want. For example, in case you're using a `UIScrollView`:
 
 ```objective-c
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
