@@ -16,7 +16,7 @@
 
 @interface PSInterpolator ()
 
-@property (nonatomic, strong) NSArray *interpolationContexts;
+@property (nonatomic, strong) NSMutableArray *interpolationContexts;
 
 @end
 
@@ -24,7 +24,7 @@
 
 - (instancetype)init {
 	if (self = [super init]) {
-		self.interpolationContexts = [NSArray new];
+		self.interpolationContexts = [NSMutableArray new];
 	}
 	
 	return self;
@@ -44,13 +44,18 @@
 	}
 }
 
+- (void)setTime:(float)time {
+	_time = time;
+	[self performInterpolations];
+}
+
 - (void)addInterpolations:(id)interpolations forObjects:(id)objects keyPath:(NSString *)keyPath {
 	safeFor(objects, ^void(id object) {
 		safeFor(interpolations, ^void(PSInterpolation *interpolation) {
 			interpolation.fromValue = interpolation.fromValue ? interpolation.fromValue : [object valueForKey:keyPath];
 			
 			PSInterpolationContext *context = [PSInterpolationContext contextWithInterpolation:interpolation object:object keyPath:keyPath];
-			self.interpolationContexts = [self.interpolationContexts arrayByAddingObject:context];
+			[self.interpolationContexts addObject:context];
 		});
 	});
 }
@@ -65,9 +70,8 @@ void safeFor(id arrayOrObject, void (^forBlock)(id object)) {
 	}
 }
 
-- (void)setTime:(float)time {
-	_time = time;
-	[self performInterpolations];
+- (void)removeAllInterpolations {
+	[self.interpolationContexts removeAllObjects];
 }
 
 @end

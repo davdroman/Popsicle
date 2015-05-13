@@ -13,5 +13,6 @@
 @property (nonatomic, assign) float time;
 
 - (void)addInterpolations:(id)interpolations forObjects:(id)objects keyPath:(NSString *)keyPath;
+- (void)removeAllInterpolations;
 
 @end
