@@ -10,7 +10,7 @@
 
 @implementation UIView (Utils)
 
-#pragma Frame
+#pragma mark Extended frame properties
 
 - (CGFloat)x {
 	return self.frame.origin.x;
@@ -44,42 +44,31 @@
 	self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
 }
 
-#pragma Origin
+#pragma mark Helper methods
 
-- (CGPoint)origin {
-	return self.frame.origin;
+- (void)pinToSuperviewEdges {
+	self.translatesAutoresizingMaskIntoConstraints = NO;
+	
+	NSArray *attributeArray = @[@(NSLayoutAttributeTop), @(NSLayoutAttributeLeft), @(NSLayoutAttributeBottom), @(NSLayoutAttributeRight)];
+	
+	for (NSNumber *attributeNumber in attributeArray) {
+		NSLayoutAttribute attribute = (NSLayoutAttribute)[attributeNumber integerValue];
+		
+		NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:attribute relatedBy:NSLayoutRelationEqual toItem:self.superview attribute:attribute multiplier:1 constant:0];
+		
+		[self.superview addConstraint:constraint];
+	}
 }
 
-- (void)setOrigin:(CGPoint)origin {
-	self.frame = CGRectMake(origin.x, origin.y, self.frame.size.width, self.frame.size.height);
-}
-
-#pragma Size
-
-- (CGSize)size {
-	return self.frame.size;
-}
-
-- (void)setSize:(CGSize)size {
-	self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, size.width, size.height);
-}
-
-#pragma Center
-
-- (CGFloat)centerX {
-	return self.center.x;
-}
-
-- (void)setCenterX:(CGFloat)centerX {
-	self.center = CGPointMake(centerX, self.center.y);
-}
-
-- (CGFloat)centerY {
-	return self.center.y;
-}
-
-- (void)setCenterY:(CGFloat)centerY {
-	self.center = CGPointMake(self.center.x, centerY);
++ (NSDictionary *)nibViewsByClassWithNibName:(NSString *)nibName {
+	NSMutableDictionary *nibViewsDictionary = [NSMutableDictionary new];
+	NSArray *nibViewsArray = [[NSBundle mainBundle] loadNibNamed:nibName owner:self options:nil];
+	
+	for (id nibView in nibViewsArray) {
+		[nibViewsDictionary setObject:nibView forKey:NSStringFromClass([nibView class])];
+	}
+	
+	return nibViewsDictionary;
 }
 
 @end
