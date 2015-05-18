@@ -14,11 +14,15 @@ _Note: this framework comes out as an abstraction of former `DRDynamicSlideShow`
 
 #### Carthage
 
-	github "Dromaguirre/Popsicle"
+```
+github "Dromaguirre/Popsicle"
+```
 
 #### CocoaPods
 
-	pod 'Popsicle'
+```ruby
+pod 'Popsicle'
+```
 
 #### Manual
 
