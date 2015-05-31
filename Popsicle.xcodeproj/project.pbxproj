@@ -28,7 +28,7 @@
 		75DE00D71AFEE83500BE40E0 /* PSInterpolationContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 75DE00D51AFEE83500BE40E0 /* PSInterpolationContext.h */; };
 		75DE00D81AFEE83500BE40E0 /* PSInterpolationContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 75DE00D61AFEE83500BE40E0 /* PSInterpolationContext.m */; };
 		75DEC8AC1B0395D0007BED6A /* PageViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75DEC8AB1B0395D0007BED6A /* PageViews.xib */; };
-		75DFE0DB1AFBF24500090283 /* PSInterpolation+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 75DFE0DA1AFBF24500090283 /* PSInterpolation+Subclass.h */; };
+		75DFE0DB1AFBF24500090283 /* PSInterpolation+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 75DFE0DA1AFBF24500090283 /* PSInterpolation+Subclass.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		75DFE10E1AFD51B000090283 /* PSPointInterpolation.h in Headers */ = {isa = PBXBuildFile; fileRef = 75CE05491ACA14C0008B893D /* PSPointInterpolation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		75DFE10F1AFD51B000090283 /* PSPointInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CE054A1ACA14C0008B893D /* PSPointInterpolation.m */; };
 		75DFE1101AFD51B000090283 /* PSSizeInterpolation.h in Headers */ = {isa = PBXBuildFile; fileRef = 75CE054B1ACA14C0008B893D /* PSSizeInterpolation.h */; settings = {ATTRIBUTES = (Public, ); }; };
