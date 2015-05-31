@@ -6,15 +6,24 @@
 //  Copyright (c) 2014 David Roman. All rights reserved.
 //
 
-#import "PSInterpolator.h"
-#import "PSInterpolation.h"
+#import <Foundation/Foundation.h>
 
-#import "PSIntegerInterpolation.h"
-#import "PSFloatInterpolation.h"
+//! Project version number for Bohr.
+FOUNDATION_EXPORT double PopsicleVersionNumber;
 
-#import "PSPointInterpolation.h"
-#import "PSSizeInterpolation.h"
-#import "PSRectInterpolation.h"
-#import "PSAffineTransformInterpolation.h"
+//! Project version string for Bohr.
+FOUNDATION_EXPORT const unsigned char PopsicleVersionString[];
 
-#import "PSColorInterpolation.h"
+#import <Popsicle/PSInterpolator.h>
+#import <Popsicle/PSInterpolation.h>
+#import <Popsicle/PSInterpolation+Subclass.h>
+
+#import <Popsicle/PSIntegerInterpolation.h>
+#import <Popsicle/PSFloatInterpolation.h>
+
+#import <Popsicle/PSPointInterpolation.h>
+#import <Popsicle/PSSizeInterpolation.h>
+#import <Popsicle/PSRectInterpolation.h>
+#import <Popsicle/PSAffineTransformInterpolation.h>
+
+#import <Popsicle/PSColorInterpolation.h>
