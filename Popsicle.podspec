@@ -6,8 +6,8 @@ Pod::Spec.new do |s|
   s.author                = { "David Roman" => "d@vidroman.me" }
   s.license               = { :type => 'MIT', :file => 'LICENSE' }
 
-  s.platform              = :ios, '8.0'
-  s.ios.deployment_target = '8.0'
+  s.platform              = :ios, '7.1'
+  s.ios.deployment_target = '7.1'
 
   s.source                = { :git => "https://github.com/DavdRoman/Popsicle.git", :tag => s.version.to_s }
   s.source_files          = 'Popsicle/*.{h,m}'
