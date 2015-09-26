@@ -36,11 +36,11 @@
 		timeFraction = MAX(0, timeFraction);
 		timeFraction = MIN(1, timeFraction);
 		
-		if ((ic.interpolation.startTime <= self.time && self.time <= ic.interpolation.endTime) || (ic.timeFraction != 1 && ic.timeFraction != 0)) {
-			id value = [ic.interpolation valueForTimeFraction:timeFraction];
-			[ic.object setValue:value forKeyPath:ic.keyPath];
-			ic.timeFraction = timeFraction;
-		}
+        if (((ic.interpolation.endTime>ic.interpolation.startTime)?(ic.interpolation.startTime <= self.time && self.time <= ic.interpolation.endTime):(ic.interpolation.startTime >= self.time && self.time >= ic.interpolation.endTime)) || (ic.timeFraction != 1 && ic.timeFraction != 0)) {
+            id value = [ic.interpolation valueForTimeFraction:timeFraction];
+            [ic.object setValue:value forKeyPath:ic.keyPath];
+            ic.timeFraction = timeFraction;
+        }
 	}
 }
 
