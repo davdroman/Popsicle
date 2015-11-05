@@ -2,28 +2,16 @@
 //  Popsicle.h
 //  Popsicle
 //
-//  Created by David Román Aguirre on 1/11/14.
-//  Copyright (c) 2014 David Roman. All rights reserved.
+//  Created by David Román Aguirre on 01/11/15.
+//  Copyright © 2015 David Román Aguirre. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import UIKit;
 
-//! Project version number for Bohr.
+//! Project version number for Popsicle.
 FOUNDATION_EXPORT double PopsicleVersionNumber;
 
-//! Project version string for Bohr.
+//! Project version string for Popsicle.
 FOUNDATION_EXPORT const unsigned char PopsicleVersionString[];
 
-#import <Popsicle/PSInterpolator.h>
-#import <Popsicle/PSInterpolation.h>
-#import <Popsicle/PSInterpolation+Subclass.h>
-
-#import <Popsicle/PSIntegerInterpolation.h>
-#import <Popsicle/PSFloatInterpolation.h>
-
-#import <Popsicle/PSPointInterpolation.h>
-#import <Popsicle/PSSizeInterpolation.h>
-#import <Popsicle/PSRectInterpolation.h>
-#import <Popsicle/PSAffineTransformInterpolation.h>
-
-#import <Popsicle/PSColorInterpolation.h>
+// In this header, you should import all the public headers of your framework using statements like #import <Popsicle/PublicHeader.h>
