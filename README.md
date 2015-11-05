@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="Assets/header.png" alt="Popsicle header" width="530px" />
+	<img src="Assets/header.png" alt="Popsicle header" width="520px" />
 </p>
 
 <p align="center">
@@ -7,11 +7,11 @@
 	<a href="https://cocoapods.org/pods/Popsicle"><img src="https://img.shields.io/cocoapods/v/Popsicle.svg" alt="CocoaPods compatible" /></a>
 </p>
 
-Popsicle is a delightful solution for creating and managing interpolations of different value types with built-in UIKit support, written in Swift.
-
 <p align="center">
 	<img src="Assets/1.gif" alt="GIF 1" width="320px" />
 </p>
+
+Popsicle is a Swift framework for creating and managing interpolations of different value types with built-in UIKit support.
 
 ## Installation
 
