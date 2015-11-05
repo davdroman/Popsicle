@@ -22,16 +22,28 @@
 
 - (instancetype)init {
 	if (self = [super init]) {
-		previousPage = -1;
-		self.pagingEnabled = YES;
-		self.showsHorizontalScrollIndicator = NO;
-		self.showsVerticalScrollIndicator = NO;
-
-		self.pageViews = [NSMutableArray new];
-		self.pageHandlers = [NSArray new];
+		[self commonInit];
 	}
 	
 	return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+	if (self = [super initWithFrame:frame]) {
+		[self commonInit];
+	}
+
+	return self;
+}
+
+- (void)commonInit {
+	previousPage = -1;
+	self.pagingEnabled = YES;
+	self.showsHorizontalScrollIndicator = NO;
+	self.showsVerticalScrollIndicator = NO;
+
+	self.pageViews = [NSMutableArray new];
+	self.pageHandlers = [NSArray new];
 }
 
 - (void)setPageReuseEnabled:(BOOL)pageReuseEnabled {
