@@ -41,7 +41,7 @@ First, you need an `Interpolator` instance:
 let interpolator = Interpolator()
 ```
 
-Next, you need to add some `Interpolation` instances to your interpolator. In the example below, we are going to interpolate the alpha value of a UIView for times between 0 and 150:
+Next, you need to add some `Interpolation<T>` instances to your interpolator. In the example below, we are going to interpolate the alpha value of a UIView for times between 0 and 150:
 
 ```swift
 let interpolation = Interpolation(yourView, alpha)
@@ -50,7 +50,7 @@ interpolation[150] = 1
 self.interpolator.addInterpolation(interpolation)
 ```
 
-Note `alpha` is a built-in `KeyPath` constant. Popsicle offers a nice set of [__UIKit-related KeyPaths__](Popsicle/KeyPath.swift) ready to be used. You may also use a completely custom key path.
+Note `alpha` is a built-in `KeyPath<T, U>` constant. Popsicle offers a nice set of [__UIKit-related KeyPaths__](Popsicle/KeyPath.swift) ready to be used. You may also use a completely custom key path.
 
 You can also modify the easing function used at a given time:
 
