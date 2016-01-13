@@ -141,11 +141,15 @@ public let heightConstraint               = KeyPath<UIView, CGFloat>(keyPathable
 extension NSObject {
 	static func filteredObjectAndKeyPath<T: NSObject, U: Interpolable>(withObject object: T, andKeyPath keyPath: KeyPath<T, U>) -> (NSObject, String) {
 		if let view = object as? UIView, let superview = view.superview, let attribute = keyPath.keyPathable as? NSLayoutAttribute {
-			for constraint in superview.constraints where
-				(constraint.firstItem as? NSObject == view && constraint.firstAttribute == attribute) ||
-					(constraint.secondItem as? NSObject == view && constraint.secondAttribute == attribute) {
-						return (constraint, constant.keyPathable.stringify())
-			}
+            
+            let constrainedView = (attribute == .Width || attribute == .Height) ? view : superview
+            
+            for constraint in constrainedView.constraints where
+                !constraint.isKindOfClass(NSClassFromString("NSContentSizeLayoutConstraint")!) &&
+                ((constraint.firstItem as? NSObject == view && constraint.firstAttribute == attribute) ||
+                    (constraint.secondItem as? NSObject == view && constraint.secondAttribute == attribute)) {
+                        return (constraint, constant.keyPathable.stringify())
+            }
 		}
 
 		return (object, keyPath.keyPathable.stringify())

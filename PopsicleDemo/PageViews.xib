@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -14,21 +14,18 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to this demo of Popsicle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecS-oi-gEe">
                     <rect key="frame" x="171" y="549.5" width="259.5" height="20.5"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="6y5-6A-Jqb">
                     <rect key="frame" x="172" y="172" width="256" height="256"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="256" id="HP8-Kb-mIE"/>
                         <constraint firstAttribute="height" constant="256" id="xDP-1k-OEj"/>
                     </constraints>
                 </imageView>
             </subviews>
-            <animations/>
             <constraints>
                 <constraint firstItem="ecS-oi-gEe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="30" id="4JZ-tg-q2N"/>
                 <constraint firstAttribute="centerX" secondItem="ecS-oi-gEe" secondAttribute="centerX" id="LIr-Vw-5cn"/>
@@ -48,7 +45,6 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iib-Tg-Cyj">
                     <rect key="frame" x="44" y="179.5" width="512" height="81.5"/>
-                    <animations/>
                     <string key="text">That was smooth!
 
 As you can see, Popsicle provides a great way to create transitions through value interpolations.</string>
@@ -57,7 +53,6 @@ As you can see, Popsicle provides a great way to create transitions through valu
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <animations/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="iib-Tg-Cyj" secondAttribute="centerX" id="HG8-QR-See"/>
                 <constraint firstItem="iib-Tg-Cyj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I3K-66-IeR" secondAttribute="leading" constant="30" id="JPf-6l-Scg"/>
@@ -74,7 +69,6 @@ As you can see, Popsicle provides a great way to create transitions through valu
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijd-gD-Pdk">
                     <rect key="frame" x="36" y="239" width="528.5" height="61"/>
-                    <animations/>
                     <string key="text">Interpolations are not bound to UIKit values, although Popsicle offers built-in support for widely used types such CGFloat, CGAffineTransform and UIColor.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -87,7 +81,6 @@ As you can see, Popsicle provides a great way to create transitions through valu
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOi-JI-a0I">
                     <rect key="frame" x="30" y="350" width="540.5" height="41"/>
-                    <animations/>
                     <string key="text">In addition to that, Popsicle takes advantage of Swift's best features such as generics and subscripts, making it really sweet to use.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -99,7 +92,6 @@ As you can see, Popsicle provides a great way to create transitions through valu
                     </userDefinedRuntimeAttributes>
                 </label>
             </subviews>
-            <animations/>
             <constraints>
                 <constraint firstItem="yOi-JI-a0I" firstAttribute="top" secondItem="lSl-j6-h40" secondAttribute="centerY" constant="50" id="5xz-In-fDV"/>
                 <constraint firstItem="yOi-JI-a0I" firstAttribute="centerX" secondItem="lSl-j6-h40" secondAttribute="centerX" id="6Nq-hu-RdY"/>
@@ -120,13 +112,11 @@ As you can see, Popsicle provides a great way to create transitions through valu
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For requests, comments or concerns, just open a GitHub issue or ping me @DavdRoman." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nl-Ho-8yk">
                     <rect key="frame" x="31" y="280" width="538.5" height="41"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <animations/>
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="4nl-Ho-8yk" secondAttribute="centerX" id="I9N-AY-ig8"/>
                 <constraint firstAttribute="centerY" secondItem="4nl-Ho-8yk" secondAttribute="centerY" id="T0O-jF-phJ"/>
