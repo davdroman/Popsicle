@@ -24,8 +24,6 @@ public class Interpolator {
 			for interpolation in self.interpolations {
                 if let interpolation = interpolation as? Interpolation<CGFloat> {
                     if interpolation.keyPath == "constant" && (interpolation.object as? NSLayoutConstraint)?.firstAttribute == .Width {
-                        print((interpolation.object as? NSLayoutConstraint))
-                        print((interpolation.originalObject as? UIView)?.constraints)
                         //(interpolation.originalObject as? UIView)?.layoutIfNeeded()
                     }
                 }
