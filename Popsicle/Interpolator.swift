@@ -21,14 +21,7 @@ public class Interpolator {
 
 	public var time: Time = 0 {
 		didSet {
-			for interpolation in self.interpolations {
-                if let interpolation = interpolation as? Interpolation<CGFloat> {
-                    if interpolation.keyPath == "constant" && (interpolation.object as? NSLayoutConstraint)?.firstAttribute == .Width {
-                        //(interpolation.originalObject as? UIView)?.layoutIfNeeded()
-                    }
-                }
-				interpolation.setTime(self.time)
-			}
+            self.interpolations.forEach({ $0.setTime(self.time) })
 		}
 	}
 
