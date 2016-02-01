@@ -21,7 +21,7 @@ public class Interpolator {
 
 	public var time: Time = 0 {
 		didSet {
-            self.interpolations.forEach({ $0.setTime(self.time) })
+			self.interpolations.forEach { $0.setTime(self.time) }
 		}
 	}
 
