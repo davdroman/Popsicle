@@ -53,7 +53,7 @@ extension NSLayoutAttribute: KeyPathable {
 		case .CenterY:
 			type = "CenterY"
 
-		case .Baseline:
+		case .LastBaseline:
 			type = "Baseline"
 
 		case .FirstBaseline:
@@ -112,7 +112,7 @@ public let textColor                      = KeyPath<UIView, UIColor>(keyPathable
 public let tintColor                      = KeyPath<UIView, UIColor>(keyPathable: "tintColor")
 public let transform                      = KeyPath<UIView, CGAffineTransform>(keyPathable: "transform")
 
-public let baselineConstraint             = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.Baseline)
+public let baselineConstraint             = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.LastBaseline)
 public let firstBaselineConstraint        = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.FirstBaseline)
 
 public let topConstraint                  = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.Top)
