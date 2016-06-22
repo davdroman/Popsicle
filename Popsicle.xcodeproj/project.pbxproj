@@ -91,15 +91,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D516D8DF1D1A90910086E8E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D53E5FEB1BEA145F0043DF84 /* Assets.xcassets */,
+				D53E5FED1BEA145F0043DF84 /* LaunchScreen.storyboard */,
+				D53E5FF01BEA145F0043DF84 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D53E5FE31BEA145F0043DF84 /* PopsicleDemo */ = {
 			isa = PBXGroup;
 			children = (
 				D53E5FE41BEA145F0043DF84 /* AppDelegate.swift */,
 				D53E5FE61BEA145F0043DF84 /* ViewController.swift */,
 				D5F2E3E11BEB720B00008043 /* Page Scroll View */,
-				D53E5FEB1BEA145F0043DF84 /* Assets.xcassets */,
-				D53E5FED1BEA145F0043DF84 /* LaunchScreen.storyboard */,
-				D53E5FF01BEA145F0043DF84 /* Info.plist */,
+				D516D8DF1D1A90910086E8E6 /* Supporting Files */,
 			);
 			path = PopsicleDemo;
 			sourceTree = "<group>";
