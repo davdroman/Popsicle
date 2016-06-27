@@ -15,7 +15,7 @@ public class Interpolator {
 
 	public init() {}
 
-	public func addInterpolation<T: Interpolable>(interpolation: Interpolation<T>) {
+	public func addInterpolation<T: Interpolable>(_ interpolation: Interpolation<T>) {
 		self.interpolations.append(interpolation)
 	}
 
@@ -25,11 +25,11 @@ public class Interpolator {
 		}
 	}
 
-	public func removeInterpolation<T: Interpolable>(interpolation: Interpolation<T>) {
-		for (index, element) in self.interpolations.enumerate() {
+	public func removeInterpolation<T: Interpolable>(_ interpolation: Interpolation<T>) {
+		for (index, element) in self.interpolations.enumerated() {
 			if let interpolation = element as? Interpolation<T> {
 				if interpolation == interpolation {
-					self.interpolations.removeAtIndex(index)
+					self.interpolations.remove(at: index)
 				}
 			}
 		}
@@ -37,10 +37,10 @@ public class Interpolator {
 
 	/// Removes all interpolations containing the specified object.
 	public func removeInterpolations(forObject object: NSObject) {
-		for (index, element) in self.interpolations.enumerate() {
+		for (index, element) in self.interpolations.enumerated() {
 			if let interpolation = element as? ObjectReferable {
 				if interpolation.objectReference == object {
-					self.interpolations.removeAtIndex(index)
+					self.interpolations.remove(at: index)
 					self.removeInterpolations(forObject: object) // Recursivity FTW
 					return
 				}

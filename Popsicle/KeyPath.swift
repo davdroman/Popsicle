@@ -23,67 +23,67 @@ extension NSLayoutAttribute: KeyPathable {
 		var type = "UnknownAttribute"
 
 		switch(self) {
-		case .Left:
+		case .left:
 			type = "Left"
 
-		case .Right:
+		case .right:
 			type = "Right"
 
-		case .Top:
+		case .top:
 			type = "Top"
 
-		case .Bottom:
+		case .bottom:
 			type = "Bottom"
 
-		case .Leading:
+		case .leading:
 			type = "Leading"
 
-		case .Trailing:
+		case .trailing:
 			type = "Trailing"
 
-		case .Width:
+		case .width:
 			type = "Width"
 
-		case .Height:
+		case .height:
 			type = "Height"
 
-		case .CenterX:
+		case .centerX:
 			type = "CenterX"
 
-		case .CenterY:
+		case .centerY:
 			type = "CenterY"
 
-		case .LastBaseline:
+		case .lastBaseline:
 			type = "Baseline"
 
-		case .FirstBaseline:
+		case .firstBaseline:
 			type = "FirstBaseline"
 
-		case .LeftMargin:
+		case .leftMargin:
 			type = "LeftMargin"
 
-		case .RightMargin:
+		case .rightMargin:
 			type = "RightMargin"
 
-		case .TopMargin:
+		case .topMargin:
 			type = "TopMargin"
 
-		case .BottomMargin:
+		case .bottomMargin:
 			type = "BottomMargin"
 
-		case .LeadingMargin:
+		case .leadingMargin:
 			type = "LeadingMargin"
 
-		case .TrailingMargin:
+		case .trailingMargin:
 			type = "TrailingMargin"
 
-		case .CenterXWithinMargins:
+		case .centerXWithinMargins:
 			type = "CenterXWithinMargins"
 
-		case .CenterYWithinMargins:
+		case .centerYWithinMargins:
 			type = "CenterYWithinMargins"
 
-		case .NotAnAttribute:
+		case .notAnAttribute:
 			type = "NotAnAttribute"
 		}
 
@@ -112,40 +112,40 @@ public let textColor                      = KeyPath<UIView, UIColor>(keyPathable
 public let tintColor                      = KeyPath<UIView, UIColor>(keyPathable: "tintColor")
 public let transform                      = KeyPath<UIView, CGAffineTransform>(keyPathable: "transform")
 
-public let baselineConstraint             = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.LastBaseline)
-public let firstBaselineConstraint        = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.FirstBaseline)
+public let baselineConstraint             = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.lastBaseline)
+public let firstBaselineConstraint        = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.firstBaseline)
 
-public let topConstraint                  = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.Top)
-public let leftConstraint                 = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.Left)
-public let rightConstraint                = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.Right)
-public let bottomConstraint               = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.Bottom)
-public let leadingConstraint              = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.Leading)
-public let trailingConstraint             = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.Trailing)
+public let topConstraint                  = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.top)
+public let leftConstraint                 = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.left)
+public let rightConstraint                = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.right)
+public let bottomConstraint               = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.bottom)
+public let leadingConstraint              = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.leading)
+public let trailingConstraint             = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.trailing)
 
-public let leftMarginConstraint           = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.LeftMargin)
-public let rightMarginConstraint          = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.RightMargin)
-public let topMarginConstraint            = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.TopMargin)
-public let bottomMarginConstraint         = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.BottomMargin)
-public let leadingMarginConstraint        = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.LeadingMargin)
-public let trailingMarginConstraint       = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.TrailingMargin)
+public let leftMarginConstraint           = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.leftMargin)
+public let rightMarginConstraint          = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.rightMargin)
+public let topMarginConstraint            = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.topMargin)
+public let bottomMarginConstraint         = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.bottomMargin)
+public let leadingMarginConstraint        = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.leadingMargin)
+public let trailingMarginConstraint       = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.trailingMargin)
 
-public let centerXConstraint              = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.CenterX)
-public let centerYConstraint              = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.CenterY)
+public let centerXConstraint              = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.centerX)
+public let centerYConstraint              = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.centerY)
 
-public let centerXWithinMarginsConstraint = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.CenterXWithinMargins)
-public let centerYWithinMarginsConstraint = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.CenterYWithinMargins)
+public let centerXWithinMarginsConstraint = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.centerXWithinMargins)
+public let centerYWithinMarginsConstraint = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.centerYWithinMargins)
 
-public let widthConstraint                = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.Width)
-public let heightConstraint               = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.Height)
+public let widthConstraint                = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.width)
+public let heightConstraint               = KeyPath<UIView, CGFloat>(keyPathable: NSLayoutAttribute.height)
 
 extension NSObject {
 	static func filteredObjectAndKeyPath<T: NSObject, U: Interpolable>(withObject object: T, andKeyPath keyPath: KeyPath<T, U>) -> (NSObject, String) {
 		if let view = object as? UIView, let superview = view.superview, let attribute = keyPath.keyPathable as? NSLayoutAttribute {
             
-            let constrainedView = (attribute == .Width || attribute == .Height) ? view : superview
+            let constrainedView = (attribute == .width || attribute == .height) ? view : superview
             
             for constraint in constrainedView.constraints where
-                !constraint.isKindOfClass(NSClassFromString("NSContentSizeLayoutConstraint")!) &&
+                !constraint.isKind(of: NSClassFromString("NSContentSizeLayoutConstraint")!) &&
                 ((constraint.firstItem as? NSObject == view && constraint.firstAttribute == attribute) ||
                     (constraint.secondItem as? NSObject == view && constraint.secondAttribute == attribute)) {
                         return (constraint, constant.keyPathable.stringify())

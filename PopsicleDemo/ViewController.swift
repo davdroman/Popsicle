@@ -15,7 +15,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 	let interpolator: Interpolator
 
 	init() {
-		self.pageScrollView = PageScrollView(frame: CGRectZero)
+		self.pageScrollView = PageScrollView(frame: .zero)
 		self.interpolator = Interpolator()
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -28,7 +28,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 		super.viewDidLoad()
 
 		self.title = "Popsicle"
-		self.view.backgroundColor = UIColor.whiteColor()
+		self.view.backgroundColor = UIColor.white()
 
 		self.pageScrollView.delegate = self
 		self.view.addSubview(self.pageScrollView)
@@ -41,13 +41,13 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 		self.interpolator.removeAllInterpolations()
 
 		let backgroundColorInterpolation = Interpolation(self.view, backgroundColor)
-		backgroundColorInterpolation[1, 3] = UIColor.whiteColor()
+		backgroundColorInterpolation[1, 3] = UIColor.white()
 		backgroundColorInterpolation[1.7, 2] = UIColor(red: 254/255, green: 134/255, blue: 44/255, alpha: 1)
 		self.interpolator.addInterpolation(backgroundColorInterpolation)
 
 		let barTintColorInterpolation = Interpolation(self.navigationController!.navigationBar, barTintColor)
-		barTintColorInterpolation[1, 3] = UIColor.whiteColor()
-		barTintColorInterpolation[1.7, 2] = UIColor(red: 244255, green: 219/255, blue: 165/255, alpha: 1)
+		barTintColorInterpolation[1, 3] = UIColor.white()
+		barTintColorInterpolation[1.7, 2] = UIColor(red: 244/255, green: 219/255, blue: 165/255, alpha: 1)
 		self.interpolator.addInterpolation(barTintColorInterpolation)
 
 		if let imageView = self.pageScrollView.firstPageView.imageView {
@@ -72,7 +72,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 			self.interpolator.addInterpolation(alphaInterpolation)
 
 			let transformInterpolation = Interpolation(imageView, transform)
-			transformInterpolation[0, 1, 2] = CGAffineTransformIdentity
+			transformInterpolation[0, 1, 2] = CGAffineTransform.identity
 			transformInterpolation[0.25] = CGAffineTransformMake(0, 0, 1.1, 1.1, 0)
 			transformInterpolation[3] = CGAffineTransformMake(0, 0, 1.4, 1.4, 60)
 			self.interpolator.addInterpolation(transformInterpolation)
@@ -100,19 +100,19 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 		if let label3 = self.pageScrollView.thirdPageView.label1, let label4 = self.pageScrollView.thirdPageView.label2 {
 			let translateInterpolation1 = Interpolation(label3, transform)
 			translateInterpolation1[1] = CGAffineTransformMake(100, 0, 1, 1, 0)
-			translateInterpolation1[2] = CGAffineTransformIdentity
+			translateInterpolation1[2] = CGAffineTransform.identity
 			translateInterpolation1[3] = CGAffineTransformMake(-100, 0, 1, 1, 0)
 			self.interpolator.addInterpolation(translateInterpolation1)
 
 			let translateInterpolation2 = Interpolation(label4, transform)
 			translateInterpolation2[1] = CGAffineTransformMake(300, 0, 1, 1, 0)
-			translateInterpolation2[2] = CGAffineTransformIdentity
+			translateInterpolation2[2] = CGAffineTransform.identity
 			translateInterpolation2[3] = CGAffineTransformMake(-300, 0, 1, 1, 0)
 			self.interpolator.addInterpolation(translateInterpolation2)
 		}
 	}
 
-	func scrollViewDidScroll(scrollView: UIScrollView) {
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		self.interpolator.time = Double(scrollView.contentOffset.x/scrollView.frame.size.width)
 	}
 }

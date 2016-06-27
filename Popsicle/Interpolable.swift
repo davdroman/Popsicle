@@ -13,13 +13,13 @@ public typealias Progress = Double
 ///
 /// Types conforming to this protocol are available to use as a `Interpolation` generic type.
 public protocol Interpolable {
-	typealias ValueType
+	associatedtype ValueType
 
 	/// Defines how an interpolation should be performed between two given values of the type conforming to this protocol.
 	static func interpolate(from fromValue: ValueType, to toValue: ValueType, withProgress: Progress) -> ValueType
 
 	/// Converts a value to a valid `Foundation` object, if necessary.
-	static func objectify(value: ValueType) -> AnyObject
+	static func objectify(_ value: ValueType) -> AnyObject
 }
 
 extension Bool: Interpolable {
@@ -27,8 +27,8 @@ extension Bool: Interpolable {
 		return progress >= 0.5 ? toValue : fromValue
 	}
 
-	public static func objectify(value: Bool) -> AnyObject {
-		return NSNumber(bool: value)
+	public static func objectify(_ value: Bool) -> AnyObject {
+		return NSNumber(value: value)
 	}
 }
 
@@ -37,8 +37,8 @@ extension CGFloat: Interpolable {
 		return fromValue+(toValue-fromValue)*CGFloat(progress)
 	}
 
-	public static func objectify(value: CGFloat) -> AnyObject {
-		return NSNumber(double: Double(value))
+	public static func objectify(_ value: CGFloat) -> AnyObject {
+		return NSNumber(value: Double(value))
 	}
 }
 
@@ -47,11 +47,11 @@ extension CGPoint: Interpolable {
 		let x = CGFloat.interpolate(from: fromValue.x, to: toValue.x, withProgress: progress)
 		let y = CGFloat.interpolate(from: fromValue.y, to: toValue.y, withProgress: progress)
 
-		return CGPointMake(x, y)
+		return CGPoint(x: x, y: y)
 	}
 
-	public static func objectify(value: CGPoint) -> AnyObject {
-		return NSValue(CGPoint: value)
+	public static func objectify(_ value: CGPoint) -> AnyObject {
+		return NSValue(cgPoint: value)
 	}
 }
 
@@ -60,11 +60,11 @@ extension CGSize: Interpolable {
 		let width = CGFloat.interpolate(from: fromValue.width, to: toValue.width, withProgress: progress)
 		let height = CGFloat.interpolate(from: fromValue.height, to: toValue.height, withProgress: progress)
 
-		return CGSizeMake(width, height)
+		return CGSize(width: width, height: height)
 	}
 
-	public static func objectify(value: CGSize) -> AnyObject {
-		return NSValue(CGSize: value)
+	public static func objectify(_ value: CGSize) -> AnyObject {
+		return NSValue(cgSize: value)
 	}
 }
 
@@ -73,11 +73,11 @@ extension CGRect: Interpolable {
 		let origin = CGPoint.interpolate(from: fromValue.origin, to: toValue.origin, withProgress: progress)
 		let size = CGSize.interpolate(from: fromValue.size, to: toValue.size, withProgress: progress)
 
-		return CGRectMake(origin.x, origin.y, size.width, size.height)
+		return CGRect(x: origin.x, y: origin.y, width: size.width, height: size.height)
 	}
 
-	public static func objectify(value: CGRect) -> AnyObject {
-		return NSValue(CGRect: value)
+	public static func objectify(_ value: CGRect) -> AnyObject {
+		return NSValue(cgRect: value)
 	}
 }
 
@@ -106,8 +106,8 @@ extension CGAffineTransform: Interpolable {
 		return CGAffineTransformMake(tx, ty, sx, sy, deg)
 	}
 
-	public static func objectify(value: CGAffineTransform) -> AnyObject {
-		return NSValue(CGAffineTransform: value)
+	public static func objectify(_ value: CGAffineTransform) -> AnyObject {
+		return NSValue(cgAffineTransform: value)
 	}
 }
 
@@ -118,19 +118,19 @@ extension CGAffineTransform: Interpolable {
 /// - parameter sx:  scale factor for width.
 /// - parameter sy:  scale factor for height.
 /// - parameter deg: degrees.
-public func CGAffineTransformMake(tx: CGFloat, _ ty: CGFloat, _ sx: CGFloat, _ sy: CGFloat, _ deg: CGFloat) -> CGAffineTransform {
-	let translationTransform = CGAffineTransformMakeTranslation(tx, ty)
-	let scaleTransform = CGAffineTransformMakeScale(sx, sy)
-	let rotationTransform = CGAffineTransformMakeRotation(deg*CGFloat(M_PI_2)/180)
+public func CGAffineTransformMake(_ tx: CGFloat, _ ty: CGFloat, _ sx: CGFloat, _ sy: CGFloat, _ deg: CGFloat) -> CGAffineTransform {
+	let translationTransform = CGAffineTransform(translationX: tx, y: ty)
+	let scaleTransform = CGAffineTransform(scaleX: sx, y: sy)
+	let rotationTransform = CGAffineTransform(rotationAngle: deg*CGFloat(M_PI_2)/180)
 
-	return CGAffineTransformConcat(CGAffineTransformConcat(translationTransform, scaleTransform), rotationTransform)
+	return translationTransform.concat(scaleTransform).concat(rotationTransform)
 }
 
-func CGAffineTransformGetTranslationX(t: CGAffineTransform) -> CGFloat { return t.tx }
-func CGAffineTransformGetTranslationY(t: CGAffineTransform) -> CGFloat { return t.ty }
-func CGAffineTransformGetScaleX(t: CGAffineTransform) -> CGFloat { return sqrt(t.a * t.a + t.c * t.c) }
-func CGAffineTransformGetScaleY(t: CGAffineTransform) -> CGFloat { return sqrt(t.b * t.b + t.d * t.d) }
-func CGAffineTransformGetRotation(t: CGAffineTransform) -> CGFloat { return (atan2(t.b, t.a)*180)/CGFloat(M_PI_2) }
+func CGAffineTransformGetTranslationX(_ t: CGAffineTransform) -> CGFloat { return t.tx }
+func CGAffineTransformGetTranslationY(_ t: CGAffineTransform) -> CGFloat { return t.ty }
+func CGAffineTransformGetScaleX(_ t: CGAffineTransform) -> CGFloat { return sqrt(t.a * t.a + t.c * t.c) }
+func CGAffineTransformGetScaleY(_ t: CGAffineTransform) -> CGFloat { return sqrt(t.b * t.b + t.d * t.d) }
+func CGAffineTransformGetRotation(_ t: CGAffineTransform) -> CGFloat { return (atan2(t.b, t.a)*180)/CGFloat(M_PI_2) }
 
 extension UIColor: Interpolable {
 	public static func interpolate(from fromValue: UIColor, to toValue: UIColor, withProgress progress: Progress) -> UIColor {
@@ -155,7 +155,7 @@ extension UIColor: Interpolable {
 		return UIColor(red: red, green: green, blue: blue, alpha: alpha)
 	}
 
-	public static func objectify(value: UIColor) -> AnyObject {
+	public static func objectify(_ value: UIColor) -> AnyObject {
 		return value
 	}
 }

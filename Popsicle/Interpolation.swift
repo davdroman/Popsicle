@@ -11,7 +11,7 @@ protocol ObjectReferable {
 }
 
 protocol Timeable {
-	func setTime(time: Time)
+	func setTime(_ time: Time)
 }
 
 /// `Interpolation` defines an interpolation which changes some `NSObject` value given by a key path.
@@ -29,7 +29,7 @@ public class Interpolation<T: Interpolable> : Equatable, ObjectReferable, Timeab
 		self.originalObject = object
 		(self.object, self.keyPath) = NSObject.filteredObjectAndKeyPath(withObject: object, andKeyPath: keyPath)
 
-		if !self.object.respondsToSelector(NSSelectorFromString(self.keyPath)) {
+		if !self.object.responds(to: NSSelectorFromString(self.keyPath)) {
 			assertionFailure("Please make sure the key path \"" + self.keyPath + "\" you're referring to for an object of type <" + NSStringFromClass(self.object.dynamicType) + "> is invalid")
 		}
 	}
@@ -43,7 +43,7 @@ public class Interpolation<T: Interpolable> : Equatable, ObjectReferable, Timeab
 	///
 	/// - parameter easingFunction: the easing function to use.
 	/// - parameter time:           the time where the easing function should be used.
-	public func setEasingFunction(easingFunction: EasingFunction, forTime time: Time) {
+	public func setEasingFunction(_ easingFunction: EasingFunction, forTime time: Time) {
 		self.poles[time]?.1 = easingFunction
 	}
 
@@ -52,7 +52,7 @@ public class Interpolation<T: Interpolable> : Equatable, ObjectReferable, Timeab
 			assert(poles.count >= 2, "You must specify at least 2 poles for an interpolation to be performed")
 			if let existingPole = poles[time1] {
 				return existingPole.0
-			} else if let timeInterval = poles.keys.sort().elementsAround(time1) {
+			} else if let timeInterval = poles.keys.sorted().elementsAround(time1) {
 
 				guard let fromTime = timeInterval.0 else {
 					return poles[timeInterval.1!]!.0
@@ -72,19 +72,19 @@ public class Interpolation<T: Interpolable> : Equatable, ObjectReferable, Timeab
 
 		set {
 			var times = [time1]
-			times.appendContentsOf(rest)
+			times.append(contentsOf: rest)
 			for time in times {
 				poles[time] = (newValue!, EasingFunctionLinear)
 			}
 		}
 	}
 
-	func progress(fromTime: Time, _ toTime: Time, _ currentTime: Time) -> Progress {
+	func progress(_ fromTime: Time, _ toTime: Time, _ currentTime: Time) -> Progress {
 		let p = (currentTime-fromTime)/(toTime-fromTime)
 		return min(1, max(0, p))
 	}
 
-	func setTime(time: Time) {
+	func setTime(_ time: Time) {
 		self.object.setValue(T.objectify(self[time]!), forKeyPath: self.keyPath)
 	}
 }
@@ -98,7 +98,7 @@ extension Array where Element: Comparable {
 		if self.count >= 2 {
 			var elementPairs: [(Element, Element)] = []
 
-			for (i, e) in self.sort().enumerate() {
+			for (i, e) in self.sorted().enumerated() {
 				if i+1 < self.count {
 					elementPairs.append((e, self[i+1]))
 				}
@@ -110,7 +110,7 @@ extension Array where Element: Comparable {
 		return nil
 	}
 
-	func elementsAround(element: Element) -> (Element?, Element?)? {
+	func elementsAround(_ element: Element) -> (Element?, Element?)? {
 		if let pairs = self.elementPairs() {
 
 			let minElement = pairs.first!.0

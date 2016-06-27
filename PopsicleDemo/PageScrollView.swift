@@ -48,8 +48,8 @@ class PageScrollView: DRPageScrollView {
 	override func didMoveToSuperview() {
 		if self.superview != nil {
 			for pv in [firstPageView, secondPageView, thirdPageView, fourthPageView] {
-				self.addPageWithHandler { pageView in
-					pageView.addSubview(pv)
+				self.addPage { pageView in
+					pageView?.addSubview(pv)
 					pv.pinToSuperviewEdges()
 				}
 			}
