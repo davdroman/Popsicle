@@ -1,60 +1,67 @@
 //
 //  EasingFunction.swift
-//  RazzleDazzle
+//  Popsicle
 //
-//  Created by Laura Skelton on 6/15/15.
-//  Copyright (c) 2015 IFTTT. All rights reserved.
+//  Created by David Román Aguirre on 06/15/15.
+//  Copyright © 2015 David Román Aguirre. All rights reserved.
 //
 
-// Ported to Swift from Robert Böhnke's RBBAnimation, original available here:
-// <https://github.com/robb/RBBAnimation/blob/a29cafe2fa91e62573cc9967990b0ad2a6b17a76/RBBAnimation/RBBEasingFunction.m>
-
+/// Easing function that takes a `Progress` and returns a `Progress`.
 public typealias EasingFunction = (Progress) -> (Progress)
 
-public let EasingFunctionLinear: EasingFunction = { t in
+/// Simple linear tweening function — no easing, no acceleration.
+public let linearEasingFunction: EasingFunction = { t in
 	return t
 }
 
-public let EasingFunctionEaseInQuad: EasingFunction = { t in
+/// Quadratic easing in function — accelerating from zero velocity.
+public let easeInQuadEasingFunction: EasingFunction = { t in
 	return t * t
 }
 
-public let EasingFunctionEaseOutQuad: EasingFunction = { t in
+/// Quadratic easing out function — decelerating to zero velocity.
+public let easeOutQuadEasingFunction: EasingFunction = { t in
 	return t * (2 - t)
 }
 
-public let EasingFunctionEaseInOutQuad: EasingFunction = { t in
-	if (t < 0.5) { return 2 * t * t }
+/// Quadratic easing in/out function — acceleration until halfway, then deceleration.
+public let easeInOutQuadEasingFunction: EasingFunction = { t in
+	if t < 0.5 { return 2 * t * t }
 	return -1 + ((4 - (2 * t)) * t)
 }
 
-public let EasingFunctionEaseInCubic: EasingFunction = { t in
+/// Cubic easing in function — accelerating from zero velocity.
+public let easeInCubicEasingFunction: EasingFunction = { t in
 	return t * t * t
 }
 
-public let EasingFunctionEaseOutCubic: EasingFunction = { t in
+/// Cubic easing out function — decelerating to zero velocity.
+public let easeOutCubicEasingFunction: EasingFunction = { t in
 	return pow(t - 1, 3) + 1
 }
 
-public let EasingFunctionEaseInOutCubic: EasingFunction = { t in
-	if (t < 0.5) { return 4 * pow(t, 3) }
+/// Cubic easing in/out function — acceleration until halfway, then deceleration
+public let easeInOutCubicEasingFunction: EasingFunction = { t in
+	if t < 0.5 { return 4 * pow(t, 3) }
 	return ((t - 1) * pow((2 * t) - 2, 2)) + 1
 }
 
-public let EasingFunctionEaseInBounce: EasingFunction = { t in
-	return 1 - EasingFunctionEaseOutBounce(1 - t)
+/// Bounce easing in function — exponentially incresing bounce.
+public let easeInBounceEasingFunction: EasingFunction = { t in
+	return 1 - easeOutBounceEasingFunction(1 - t)
 }
 
-public let EasingFunctionEaseOutBounce: EasingFunction = { t in
-	if (t < (4.0 / 11.0)) {
+/// Bounce easing out function — exponentially decreasing bounce.
+public let easeOutBounceEasingFunction: EasingFunction = { t in
+	if t < (4.0 / 11.0) {
 		return pow((11.0 / 4.0), 2) * pow(t, 2)
 	}
 
-	if (t < (8.0 / 11.0)) {
+	if t < (8.0 / 11.0) {
 		return (3.0 / 4.0) + (pow((11.0 / 4.0), 2) * pow(t - (6.0 / 11.0), 2))
 	}
 
-	if (t < (10.0 / 11.0)) {
+	if t < (10.0 / 11.0) {
 		return (15.0 / 16.0) + (pow((11.0 / 4.0), 2) * pow(t - (9.0 / 11.0), 2))
 	}
 
