@@ -21,12 +21,20 @@
 		D53E60051BEA67790043DF84 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E60041BEA67790043DF84 /* UIView+Utils.swift */; };
 		D593A8DD1BEA72E500AFA257 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
 		D593A8DE1BEA72E500AFA257 /* Popsicle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D59650441D24380D00BEC4E7 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
 		D5D6A94C1BEBB85A008E414E /* KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D593A8E41BEA88B600AFA257 /* KeyPath.swift */; };
 		D5FBF53E1BE65BB500F3CB79 /* Popsicle.h in Headers */ = {isa = PBXBuildFile; fileRef = D5FBF53D1BE65BB500F3CB79 /* Popsicle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		D593A8DF1BEA72E500AFA257 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D5FBF5311BE65BB500F3CB79 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D5FBF5391BE65BB500F3CB79;
+			remoteInfo = Popsicle;
+		};
+		D59650451D24380D00BEC4E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D5FBF5311BE65BB500F3CB79 /* Project object */;
 			proxyType = 1;
@@ -67,6 +75,8 @@
 		D53E5FFF1BEA199C0043DF84 /* PageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageScrollView.swift; sourceTree = "<group>"; };
 		D53E60041BEA67790043DF84 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		D593A8E41BEA88B600AFA257 /* KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPath.swift; sourceTree = "<group>"; };
+		D596503F1D24380D00BEC4E7 /* PopsicleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopsicleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D59650431D24380D00BEC4E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Popsicle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FBF53D1BE65BB500F3CB79 /* Popsicle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Popsicle.h; sourceTree = "<group>"; };
 		D5FBF53F1BE65BB500F3CB79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +88,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D593A8DD1BEA72E500AFA257 /* Popsicle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D596503C1D24380D00BEC4E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D59650441D24380D00BEC4E7 /* Popsicle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +130,14 @@
 			path = PopsicleDemo;
 			sourceTree = "<group>";
 		};
+		D59650401D24380D00BEC4E7 /* PopsicleTests */ = {
+			isa = PBXGroup;
+			children = (
+				D59650431D24380D00BEC4E7 /* Info.plist */,
+			);
+			path = PopsicleTests;
+			sourceTree = "<group>";
+		};
 		D5F2E3E11BEB720B00008043 /* Page Scroll View */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +156,7 @@
 			children = (
 				D53E5FE31BEA145F0043DF84 /* PopsicleDemo */,
 				D5FBF53C1BE65BB500F3CB79 /* Popsicle */,
+				D59650401D24380D00BEC4E7 /* PopsicleTests */,
 				D5FBF53B1BE65BB500F3CB79 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -139,6 +166,7 @@
 			children = (
 				D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */,
 				D53E5FE21BEA145F0043DF84 /* PopsicleDemo.app */,
+				D596503F1D24380D00BEC4E7 /* PopsicleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -190,6 +218,24 @@
 			productReference = D53E5FE21BEA145F0043DF84 /* PopsicleDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D596503E1D24380D00BEC4E7 /* PopsicleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D59650491D24380D00BEC4E7 /* Build configuration list for PBXNativeTarget "PopsicleTests" */;
+			buildPhases = (
+				D596503B1D24380D00BEC4E7 /* Sources */,
+				D596503C1D24380D00BEC4E7 /* Frameworks */,
+				D596503D1D24380D00BEC4E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D59650461D24380D00BEC4E7 /* PBXTargetDependency */,
+			);
+			name = PopsicleTests;
+			productName = PopsicleTests;
+			productReference = D596503F1D24380D00BEC4E7 /* PopsicleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D5FBF5391BE65BB500F3CB79 /* Popsicle */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5FBF54E1BE65BB600F3CB79 /* Build configuration list for PBXNativeTarget "Popsicle" */;
@@ -214,13 +260,17 @@
 		D5FBF5311BE65BB500F3CB79 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "David Román Aguirre";
 				TargetAttributes = {
 					D53E5FE11BEA145F0043DF84 = {
 						CreatedOnToolsVersion = 7.1;
 						LastSwiftMigration = 0800;
+					};
+					D596503E1D24380D00BEC4E7 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
 					};
 					D5FBF5391BE65BB500F3CB79 = {
 						CreatedOnToolsVersion = 7.1;
@@ -243,6 +293,7 @@
 			targets = (
 				D53E5FE11BEA145F0043DF84 /* PopsicleDemo */,
 				D5FBF5391BE65BB500F3CB79 /* Popsicle */,
+				D596503E1D24380D00BEC4E7 /* PopsicleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -255,6 +306,13 @@
 				D53E5FEF1BEA145F0043DF84 /* LaunchScreen.storyboard in Resources */,
 				D53E5FEC1BEA145F0043DF84 /* Assets.xcassets in Resources */,
 				D53E5FF71BEA16D70043DF84 /* PageViews.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D596503D1D24380D00BEC4E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +338,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D596503B1D24380D00BEC4E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5FBF5351BE65BB500F3CB79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -300,6 +365,11 @@
 			target = D5FBF5391BE65BB500F3CB79 /* Popsicle */;
 			targetProxy = D593A8DF1BEA72E500AFA257 /* PBXContainerItemProxy */;
 		};
+		D59650461D24380D00BEC4E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5FBF5391BE65BB500F3CB79 /* Popsicle */;
+			targetProxy = D59650451D24380D00BEC4E7 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -317,9 +387,9 @@
 		D53E5FF21BEA145F0043DF84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = PopsicleDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleDemo;
@@ -333,14 +403,47 @@
 		D53E5FF31BEA145F0043DF84 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = PopsicleDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PopsicleDemo/PopsicleDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		D59650471D24380D00BEC4E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = PopsicleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D59650481D24380D00BEC4E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = PopsicleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -467,6 +570,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.Popsicle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -479,6 +583,15 @@
 			buildConfigurations = (
 				D53E5FF21BEA145F0043DF84 /* Debug */,
 				D53E5FF31BEA145F0043DF84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D59650491D24380D00BEC4E7 /* Build configuration list for PBXNativeTarget "PopsicleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D59650471D24380D00BEC4E7 /* Debug */,
+				D59650481D24380D00BEC4E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
