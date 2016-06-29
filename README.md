@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="Assets/header.png" alt="Popsicle header" width="520px" />
+	<img src="https://www.dropbox.com/s/26i17fvh2ersrcs/header.png?raw=1" alt="Popsicle header" width="520px" />
 </p>
 
 <p align="center">
@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-	<img src="Assets/1.gif" alt="GIF 1" width="320px" />
+	<img src="https://www.dropbox.com/s/fgonke0ro98o1ge/1.gif?raw=1" alt="GIF 1" width="320px" />
 </p>
 
 Popsicle is a Swift framework for creating and managing interpolations of different value types with built-in UIKit support.
