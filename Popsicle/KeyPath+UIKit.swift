@@ -1,5 +1,5 @@
 //
-//  UIKit+KeyPath.swift
+//  KeyPath+UIKit.swift
 //  Popsicle
 //
 //  Created by David Román Aguirre on 30/06/16.
