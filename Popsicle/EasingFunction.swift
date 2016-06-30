@@ -7,7 +7,7 @@
 //
 
 /// Easing function that takes a `Progress` and returns a `Progress`.
-public typealias EasingFunction = (Progress) -> (Progress)
+public typealias EasingFunction = (Time) -> (Time)
 
 /// Simple linear tweening function — no easing, no acceleration.
 public let linearEasingFunction: EasingFunction = { t in
