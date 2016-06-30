@@ -19,6 +19,7 @@
 		D53E60011BEA203B0043DF84 /* PageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FFF1BEA199C0043DF84 /* PageScrollView.swift */; };
 		D53E60021BEA227D0043DF84 /* DRPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FFA1BEA18140043DF84 /* DRPageScrollView.m */; };
 		D53E60051BEA67790043DF84 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E60041BEA67790043DF84 /* UIView+Utils.swift */; };
+		D57975681D25A4A200AD3901 /* UIKit+Interpolable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57975671D25A4A200AD3901 /* UIKit+Interpolable.swift */; };
 		D593A8DD1BEA72E500AFA257 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
 		D593A8DE1BEA72E500AFA257 /* Popsicle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D59650441D24380D00BEC4E7 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
@@ -74,6 +75,7 @@
 		D53E5FFA1BEA18140043DF84 /* DRPageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRPageScrollView.m; sourceTree = "<group>"; };
 		D53E5FFF1BEA199C0043DF84 /* PageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageScrollView.swift; sourceTree = "<group>"; };
 		D53E60041BEA67790043DF84 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		D57975671D25A4A200AD3901 /* UIKit+Interpolable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit+Interpolable.swift"; sourceTree = "<group>"; };
 		D593A8E41BEA88B600AFA257 /* KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPath.swift; sourceTree = "<group>"; };
 		D596503F1D24380D00BEC4E7 /* PopsicleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopsicleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D59650431D24380D00BEC4E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				D53E5FDC1BEA13900043DF84 /* Interpolator.swift */,
 				D53E5FDA1BEA13600043DF84 /* Interpolation.swift */,
 				D53B324B1BE65FF800A1820B /* Interpolable.swift */,
+				D57975671D25A4A200AD3901 /* UIKit+Interpolable.swift */,
 				D53E5FD81BEA12340043DF84 /* EasingFunction.swift */,
 				D593A8E41BEA88B600AFA257 /* KeyPath.swift */,
 				D5FBF53F1BE65BB500F3CB79 /* Info.plist */,
@@ -383,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D53E5FDD1BEA13900043DF84 /* Interpolator.swift in Sources */,
+				D57975681D25A4A200AD3901 /* UIKit+Interpolable.swift in Sources */,
 				D5D6A94C1BEBB85A008E414E /* KeyPath.swift in Sources */,
 				D53E5FD91BEA12340043DF84 /* EasingFunction.swift in Sources */,
 				D53B324C1BE65FF800A1820B /* Interpolable.swift in Sources */,
