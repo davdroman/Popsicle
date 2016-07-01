@@ -138,6 +138,14 @@
 			path = PopsicleDemo;
 			sourceTree = "<group>";
 		};
+		D579756F1D25CC4900AD3901 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D5FBF53F1BE65BB500F3CB79 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		D59650401D24380D00BEC4E7 /* PopsicleTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,11 +196,11 @@
 				D53B324B1BE65FF800A1820B /* Interpolable.swift */,
 				D57975671D25A4A200AD3901 /* Interpolable+UIKit.swift */,
 				D53E5FD81BEA12340043DF84 /* EasingFunction.swift */,
-				D593A8E41BEA88B600AFA257 /* KeyPath.swift */,
-				D57975691D25C4EB00AD3901 /* KeyPath+UIKit.swift */,
 				D579756B1D25C70000AD3901 /* KeyPathRepresentable.swift */,
 				D579756D1D25C72A00AD3901 /* KeyPathRepresentable+UIKit.swift */,
-				D5FBF53F1BE65BB500F3CB79 /* Info.plist */,
+				D593A8E41BEA88B600AFA257 /* KeyPath.swift */,
+				D57975691D25C4EB00AD3901 /* KeyPath+UIKit.swift */,
+				D579756F1D25CC4900AD3901 /* Supporting Files */,
 			);
 			path = Popsicle;
 			sourceTree = "<group>";
