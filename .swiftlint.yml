@@ -1,8 +1,5 @@
-disabled_rules:
-    - valid_docs
 opt_in_rules:
     - empty_count
-    - missing_docs
 included:
     - Popsicle
     - PopsicleDemo
