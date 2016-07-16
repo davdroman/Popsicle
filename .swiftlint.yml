@@ -41,5 +41,6 @@ variable_name:
     excluded:
         - lhs
         - rhs
+        - at
 
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle)
