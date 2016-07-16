@@ -23,7 +23,7 @@ extension Bool: Interpolable {
 
 extension Int: Interpolable {
 	public static func interpolate(from fromValue: Int, to toValue: Int, at time: Time) -> Int {
-		return fromValue + (toValue-fromValue) * Int(time)
+		return Int(Double(fromValue) + Double(toValue-fromValue) * time)
 	}
 }
 
