@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D53B324C1BE65FF800A1820B /* Interpolable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B324B1BE65FF800A1820B /* Interpolable.swift */; };
+		D5175C461D36AAD900C7D0FE /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
+		D5175C511D36B61100C7D0FE /* Interpolable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B324B1BE65FF800A1820B /* Interpolable.swift */; };
+		D5175C531D36B64400C7D0FE /* EasingFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5175C521D36B64400C7D0FE /* EasingFunctionTests.swift */; };
 		D53E5FD91BEA12340043DF84 /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FD81BEA12340043DF84 /* EasingFunction.swift */; };
-		D53E5FDB1BEA13600043DF84 /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FDA1BEA13600043DF84 /* Interpolation.swift */; };
-		D53E5FDD1BEA13900043DF84 /* Interpolator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FDC1BEA13900043DF84 /* Interpolator.swift */; };
 		D53E5FE51BEA145F0043DF84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FE41BEA145F0043DF84 /* AppDelegate.swift */; };
 		D53E5FE71BEA145F0043DF84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FE61BEA145F0043DF84 /* ViewController.swift */; };
 		D53E5FEC1BEA145F0043DF84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D53E5FEB1BEA145F0043DF84 /* Assets.xcassets */; };
@@ -19,26 +19,20 @@
 		D53E60011BEA203B0043DF84 /* PageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FFF1BEA199C0043DF84 /* PageScrollView.swift */; };
 		D53E60021BEA227D0043DF84 /* DRPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FFA1BEA18140043DF84 /* DRPageScrollView.m */; };
 		D53E60051BEA67790043DF84 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E60041BEA67790043DF84 /* UIView+Utils.swift */; };
-		D57975681D25A4A200AD3901 /* Interpolable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57975671D25A4A200AD3901 /* Interpolable+UIKit.swift */; };
-		D579756A1D25C4EB00AD3901 /* KeyPath+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57975691D25C4EB00AD3901 /* KeyPath+UIKit.swift */; };
-		D579756C1D25C70000AD3901 /* KeyPathRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D579756B1D25C70000AD3901 /* KeyPathRepresentable.swift */; };
-		D579756E1D25C72A00AD3901 /* KeyPathRepresentable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D579756D1D25C72A00AD3901 /* KeyPathRepresentable+UIKit.swift */; };
 		D593A8DD1BEA72E500AFA257 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
 		D593A8DE1BEA72E500AFA257 /* Popsicle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D59650441D24380D00BEC4E7 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
-		D5D6A94C1BEBB85A008E414E /* KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D593A8E41BEA88B600AFA257 /* KeyPath.swift */; };
 		D5FBF53E1BE65BB500F3CB79 /* Popsicle.h in Headers */ = {isa = PBXBuildFile; fileRef = D5FBF53D1BE65BB500F3CB79 /* Popsicle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D593A8DF1BEA72E500AFA257 /* PBXContainerItemProxy */ = {
+		D5175C471D36AAD900C7D0FE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D5FBF5311BE65BB500F3CB79 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D5FBF5391BE65BB500F3CB79;
 			remoteInfo = Popsicle;
 		};
-		D59650451D24380D00BEC4E7 /* PBXContainerItemProxy */ = {
+		D593A8DF1BEA72E500AFA257 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D5FBF5311BE65BB500F3CB79 /* Project object */;
 			proxyType = 1;
@@ -62,6 +56,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D5175C411D36AAD900C7D0FE /* PopsicleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopsicleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5175C451D36AAD900C7D0FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5175C521D36B64400C7D0FE /* EasingFunctionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasingFunctionTests.swift; sourceTree = "<group>"; };
 		D53B324B1BE65FF800A1820B /* Interpolable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolable.swift; sourceTree = "<group>"; };
 		D53E5FD81BEA12340043DF84 /* EasingFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasingFunction.swift; sourceTree = "<group>"; };
 		D53E5FDA1BEA13600043DF84 /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
@@ -83,27 +80,25 @@
 		D579756B1D25C70000AD3901 /* KeyPathRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPathRepresentable.swift; sourceTree = "<group>"; };
 		D579756D1D25C72A00AD3901 /* KeyPathRepresentable+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyPathRepresentable+UIKit.swift"; sourceTree = "<group>"; };
 		D593A8E41BEA88B600AFA257 /* KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPath.swift; sourceTree = "<group>"; };
-		D596503F1D24380D00BEC4E7 /* PopsicleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopsicleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D59650431D24380D00BEC4E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Popsicle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FBF53D1BE65BB500F3CB79 /* Popsicle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Popsicle.h; sourceTree = "<group>"; };
 		D5FBF53F1BE65BB500F3CB79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D5175C3E1D36AAD900C7D0FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5175C461D36AAD900C7D0FE /* Popsicle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D53E5FDF1BEA145F0043DF84 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D593A8DD1BEA72E500AFA257 /* Popsicle.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D596503C1D24380D00BEC4E7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D59650441D24380D00BEC4E7 /* Popsicle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +122,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		D5175C421D36AAD900C7D0FE /* PopsicleTests */ = {
+			isa = PBXGroup;
+			children = (
+				D5175C521D36B64400C7D0FE /* EasingFunctionTests.swift */,
+				D5175C451D36AAD900C7D0FE /* Info.plist */,
+			);
+			path = PopsicleTests;
+			sourceTree = "<group>";
+		};
 		D53E5FE31BEA145F0043DF84 /* PopsicleDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,14 +148,6 @@
 				D5FBF53F1BE65BB500F3CB79 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D59650401D24380D00BEC4E7 /* PopsicleTests */ = {
-			isa = PBXGroup;
-			children = (
-				D59650431D24380D00BEC4E7 /* Info.plist */,
-			);
-			path = PopsicleTests;
 			sourceTree = "<group>";
 		};
 		D5F2E3E11BEB720B00008043 /* Page Scroll View */ = {
@@ -172,7 +168,7 @@
 			children = (
 				D53E5FE31BEA145F0043DF84 /* PopsicleDemo */,
 				D5FBF53C1BE65BB500F3CB79 /* Popsicle */,
-				D59650401D24380D00BEC4E7 /* PopsicleTests */,
+				D5175C421D36AAD900C7D0FE /* PopsicleTests */,
 				D5FBF53B1BE65BB500F3CB79 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -182,7 +178,7 @@
 			children = (
 				D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */,
 				D53E5FE21BEA145F0043DF84 /* PopsicleDemo.app */,
-				D596503F1D24380D00BEC4E7 /* PopsicleTests.xctest */,
+				D5175C411D36AAD900C7D0FE /* PopsicleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,6 +215,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		D5175C401D36AAD900C7D0FE /* PopsicleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5175C491D36AAD900C7D0FE /* Build configuration list for PBXNativeTarget "PopsicleTests" */;
+			buildPhases = (
+				D5175C3D1D36AAD900C7D0FE /* Sources */,
+				D5175C3E1D36AAD900C7D0FE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5175C481D36AAD900C7D0FE /* PBXTargetDependency */,
+			);
+			name = PopsicleTests;
+			productName = PopsicleTests;
+			productReference = D5175C411D36AAD900C7D0FE /* PopsicleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D53E5FE11BEA145F0043DF84 /* PopsicleDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D53E5FF11BEA145F0043DF84 /* Build configuration list for PBXNativeTarget "PopsicleDemo" */;
@@ -239,24 +252,6 @@
 			productReference = D53E5FE21BEA145F0043DF84 /* PopsicleDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D596503E1D24380D00BEC4E7 /* PopsicleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D59650491D24380D00BEC4E7 /* Build configuration list for PBXNativeTarget "PopsicleTests" */;
-			buildPhases = (
-				D596503B1D24380D00BEC4E7 /* Sources */,
-				D596503C1D24380D00BEC4E7 /* Frameworks */,
-				D596503D1D24380D00BEC4E7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D59650461D24380D00BEC4E7 /* PBXTargetDependency */,
-			);
-			name = PopsicleTests;
-			productName = PopsicleTests;
-			productReference = D596503F1D24380D00BEC4E7 /* PopsicleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		D5FBF5391BE65BB500F3CB79 /* Popsicle */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5FBF54E1BE65BB600F3CB79 /* Build configuration list for PBXNativeTarget "Popsicle" */;
@@ -264,7 +259,6 @@
 				D5FBF5351BE65BB500F3CB79 /* Sources */,
 				D5FBF5361BE65BB500F3CB79 /* Frameworks */,
 				D5FBF5371BE65BB500F3CB79 /* Headers */,
-				D5FBF5381BE65BB500F3CB79 /* Resources */,
 				D5BBD9EF1D24518100FE83D4 /* SwiftLint */,
 			);
 			buildRules = (
@@ -286,13 +280,14 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "David Román Aguirre";
 				TargetAttributes = {
+					D5175C401D36AAD900C7D0FE = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
 					D53E5FE11BEA145F0043DF84 = {
 						CreatedOnToolsVersion = 7.1;
 						LastSwiftMigration = 0800;
-					};
-					D596503E1D24380D00BEC4E7 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
 					};
 					D5FBF5391BE65BB500F3CB79 = {
 						CreatedOnToolsVersion = 7.1;
@@ -315,7 +310,7 @@
 			targets = (
 				D53E5FE11BEA145F0043DF84 /* PopsicleDemo */,
 				D5FBF5391BE65BB500F3CB79 /* Popsicle */,
-				D596503E1D24380D00BEC4E7 /* PopsicleTests */,
+				D5175C401D36AAD900C7D0FE /* PopsicleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -328,20 +323,6 @@
 				D53E5FEF1BEA145F0043DF84 /* LaunchScreen.storyboard in Resources */,
 				D53E5FEC1BEA145F0043DF84 /* Assets.xcassets in Resources */,
 				D53E5FF71BEA16D70043DF84 /* PageViews.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D596503D1D24380D00BEC4E7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D5FBF5381BE65BB500F3CB79 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +360,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D5175C3D1D36AAD900C7D0FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5175C531D36B64400C7D0FE /* EasingFunctionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D53E5FDE1BEA145F0043DF84 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -391,41 +380,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D596503B1D24380D00BEC4E7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D5FBF5351BE65BB500F3CB79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D53E5FDD1BEA13900043DF84 /* Interpolator.swift in Sources */,
-				D57975681D25A4A200AD3901 /* Interpolable+UIKit.swift in Sources */,
-				D5D6A94C1BEBB85A008E414E /* KeyPath.swift in Sources */,
+				D5175C511D36B61100C7D0FE /* Interpolable.swift in Sources */,
 				D53E5FD91BEA12340043DF84 /* EasingFunction.swift in Sources */,
-				D53B324C1BE65FF800A1820B /* Interpolable.swift in Sources */,
-				D579756A1D25C4EB00AD3901 /* KeyPath+UIKit.swift in Sources */,
-				D579756E1D25C72A00AD3901 /* KeyPathRepresentable+UIKit.swift in Sources */,
-				D53E5FDB1BEA13600043DF84 /* Interpolation.swift in Sources */,
-				D579756C1D25C70000AD3901 /* KeyPathRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D5175C481D36AAD900C7D0FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D5FBF5391BE65BB500F3CB79 /* Popsicle */;
+			targetProxy = D5175C471D36AAD900C7D0FE /* PBXContainerItemProxy */;
+		};
 		D593A8E01BEA72E500AFA257 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D5FBF5391BE65BB500F3CB79 /* Popsicle */;
 			targetProxy = D593A8DF1BEA72E500AFA257 /* PBXContainerItemProxy */;
-		};
-		D59650461D24380D00BEC4E7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D5FBF5391BE65BB500F3CB79 /* Popsicle */;
-			targetProxy = D59650451D24380D00BEC4E7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -441,6 +416,41 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D5175C4A1D36AAD900C7D0FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				INFOPLIST_FILE = PopsicleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D5175C4B1D36AAD900C7D0FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				INFOPLIST_FILE = PopsicleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		D53E5FF21BEA145F0043DF84 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -468,38 +478,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PopsicleDemo/PopsicleDemo-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		D59650471D24380D00BEC4E7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = PopsicleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		D59650481D24380D00BEC4E7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = PopsicleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
@@ -635,20 +613,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D5175C491D36AAD900C7D0FE /* Build configuration list for PBXNativeTarget "PopsicleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5175C4A1D36AAD900C7D0FE /* Debug */,
+				D5175C4B1D36AAD900C7D0FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D53E5FF11BEA145F0043DF84 /* Build configuration list for PBXNativeTarget "PopsicleDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D53E5FF21BEA145F0043DF84 /* Debug */,
 				D53E5FF31BEA145F0043DF84 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D59650491D24380D00BEC4E7 /* Build configuration list for PBXNativeTarget "PopsicleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D59650471D24380D00BEC4E7 /* Debug */,
-				D59650481D24380D00BEC4E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
