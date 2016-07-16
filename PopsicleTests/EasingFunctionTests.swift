@@ -11,7 +11,7 @@ import Popsicle
 
 infix operator ~= { }
 
-func ~= (lhs: Double, rhs: Double) -> Bool {
+func ~= <T: BinaryFloatingPoint>(lhs: T, rhs: T) -> Bool {
 	return abs(lhs - rhs) <= 0.02
 }
 
