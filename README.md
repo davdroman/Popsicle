@@ -6,7 +6,7 @@
 	<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg" alt="Carthage compatible" /></a>
 	<a href="https://cocoapods.org/pods/Popsicle"><img src="https://img.shields.io/cocoapods/v/Popsicle.svg" alt="CocoaPods compatible" /></a>
 	<img src="https://img.shields.io/badge/Swift-3.0-orange.svg" alt="Swift version" />
-	<img src="https://img.shields.io/travis/DavdRoman/Popsicle/swift-3.0.svg" alt="Travis status" />
+	<a href="https://travis-ci.org/DavdRoman/Popsicle"><img src="https://img.shields.io/travis/DavdRoman/Popsicle/swift-3.0.svg" alt="Travis status" /></a>
 </p>
 
 <p align="center">
