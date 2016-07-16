@@ -13,11 +13,11 @@ script:
         -configuration Debug ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES
         test | xcpretty -c
 
-    # Build demo
-    - xcodebuild
-        -project "Popsicle.xcodeproj"
-        -scheme "PopsicleDemo"
-        -sdk "iphonesimulator10.0"
-        -destination "OS=10.0,name=iPhone 6s"
-        -configuration Debug ONLY_ACTIVE_ARCH=NO
-        build | xcpretty -c
+    # Build demo (disabled atm)
+    # - xcodebuild
+    #     -project "Popsicle.xcodeproj"
+    #     -scheme "PopsicleDemo"
+    #     -sdk "iphonesimulator10.0"
+    #     -destination "OS=10.0,name=iPhone 6s"
+    #     -configuration Debug ONLY_ACTIVE_ARCH=NO
+    #     build | xcpretty -c
