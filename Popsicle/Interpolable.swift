@@ -11,10 +11,8 @@ public typealias Time = Double
 
 /// `Interpolable` values can be tweened and mutated throughout time.
 public protocol Interpolable {
-	associatedtype ValueType
-
 	/// Returns the result of tweening two values at a specific moment in time.
-	static func interpolate(from fromValue: ValueType, to toValue: ValueType, at: Time) -> ValueType
+	static func interpolate(from fromValue: Self, to toValue: Self, at: Time) -> Self
 }
 
 extension Bool: Interpolable {
