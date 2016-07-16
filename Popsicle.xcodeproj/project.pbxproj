@@ -221,6 +221,7 @@
 			buildPhases = (
 				D5175C3D1D36AAD900C7D0FE /* Sources */,
 				D5175C3E1D36AAD900C7D0FE /* Frameworks */,
+				D588FC021D3AEDC200BF003B /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -329,6 +330,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		D588FC021D3AEDC200BF003B /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, please run \\`brew install swiftlint\\`\"\nfi";
+		};
 		D5BBD9EE1D24517500FE83D4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
