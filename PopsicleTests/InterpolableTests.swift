@@ -11,15 +11,15 @@ import Popsicle
 
 class InterpolableTests: XCTestCase {
 
-	class func test<T: Interpolable>(initialValue: T, finalValue: T, interpolatedValues: [T], times: [Time], function: (T, T) -> Bool) {
+	class func test<I: Interpolable>(initialValue: I, finalValue: I, interpolatedValues: [I], times: [Time], function: (I, I) -> Bool) {
 		for (index, time) in times.enumerated() {
 			let interpolatedValue = interpolatedValues[index]
-			let computedInterpolatedValue = T.interpolate(from: initialValue, to: finalValue, at: time)
+			let computedInterpolatedValue = I.interpolate(from: initialValue, to: finalValue, at: time)
 			XCTAssert(function(interpolatedValue, computedInterpolatedValue), "\(interpolatedValue) != \(computedInterpolatedValue)")
 		}
 	}
 
-	func testInterpolableCGFloat() {
+	func testInterpolableBool() {
 		InterpolableTests.test(
 			initialValue: false,
 			finalValue: true,
