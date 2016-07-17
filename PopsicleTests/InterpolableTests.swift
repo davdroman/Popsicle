@@ -11,7 +11,7 @@ import Popsicle
 
 class InterpolableTests: XCTestCase {
 
-	static func test<T: Interpolable>(initialValue: T, finalValue: T, interpolatedValues: [T], times: [Time], function: (T, T) -> Bool) {
+	class func test<T: Interpolable>(initialValue: T, finalValue: T, interpolatedValues: [T], times: [Time], function: (T, T) -> Bool) {
 		for (index, time) in times.enumerated() {
 			let interpolatedValue = interpolatedValues[index]
 			let computedInterpolatedValue = T.interpolate(from: initialValue, to: finalValue, at: time)
