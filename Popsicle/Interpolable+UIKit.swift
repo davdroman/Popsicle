@@ -71,7 +71,7 @@ extension CGAffineTransform: Interpolable {
 // Workaround until `UIColor` becomes unsubclassable
 // by https://github.com/apple/swift-evolution/blob/master/proposals/0117-non-public-subclassable-by-default.md
 // 🙏
-public final class Color: UIColor {}
+public final class Color: UIColor { }
 
 extension Color: Interpolable {
 	public static func interpolate(from fromValue: Color, to toValue: Color, at time: Time) -> Color {

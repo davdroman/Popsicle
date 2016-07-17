@@ -6,7 +6,7 @@
 //  Copyright © 2015 David Román Aguirre. All rights reserved.
 //
 
-/// Easing function that takes a `Progress` and returns a `Progress`.
+/// Easing function that takes a `Time` and returns a `Time`.
 public typealias EasingFunction = (Time) -> (Time)
 
 /// Simple linear tweening function — no easing, no acceleration.
