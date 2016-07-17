@@ -6,53 +6,49 @@
 //  Copyright © 2015 David Román Aguirre. All rights reserved.
 //
 
-protocol ObjectReferable {
-	var objectReference: NSObject { get }
+public protocol Timeable {
+	var time: Time { get set }
 }
 
-protocol Timeable {
-	func setTime(_ time: Time)
+extension Sequence where Iterator.Element: Timeable {
+	var time: Time {
+		get { fatalError("Access to `time` property in a array of `Timeable` elements is not allowed") }
+		set { self.forEach { (var timeable) in timeable.time = newValue } }
+	}
 }
 
 /// `Interpolation` defines an interpolation which changes some `NSObject` value given by a key path.
-public class Interpolation<T: Interpolable> : Equatable, ObjectReferable, Timeable {
+public class Interpolation<I: Interpolable> : Timeable, Hashable {
+
+	public typealias Pole = (I, EasingFunction)
+
 	let object: NSObject
 	let keyPath: String
+	var poles = [Time: Pole]()
 
-	let originalObject: NSObject
-	var objectReference: NSObject { return self.originalObject }
-
-	typealias Pole = (T.ValueType, EasingFunction)
-	private var poles: [Time: Pole] = [:]
-
-	public init<U: NSObject>(_ object: U, _ keyPath: KeyPath<U, T>) {
-		self.originalObject = object
-		(self.object, self.keyPath) = NSObject.filteredObjectAndKeyPath(withObject: object, andKeyPath: keyPath)
+	public init<O: NSObject>(_ object: O, _ keyPath: KeyPath<O, I>) {
+		self.object = keyPath.keyPathRepresentable.object(from: object)
+		self.keyPath = keyPath.keyPathRepresentable.keyPath()
 
 		if !self.object.responds(to: NSSelectorFromString(self.keyPath)) {
-			assertionFailure("Please make sure the key path \"" + self.keyPath + "\" you're referring to for an object of type <" + NSStringFromClass(self.object.dynamicType) + "> is invalid")
+			fatalError("Please make sure the key path \"\(self.keyPath)\" you're referring to for an object of type <\(self.object.dynamicType)> is valid")
 		}
 	}
 
-	/// A convenience initializer with `keyPath` as a `String` parameter. You should try to avoid this method unless absolutely necessary, due to its unsafety.
-	public convenience init(_ object: NSObject, _ keyPath: String) {
-		self.init(object, KeyPath(keyPathable: keyPath))
+	/// An initializer with `keyPath` as a `KeyPathRepresentable` parameter.
+	/// You should try to avoid this method unless absolutely necessary, due to its unsafety.
+	/// Otherwise please  consider #keyPath function introduced Swift 3 for a higher compile-time safety.
+	public convenience init(_ object: NSObject, _ keyPath: KeyPathRepresentable) {
+		self.init(object, KeyPath(keyPath))
 	}
 
-	/// Sets a specific easing function for the interpolation to be performed with for a given time.
-	///
-	/// - parameter easingFunction: the easing function to use.
-	/// - parameter time:           the time where the easing function should be used.
-	public func setEasingFunction(_ easingFunction: EasingFunction, forTime time: Time) {
-		self.poles[time]?.1 = easingFunction
-	}
-
-	public subscript(time1: Time, rest: Time...) -> T.ValueType? {
+	public subscript(time: Time, rest: Time...) -> I? {
 		get {
 			assert(poles.count >= 2, "You must specify at least 2 poles for an interpolation to be performed")
-			if let existingPole = poles[time1] {
+
+			if let existingPole = poles[time] {
 				return existingPole.0
-			} else if let timeInterval = poles.keys.sorted().elementsAround(time1) {
+			} else if let timeInterval = poles.keys.sorted().elementsAround(time) {
 
 				guard let fromTime = timeInterval.0 else {
 					return poles[timeInterval.1!]!.0
@@ -63,34 +59,45 @@ public class Interpolation<T: Interpolable> : Equatable, ObjectReferable, Timeab
 				}
 
 				let easingFunction = poles[fromTime]!.1
-				let progress = easingFunction(self.progress(fromTime, toTime, time1))
-				return T.interpolate(from: poles[fromTime]!.0, to: poles[toTime]!.0, withProgress: progress)
+
+				let limitedTime = (time-fromTime)/(toTime-fromTime)
+				let simplifiedTime = min(1, max(0, limitedTime))
+
+				let progress = easingFunction(simplifiedTime)
+				return I.interpolate(from: poles[fromTime]!.0, to: poles[toTime]!.0, at: progress)
 			}
 
 			return nil
 		}
 
 		set {
-			var times = [time1]
-			times.append(contentsOf: rest)
-			for time in times {
-				poles[time] = (newValue!, EasingFunctionLinear)
-			}
+			([time] + rest).forEach { poles[$0] = (newValue!, linearEasingFunction) }
 		}
 	}
 
-	func progress(_ fromTime: Time, _ toTime: Time, _ currentTime: Time) -> Progress {
-		let p = (currentTime-fromTime)/(toTime-fromTime)
-		return min(1, max(0, p))
+	public subscript(f time: Time, rest: Time...) -> Pole? {
+		get {
+			return nil
+		}
+
+		set {
+			([time] + rest).forEach { poles[$0] = (newValue!.0, linearEasingFunction) }
+		}
 	}
 
-	func setTime(_ time: Time) {
-		self.object.setValue(T.objectify(self[time]!), forKeyPath: self.keyPath)
+	public var time: Time = 0 {
+		didSet {
+			self.object.setValue(self[time] as? AnyObject, forKeyPath: self.keyPath)
+		}
+	}
+
+	public var hashValue: Int {
+		return "\(self.object)+\(self.keyPath)".hashValue
 	}
 }
 
 public func ==<T: Interpolable>(lhs: Interpolation<T>, rhs: Interpolation<T>) -> Bool {
-	return lhs.object == rhs.object && lhs.keyPath == rhs.keyPath
+	return lhs.hashValue == rhs.hashValue
 }
 
 extension Array where Element: Comparable {
@@ -128,7 +135,7 @@ extension Array where Element: Comparable {
 				return (e1, e2)
 			}
 		}
-		
+
 		return nil
 	}
 }
