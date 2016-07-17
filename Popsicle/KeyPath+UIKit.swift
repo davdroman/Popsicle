@@ -9,15 +9,15 @@
 import UIKit
 
 public let alpha                          = KeyPath<UIView, CGFloat>(#keyPath(UIView.alpha))
-public let backgroundColor                = KeyPath<UIView, UIColor>(#keyPath(UIView.backgroundColor))
-public let barTintColor                   = KeyPath<UINavigationBar, UIColor>(#keyPath(UINavigationBar.barTintColor))
+public let backgroundColor                = KeyPath<UIView, Color>(#keyPath(UIView.backgroundColor))
+public let barTintColor                   = KeyPath<UINavigationBar, Color>(#keyPath(UINavigationBar.barTintColor))
 public let borderColor                    = KeyPath<CALayer, CGFloat>(#keyPath(CALayer.borderColor))
 public let borderWidth                    = KeyPath<CALayer, CGFloat>(#keyPath(CALayer.borderWidth))
 public let constant                       = KeyPath<NSLayoutConstraint, CGFloat>(#keyPath(NSLayoutConstraint.constant))
 public let cornerRadius                   = KeyPath<CALayer, CGFloat>(#keyPath(CALayer.cornerRadius))
 public let hidden                         = KeyPath<UIView, Bool>(#keyPath(UIView.isHidden))
-public let textColor                      = KeyPath<UIView, UIColor>(#keyPath(UILabel.textColor))
-public let tintColor                      = KeyPath<UIView, UIColor>(#keyPath(UIView.tintColor))
+public let textColor                      = KeyPath<UIView, Color>(#keyPath(UILabel.textColor))
+public let tintColor                      = KeyPath<UIView, Color>(#keyPath(UIView.tintColor))
 public let transform                      = KeyPath<UIView, CGAffineTransform>(#keyPath(UIView.transform))
 
 public let lastbaselineConstraint         = KeyPath<UIView, CGFloat>(NSLayoutAttribute.lastBaseline)
