@@ -12,7 +12,7 @@ public protocol KeyPathRepresentable {
 	func keyPath() -> String
 }
 
-extension String : KeyPathRepresentable {
+extension String: KeyPathRepresentable {
 	public func object(from originalObject: NSObject) -> NSObject {
 		return originalObject
 	}
