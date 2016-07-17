@@ -51,7 +51,7 @@ extension CGAffineTransform {
 	var translationY: CGFloat { return ty }
 	var scaleX: CGFloat { return sqrt(a * a + c * c) }
 	var scaleY: CGFloat { return sqrt(b * b + d * d) }
-	var angle: CGFloat { return atan2(b, a).toDegrees }
+	var angle: CGFloat { return atan2(b, d) }
 }
 
 extension CGAffineTransform: Interpolable {
@@ -64,7 +64,7 @@ extension CGAffineTransform: Interpolable {
 
 		let angle = CGFloat.interpolate(from: fromValue.angle, to: toValue.angle, at: time)
 
-		return CGAffineTransform.identity.translateBy(x: tx, y: ty).scaleBy(x: sx, y: sy).rotate(angle.toRadians)
+		return CGAffineTransform.identity.translateBy(x: tx, y: ty).scaleBy(x: sx, y: sy).rotate(angle)
 	}
 }
 
