@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import Popsicle
+@testable import Popsicle
 
 func ~= (lhs: CGPoint, rhs: CGPoint) -> Bool {
 	return lhs.x ~= rhs.x && lhs.y ~= rhs.y
@@ -19,6 +19,14 @@ func ~= (lhs: CGSize, rhs: CGSize) -> Bool {
 
 func ~= (lhs: CGRect, rhs: CGRect) -> Bool {
 	return lhs.origin ~= rhs.origin && lhs.size ~= rhs.size
+}
+
+func ~= (lhs: CGAffineTransform, rhs: CGAffineTransform) -> Bool {
+	return lhs.translationX ~= rhs.translationX
+		&& lhs.translationY ~= rhs.translationY
+		&& lhs.scaleX ~= rhs.scaleX
+		&& lhs.scaleY ~= rhs.scaleY
+		&& lhs.angle ~= rhs.angle
 }
 
 class InterpolableUIKitTests: XCTestCase {
@@ -137,6 +145,24 @@ class InterpolableUIKitTests: XCTestCase {
 				CGRect(x: 19.8, y: 33, width: 6.6, height: 13.2),
 				CGRect(x: 22.5, y: 37.5, width: 7.5, height: 15),
 				CGRect(x: 30, y: 50, width: 10, height: 20)
+			],
+			times: [0, 0.25, 0.33, 0.5, 0.66, 0.75, 1],
+			function: ~=
+		)
+	}
+
+	func testInterpolableCGAffineTransform() {
+		InterpolableTests.test(
+			initialValue: .identity,
+			finalValue: CGAffineTransform.identity.translateBy(x: 30, y: 50).scaleBy(x: 10, y: 20).rotate(CGFloat(50.toRadians)),
+			interpolatedValues: [
+				.identity,
+				CGAffineTransform.identity.translateBy(x: 7.5, y: 12.5).scaleBy(x: 3.25, y: 5.75).rotate(CGFloat(12.5.toRadians)),
+				CGAffineTransform.identity.translateBy(x: 9.9, y: 16.5).scaleBy(x: 3.97, y: 7.27).rotate(CGFloat(16.5.toRadians)),
+				CGAffineTransform.identity.translateBy(x: 15, y: 25).scaleBy(x: 5.5, y: 10.5).rotate(CGFloat(25.toRadians)),
+				CGAffineTransform.identity.translateBy(x: 19.8, y: 33).scaleBy(x: 6.94, y: 13.54).rotate(CGFloat(33.toRadians)),
+				CGAffineTransform.identity.translateBy(x: 22.5, y: 37.5).scaleBy(x: 7.75, y: 15.25).rotate(CGFloat(37.5.toRadians)),
+				CGAffineTransform.identity.translateBy(x: 30, y: 50).scaleBy(x: 10, y: 20).rotate(CGFloat(50.toRadians))
 			],
 			times: [0, 0.25, 0.33, 0.5, 0.66, 0.75, 1],
 			function: ~=
