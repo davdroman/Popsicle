@@ -24,6 +24,11 @@
 		D588FC0A1D3B2FD700BF003B /* Interpolable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57975671D25A4A200AD3901 /* Interpolable+UIKit.swift */; };
 		D593A8DD1BEA72E500AFA257 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
 		D593A8DE1BEA72E500AFA257 /* Popsicle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D5AE37E31D3BF36F0015557C /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FDA1BEA13600043DF84 /* Interpolation.swift */; };
+		D5AE37E41D3BF49A0015557C /* KeyPathRepresentable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D579756D1D25C72A00AD3901 /* KeyPathRepresentable+UIKit.swift */; };
+		D5AE37E51D3BF49C0015557C /* KeyPathRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D579756B1D25C70000AD3901 /* KeyPathRepresentable.swift */; };
+		D5AE37E61D3BF49E0015557C /* KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D593A8E41BEA88B600AFA257 /* KeyPath.swift */; };
+		D5AE37E71D3BF4A10015557C /* KeyPath+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57975691D25C4EB00AD3901 /* KeyPath+UIKit.swift */; };
 		D5FBF53E1BE65BB500F3CB79 /* Popsicle.h in Headers */ = {isa = PBXBuildFile; fileRef = D5FBF53D1BE65BB500F3CB79 /* Popsicle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -406,9 +411,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5AE37E41D3BF49A0015557C /* KeyPathRepresentable+UIKit.swift in Sources */,
 				D588FC0A1D3B2FD700BF003B /* Interpolable+UIKit.swift in Sources */,
+				D5AE37E61D3BF49E0015557C /* KeyPath.swift in Sources */,
 				D5175C511D36B61100C7D0FE /* Interpolable.swift in Sources */,
+				D5AE37E31D3BF36F0015557C /* Interpolation.swift in Sources */,
+				D5AE37E71D3BF4A10015557C /* KeyPath+UIKit.swift in Sources */,
 				D53E5FD91BEA12340043DF84 /* EasingFunction.swift in Sources */,
+				D5AE37E51D3BF49C0015557C /* KeyPathRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
