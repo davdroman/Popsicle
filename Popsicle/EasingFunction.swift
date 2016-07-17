@@ -6,7 +6,7 @@
 //  Copyright © 2015 David Román Aguirre. All rights reserved.
 //
 
-/// Easing function that takes a `Time` and returns a `Time`.
+/// `EasingFunction`s specify the rate of change of a parameter over `Time`.
 public typealias EasingFunction = (Time) -> (Time)
 
 /// Simple linear tweening function — no easing, no acceleration.
