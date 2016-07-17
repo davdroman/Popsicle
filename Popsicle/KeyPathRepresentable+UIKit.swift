@@ -10,14 +10,27 @@ import UIKit
 
 extension NSLayoutAttribute: KeyPathRepresentable {
 	public func object(from originalObject: NSObject) -> NSObject {
-		if let view = originalObject as? UIView, let superview = view.superview {
-			let constrainedView = (self == .width || self == .height) ? view : superview
+		if let view = originalObject as? UIView {
 
-			for constraint in constrainedView.constraints where
-				!constraint.isKind(of: NSClassFromString("NSContentSizeLayoutConstraint")!) &&
-				((constraint.firstItem as? NSObject == view && constraint.firstAttribute == self) ||
-				(constraint.secondItem as? NSObject == view && constraint.secondAttribute == self)) {
-				return constraint
+			// There's a chance the constraint is fixed and attached to the view, not the superview.
+			if self == .width || self == .height {
+				for constraint in view.constraints where constraint.secondItem == nil {
+					return constraint
+				}
+			}
+
+			if let superview = view.superview {
+				for constraint in superview.constraints {
+					let firstItem = constraint.firstItem as? NSObject
+					let firstAttribute = constraint.firstAttribute
+
+					let secondItem = constraint.secondItem as? NSObject
+					let secondAttribute = constraint.secondAttribute
+
+					if (firstItem == view && firstAttribute == self) || (secondItem == view && secondAttribute == self) {
+						return constraint
+					}
+				}
 			}
 		}
 
