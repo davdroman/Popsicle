@@ -63,13 +63,8 @@ extension CGAffineTransform: Interpolable {
 	}
 }
 
-// Workaround until `UIColor` becomes unsubclassable
-// by https://github.com/apple/swift-evolution/blob/master/proposals/0117-non-public-subclassable-by-default.md
-// 🙏
-public final class Color: UIColor { }
-
-extension Color: Interpolable {
-	public static func interpolate(from fromValue: Color, to toValue: Color, at time: Time) -> Color {
+extension UIColor: Interpolable {
+	public static func interpolate(from fromValue: UIColor, to toValue: UIColor, at time: Time) -> UIColor {
 		var fromRed = CGFloat()
 		var fromGreen = CGFloat()
 		var fromBlue = CGFloat()
@@ -88,6 +83,6 @@ extension Color: Interpolable {
 		let blue = CGFloat.interpolate(from: fromBlue, to: toBlue, at: time)
 		let alpha = CGFloat.interpolate(from: fromAlpha, to: toAlpha, at: time)
 
-		return Color(red: red, green: green, blue: blue, alpha: alpha)
+		return UIColor(red: red, green: green, blue: blue, alpha: alpha)
 	}
 }

@@ -34,7 +34,7 @@ func ~= (lhs: CGAffineTransform, rhs: CGAffineTransform) -> Bool {
 		&& lhs.angle ~= rhs.angle
 }
 
-func ~= (lhs: Color, rhs: Color) -> Bool {
+func ~= (lhs: UIColor, rhs: UIColor) -> Bool {
 	var lhsRed = CGFloat()
 	var lhsGreen = CGFloat()
 	var lhsBlue = CGFloat()
@@ -196,17 +196,17 @@ class InterpolableUIKitTests: XCTestCase {
 
 	func testInterpolableColor() {
 		InterpolableTests.test(
-			initialValue: Color(white: 1, alpha: 0),
-			finalValue: Color(white: 0, alpha: 1),
-			interpolatedValues: [Color]([
-				Color(white: 1, alpha: 0),
-				Color(white: 0.75, alpha: 0.25),
-				Color(white: 0.66, alpha: 0.33),
-				Color(white: 0.5, alpha: 0.5),
-				Color(white: 0.33, alpha: 0.66),
-				Color(white: 0.25, alpha: 0.75),
-				Color(white: 0, alpha: 1)
-			]),
+			initialValue: UIColor(white: 1, alpha: 0),
+			finalValue: UIColor(white: 0, alpha: 1),
+			interpolatedValues: [
+				UIColor(white: 1, alpha: 0),
+				UIColor(white: 0.75, alpha: 0.25),
+				UIColor(white: 0.66, alpha: 0.33),
+				UIColor(white: 0.5, alpha: 0.5),
+				UIColor(white: 0.33, alpha: 0.66),
+				UIColor(white: 0.25, alpha: 0.75),
+				UIColor(white: 0, alpha: 1)
+			],
 			times: [0, 0.25, 0.33, 0.5, 0.66, 0.75, 1],
 			function: ~=
 		)
