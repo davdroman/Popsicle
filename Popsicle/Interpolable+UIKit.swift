@@ -41,11 +41,6 @@ extension CGRect: Interpolable {
 	}
 }
 
-extension FloatingPoint {
-	var toRadians: Self { return self * .pi / 180 }
-	var toDegrees: Self { return self * 180 / .pi }
-}
-
 extension CGAffineTransform {
 	var translationX: CGFloat { return tx }
 	var translationY: CGFloat { return ty }

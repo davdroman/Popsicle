@@ -21,6 +21,11 @@ func ~= (lhs: CGRect, rhs: CGRect) -> Bool {
 	return lhs.origin ~= rhs.origin && lhs.size ~= rhs.size
 }
 
+extension FloatingPoint {
+	var radians: Self { return self * .pi / 180 }
+	var degrees: Self { return self * 180 / .pi }
+}
+
 func ~= (lhs: CGAffineTransform, rhs: CGAffineTransform) -> Bool {
 	return lhs.translationX ~= rhs.translationX
 		&& lhs.translationY ~= rhs.translationY
@@ -154,15 +159,15 @@ class InterpolableUIKitTests: XCTestCase {
 	func testInterpolableCGAffineTransform() {
 		InterpolableTests.test(
 			initialValue: .identity,
-			finalValue: CGAffineTransform.identity.translateBy(x: 30, y: 50).scaleBy(x: 10, y: 20).rotate(CGFloat(50.toRadians)),
+			finalValue: CGAffineTransform.identity.translateBy(x: 30, y: 50).scaleBy(x: 10, y: 20).rotate(CGFloat(50).radians),
 			interpolatedValues: [
 				.identity,
-				CGAffineTransform.identity.translateBy(x: 7.5, y: 12.5).scaleBy(x: 3.25, y: 5.75).rotate(CGFloat(12.5.toRadians)),
-				CGAffineTransform.identity.translateBy(x: 9.9, y: 16.5).scaleBy(x: 3.97, y: 7.27).rotate(CGFloat(16.5.toRadians)),
-				CGAffineTransform.identity.translateBy(x: 15, y: 25).scaleBy(x: 5.5, y: 10.5).rotate(CGFloat(25.toRadians)),
-				CGAffineTransform.identity.translateBy(x: 19.8, y: 33).scaleBy(x: 6.94, y: 13.54).rotate(CGFloat(33.toRadians)),
-				CGAffineTransform.identity.translateBy(x: 22.5, y: 37.5).scaleBy(x: 7.75, y: 15.25).rotate(CGFloat(37.5.toRadians)),
-				CGAffineTransform.identity.translateBy(x: 30, y: 50).scaleBy(x: 10, y: 20).rotate(CGFloat(50.toRadians))
+				CGAffineTransform.identity.translateBy(x: 7.5, y: 12.5).scaleBy(x: 3.25, y: 5.75).rotate(CGFloat(12.5).radians),
+				CGAffineTransform.identity.translateBy(x: 9.9, y: 16.5).scaleBy(x: 3.97, y: 7.27).rotate(CGFloat(16.5).radians),
+				CGAffineTransform.identity.translateBy(x: 15, y: 25).scaleBy(x: 5.5, y: 10.5).rotate(CGFloat(25).radians),
+				CGAffineTransform.identity.translateBy(x: 19.8, y: 33).scaleBy(x: 6.94, y: 13.54).rotate(CGFloat(33).radians),
+				CGAffineTransform.identity.translateBy(x: 22.5, y: 37.5).scaleBy(x: 7.75, y: 15.25).rotate(CGFloat(37.5).radians),
+				CGAffineTransform.identity.translateBy(x: 30, y: 50).scaleBy(x: 10, y: 20).rotate(CGFloat(50).radians)
 			],
 			times: [0, 0.25, 0.33, 0.5, 0.66, 0.75, 1],
 			function: ~=
