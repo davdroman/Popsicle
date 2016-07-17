@@ -34,6 +34,26 @@ func ~= (lhs: CGAffineTransform, rhs: CGAffineTransform) -> Bool {
 		&& lhs.angle ~= rhs.angle
 }
 
+func ~= (lhs: Color, rhs: Color) -> Bool {
+	var lhsRed = CGFloat()
+	var lhsGreen = CGFloat()
+	var lhsBlue = CGFloat()
+	var lhsAlpha = CGFloat()
+
+	var rhsRed = CGFloat()
+	var rhsGreen = CGFloat()
+	var rhsBlue = CGFloat()
+	var rhsAlpha = CGFloat()
+
+	lhs.getRed(&lhsRed, green: &lhsGreen, blue: &lhsBlue, alpha: &lhsAlpha)
+	rhs.getRed(&rhsRed, green: &rhsGreen, blue: &rhsBlue, alpha: &rhsAlpha)
+
+	return lhsRed ~= rhsRed
+		&& lhsGreen ~= rhsGreen
+		&& lhsBlue ~= rhsBlue
+		&& lhsAlpha ~= rhsAlpha
+}
+
 class InterpolableUIKitTests: XCTestCase {
 
 	func testInterpolableCGFloat() {
@@ -169,6 +189,24 @@ class InterpolableUIKitTests: XCTestCase {
 				CGAffineTransform.identity.translateBy(x: 22.5, y: 37.5).scaleBy(x: 7.75, y: 15.25).rotate(CGFloat(37.5).radians),
 				CGAffineTransform.identity.translateBy(x: 30, y: 50).scaleBy(x: 10, y: 20).rotate(CGFloat(50).radians)
 			],
+			times: [0, 0.25, 0.33, 0.5, 0.66, 0.75, 1],
+			function: ~=
+		)
+	}
+
+	func testInterpolableColor() {
+		InterpolableTests.test(
+			initialValue: Color(white: 1, alpha: 0),
+			finalValue: Color(white: 0, alpha: 1),
+			interpolatedValues: [Color]([
+				Color(white: 1, alpha: 0),
+				Color(white: 0.75, alpha: 0.25),
+				Color(white: 0.66, alpha: 0.33),
+				Color(white: 0.5, alpha: 0.5),
+				Color(white: 0.33, alpha: 0.66),
+				Color(white: 0.25, alpha: 0.75),
+				Color(white: 0, alpha: 1)
+			]),
 			times: [0, 0.25, 0.33, 0.5, 0.66, 0.75, 1],
 			function: ~=
 		)
