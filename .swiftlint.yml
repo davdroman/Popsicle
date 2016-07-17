@@ -4,8 +4,6 @@ included:
     - Popsicle
     - PopsicleDemo
     - PopsicleTests
-excluded:
-    - Popsicle/EasingFunction.swift
 
 force_cast: warning
 force_try: warning
@@ -29,8 +27,6 @@ type_name:
     max_length:
         warning: 40
         error: 50
-    excluded:
-        - iPhone
 
 variable_name:
     min_length:
@@ -39,5 +35,6 @@ variable_name:
         - lhs
         - rhs
         - at
+        - t
 
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle)
