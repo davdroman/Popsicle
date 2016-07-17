@@ -68,7 +68,7 @@ extension CGAffineTransform: Interpolable {
 	}
 }
 
-// Workaround until `UIColor` becomes unsubclasseable
+// Workaround until `UIColor` becomes unsubclassable
 // by https://github.com/apple/swift-evolution/blob/master/proposals/0117-non-public-subclassable-by-default.md
 // 🙏
 public final class Color: UIColor {}
