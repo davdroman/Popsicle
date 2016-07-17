@@ -4,6 +4,8 @@ included:
     - Popsicle
     - PopsicleDemo
     - PopsicleTests
+disabled_rules:
+    - conditional_binding_cascade
 
 force_cast: warning
 force_try: warning
