@@ -12,19 +12,34 @@ public protocol Timeable {
 
 extension Sequence where Iterator.Element: Timeable {
 	var time: Time {
-		get { fatalError("Access to `time` property in a array of `Timeable` elements is not allowed") }
+		get { fatalError("`Sequence.time` can only be used as a setter.") }
 		set { self.forEach { (var timeable) in timeable.time = newValue } }
 	}
 }
 
-/// `Interpolation` defines an interpolation which changes some `NSObject` value given by a key path.
-public class Interpolation<I: Interpolable> : Timeable, Hashable {
+struct Pole<I: Interpolable where I.ValueType == I> {
+	let time: Time
+	let value: I
+	let easingFunction: EasingFunction
 
-	public typealias Pole = (I, EasingFunction)
+	init(time: Time, value: I, easingFunction: EasingFunction) {
+		self.time = time
+		self.value = value
+		self.easingFunction = easingFunction
+	}
+}
+
+/// `Interpolation` defines an interpolation which changes some `NSObject` value given by a key path.
+public class Interpolation<I: Interpolable where I.ValueType == I> : Timeable, Hashable, CustomStringConvertible {
+
+	// I was originally going to use a simple typealias to represent `Pole`s
+	// however this seems to produce a compiler segmentation fault.
+	// Uncomment this line and see for yourself.
+	// typealias Pole = (time: Time, value: I, easingFunction: EasingFunction)
 
 	let object: NSObject
 	let keyPath: String
-	var poles = [Time: Pole]()
+	var poles = [Pole<I>]()
 
 	public init<O: NSObject>(_ object: O, _ keyPath: KeyPath<O, I>) {
 		self.object = keyPath.keyPathRepresentable.object(from: object)
@@ -37,52 +52,59 @@ public class Interpolation<I: Interpolable> : Timeable, Hashable {
 
 	/// An initializer with `keyPath` as a `KeyPathRepresentable` parameter.
 	/// You should try to avoid this method unless absolutely necessary, due to its unsafety.
-	/// Otherwise please  consider #keyPath function introduced Swift 3 for a higher compile-time safety.
+	/// Otherwise please consider using #keyPath, introduced in Swift 3 for higher compile-time safety.
 	public convenience init(_ object: NSObject, _ keyPath: KeyPathRepresentable) {
 		self.init(object, KeyPath(keyPath))
 	}
 
-	public subscript(time: Time, rest: Time...) -> I? {
-		get {
-			assert(poles.count >= 2, "You must specify at least 2 poles for an interpolation to be performed")
-
-			if let existingPole = poles[time] {
-				return existingPole.0
-			} else if let timeInterval = poles.keys.sorted().elementsAround(time) {
-
-				guard let fromTime = timeInterval.0 else {
-					return poles[timeInterval.1!]!.0
-				}
-
-				guard let toTime = timeInterval.1 else {
-					return poles[timeInterval.0!]!.0
-				}
-
-				let easingFunction = poles[fromTime]!.1
-
-				let limitedTime = (time-fromTime)/(toTime-fromTime)
-				let simplifiedTime = min(1, max(0, limitedTime))
-
-				let progress = easingFunction(simplifiedTime)
-				return I.interpolate(from: poles[fromTime]!.0, to: poles[toTime]!.0, at: progress)
-			}
-
-			return nil
-		}
-
-		set {
-			([time] + rest).forEach { poles[$0] = (newValue!, linearEasingFunction) }
-		}
+	public subscript(times: Time...) -> I {
+		get { return poleValue(at: times.first!) }
+		set { times.forEach { setPole(at: $0, value: newValue) } }
 	}
 
-	public subscript(f time: Time, rest: Time...) -> Pole? {
-		get {
-			return nil
-		}
+	public subscript(f times: Time...) -> (I, EasingFunction) {
+		get { fatalError("`Interpolation[f]` can only be used as a setter.") }
+		set { times.forEach { setPole(at: $0, value: newValue.0, easingFunction: newValue.1) } }
+	}
 
-		set {
-			([time] + rest).forEach { poles[$0] = (newValue!.0, linearEasingFunction) }
+	func poleValue(at time: Time) -> I {
+		assert(poles.count >= 2, "You must specify at least 2 poles for an interpolation to be performed")
+
+		var value: I
+		let indexAfter = indexOfPole(after: time) ?? poles.count
+		switch indexAfter {
+		case 0:
+			value = poles[0].value
+		case 1 ..< poles.count:
+			let poleBefore = poles[indexAfter - 1]
+			let poleAfter = poles[indexAfter]
+			let simplifiedTime = self.time(from: poleBefore.time, to: poleAfter.time, at: time)
+			value = I.interpolate(from: poleBefore.value, to: poleAfter.value, at: poleBefore.easingFunction(simplifiedTime))
+		default:
+			value = poles.last!.value
 		}
+		return value
+	}
+
+	func setPole(at time: Time, value: I, easingFunction: EasingFunction = linearEasingFunction) {
+		let index = indexOfPole(after: time) ?? poles.count
+		poles.insert(Pole(time: time, value: value, easingFunction: easingFunction), at: index)
+	}
+
+	func indexOfPole(after time: Time) -> Int? {
+		var indexAfter: Int?
+		for (index, pole) in poles.enumerated() {
+			if time < pole.time {
+				indexAfter = index
+				break
+			}
+		}
+		return indexAfter
+	}
+
+	func time(from fromTime: Time, to toTime: Time, at atTime: Time) -> Time {
+		let duration = toTime - fromTime
+		return duration == 0 ? 0 : (atTime - fromTime) / duration
 	}
 
 	public var time: Time = 0 {
@@ -92,50 +114,14 @@ public class Interpolation<I: Interpolable> : Timeable, Hashable {
 	}
 
 	public var hashValue: Int {
-		return "\(self.object)+\(self.keyPath)".hashValue
+		return description.hashValue
+	}
+
+	public var description: String {
+		return "\(self.object) | \(self.keyPath)"
 	}
 }
 
-public func ==<T: Interpolable>(lhs: Interpolation<T>, rhs: Interpolation<T>) -> Bool {
+public func == <T: Interpolable>(lhs: Interpolation<T>, rhs: Interpolation<T>) -> Bool {
 	return lhs.hashValue == rhs.hashValue
-}
-
-extension Array where Element: Comparable {
-	func elementPairs() -> [(Element, Element)]? {
-		if self.count >= 2 {
-			var elementPairs: [(Element, Element)] = []
-
-			for (i, e) in self.sorted().enumerated() {
-				if i+1 < self.count {
-					elementPairs.append((e, self[i+1]))
-				}
-			}
-
-			return elementPairs
-		}
-
-		return nil
-	}
-
-	func elementsAround(_ element: Element) -> (Element?, Element?)? {
-		if let pairs = self.elementPairs() {
-
-			let minElement = pairs.first!.0
-			let maxElement = pairs.last!.1
-
-			if element < minElement {
-				return (nil, minElement)
-			}
-
-			if element > maxElement {
-				return (maxElement, nil)
-			}
-
-			for (e1, e2) in pairs where (e1...e2).contains(element) {
-				return (e1, e2)
-			}
-		}
-
-		return nil
-	}
 }
