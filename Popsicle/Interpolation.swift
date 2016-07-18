@@ -11,7 +11,7 @@ public protocol Timeable {
 }
 
 extension Sequence where Iterator.Element: Timeable {
-	var time: Time {
+	public var time: Time {
 		get { fatalError("`Sequence.time` can only be used as a setter.") }
 		set { self.forEach { (var timeable) in timeable.time = newValue } }
 	}
