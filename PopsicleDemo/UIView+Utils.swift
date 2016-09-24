@@ -8,17 +8,19 @@
 
 extension UIView {
 	static func viewsByClassInNibNamed(_ name: String) -> [String: UIView] {
-		var viewsByClass = [String: UIView]()
-
-		let nibViews = Bundle.main().loadNibNamed(name, owner: self, options: nil)
-
-		for view in nibViews {
-			if let v = view as? UIView {
-				viewsByClass[NSStringFromClass(v.dynamicType)] = v
-			}
+		guard let nibs = Bundle.main.loadNibNamed(name, owner: self, options: nil) else {
+			return [:]
 		}
 
-		return viewsByClass
+		return nibs
+			.filter { $0 is UIView }
+			.map { $0 as! UIView }
+			.map { (NSStringFromClass(type(of: $0)), $0) }
+			.reduce([String: UIView]()) { acc, element in
+				var acc = acc
+				acc[element.0] = element.1 as! UIView
+				return acc
+			}
 	}
 
 	func pinToSuperviewEdges() {

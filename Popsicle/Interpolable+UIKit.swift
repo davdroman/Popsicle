@@ -59,7 +59,7 @@ extension CGAffineTransform: Interpolable {
 
 		let angle = CGFloat.interpolate(from: fromValue.angle, to: toValue.angle, at: time)
 
-		return CGAffineTransform.identity.translateBy(x: tx, y: ty).scaleBy(x: sx, y: sy).rotate(angle)
+		return CGAffineTransform.identity.translatedBy(x: tx, y: ty).scaledBy(x: sx, y: sy).rotated(by: angle)
 	}
 }
 

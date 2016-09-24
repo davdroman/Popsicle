@@ -10,19 +10,12 @@ public protocol Timeable {
 	var time: Time { get set }
 }
 
-extension Sequence where Iterator.Element: Timeable {
-	public var time: Time {
-		get { fatalError("`Sequence.time` can only be used as a setter.") }
-		set { self.forEach { (var timeable) in timeable.time = newValue } }
-	}
-}
-
-struct Pole<I: Interpolable where I.ValueType == I> {
+struct Pole<I: Interpolable> where I.ValueType == I {
 	let time: Time
 	let value: I
 	let easingFunction: EasingFunction
 
-	init(time: Time, value: I, easingFunction: EasingFunction) {
+	init(time: Time, value: I, easingFunction: @escaping EasingFunction) {
 		self.time = time
 		self.value = value
 		self.easingFunction = easingFunction
@@ -30,7 +23,7 @@ struct Pole<I: Interpolable where I.ValueType == I> {
 }
 
 /// `Interpolation` defines an interpolation which changes some `NSObject` value given by a key path.
-public class Interpolation<I: Interpolable where I.ValueType == I> : Timeable, Hashable, CustomStringConvertible {
+public class Interpolation<I: Interpolable>: Timeable, Hashable, CustomStringConvertible where I.ValueType == I {
 
 	// I was originally going to use a simple typealias to represent `Pole`s
 	// however this seems to produce a compiler segmentation fault.
@@ -46,7 +39,7 @@ public class Interpolation<I: Interpolable where I.ValueType == I> : Timeable, H
 		self.keyPath = keyPath.keyPathRepresentable.keyPath()
 
 		if !self.object.responds(to: NSSelectorFromString(self.keyPath)) {
-			fatalError("Please make sure the key path \"\(self.keyPath)\" you're referring to for an object of type <\(self.object.dynamicType)> is valid")
+			fatalError("Please make sure the key path \"\(self.keyPath)\" you're referring to for an object of type <\(type(of: self.object))> is valid")
 		}
 	}
 
@@ -86,7 +79,7 @@ public class Interpolation<I: Interpolable where I.ValueType == I> : Timeable, H
 		return value
 	}
 
-	func setPole(at time: Time, value: I, easingFunction: EasingFunction = linearEasingFunction) {
+	func setPole(at time: Time, value: I, easingFunction: @escaping EasingFunction = linearEasingFunction) {
 		let index = indexOfPole(after: time) ?? poles.count
 		poles.insert(Pole(time: time, value: value, easingFunction: easingFunction), at: index)
 	}
@@ -109,7 +102,7 @@ public class Interpolation<I: Interpolable where I.ValueType == I> : Timeable, H
 
 	public var time: Time = 0 {
 		didSet {
-			self.object.setValue(self[time] as? AnyObject, forKeyPath: self.keyPath)
+			self.object.setValue(self[time], forKeyPath: self.keyPath)
 		}
 	}
 
