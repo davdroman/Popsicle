@@ -13,27 +13,21 @@ public class InterpolationSet {
 
 	public init() { }
 
-	public func append<T: Interpolable>(_ interpolation: Interpolation<T>) {
-		self.interpolations.append(interpolation)
+	public func append<I: Interpolable, P: PropertyProtocol>(_ interpolation: Interpolation<I, P>) {
+		interpolations.append(interpolation)
 	}
 
 	public var time: Time = 0 {
 		didSet {
-			self.interpolations.forEach { (var timeable) in timeable.time = self.time }
+			interpolations.forEach { (var timeable) in timeable.time = time }
 		}
 	}
 
-	public func remove<T: Interpolable>(_ interpolation: Interpolation<T>) {
-		for (index, element) in self.interpolations.enumerated() {
-			if let interpolation = element as? Interpolation<T> {
-				if interpolation == interpolation {
-					self.interpolations.remove(at: index)
-				}
-			}
-		}
+	public func remove<I: Interpolable, P: PropertyProtocol>(_ interpolation: Interpolation<I, P>) {
+		interpolations = interpolations.filter { ($0 as? Interpolation<I, P>) != interpolation }
 	}
 
 	public func removeAll() {
-		self.interpolations.removeAll()
+		interpolations.removeAll()
 	}
 }

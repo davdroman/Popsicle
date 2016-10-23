@@ -2,15 +2,43 @@
 //  KeyPath.swift
 //  Popsicle
 //
-//  Created by David Román Aguirre on 04/11/15.
-//  Copyright © 2015 David Román Aguirre. All rights reserved.
+//  Created by David Román Aguirre on 23/10/2016.
+//  Copyright © 2016 David Román Aguirre. All rights reserved.
 //
 
-/// `KeyPath` allows to refer to a specific `NSObject` key path in a safer way, by constraining it to a specific `NSObject` and `Interpolable`.
-public struct KeyPath<O: NSObject, V: Any> {
-	let keyPathRepresentable: KeyPathRepresentable
+import Foundation
 
-	public init(_ keyPathRepresentable: KeyPathRepresentable) {
-		self.keyPathRepresentable = keyPathRepresentable
+/// `KeyPathRepresentable` defines the relationship between a given `NSObject` and its key path.
+public protocol KeyPathRepresentable {
+	func object(from originalObject: NSObject) -> NSObject
+	var keyPath: String { get }
+}
+
+extension String: KeyPathRepresentable {
+	public func object(from originalObject: NSObject) -> NSObject {
+		return originalObject
+	}
+
+	public var keyPath: String {
+		return self
+	}
+}
+
+public struct KeyPath<Object: NSObject, Value: Any>: PropertyProtocol {
+	public let bindingClosure: (Object, Value) -> Void
+
+	init(_ keyPathRepresentable: KeyPathRepresentable) {
+		self.bindingClosure = { object, value in
+			let dynamicValue: Any
+
+			switch value {
+			case let value as CGAffineTransform:
+				dynamicValue = NSValue(cgAffineTransform: value)
+			default:
+				dynamicValue = value
+			}
+
+			keyPathRepresentable.object(from: object).setValue(dynamicValue, forKeyPath: keyPathRepresentable.keyPath)
+		}
 	}
 }

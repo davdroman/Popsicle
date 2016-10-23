@@ -11,6 +11,8 @@
 		D5175C461D36AAD900C7D0FE /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
 		D5175C511D36B61100C7D0FE /* Interpolable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B324B1BE65FF800A1820B /* Interpolable.swift */; };
 		D5175C531D36B64400C7D0FE /* EasingFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5175C521D36B64400C7D0FE /* EasingFunctionTests.swift */; };
+		D536D7601DBC4BC300B2E786 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = D536D75F1DBC4BC300B2E786 /* Property.swift */; };
+		D536D7661DBC7B1900B2E786 /* KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D536D7651DBC7B1900B2E786 /* KeyPath.swift */; };
 		D53E5FD91BEA12340043DF84 /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FD81BEA12340043DF84 /* EasingFunction.swift */; };
 		D53E5FE51BEA145F0043DF84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FE41BEA145F0043DF84 /* AppDelegate.swift */; };
 		D53E5FE71BEA145F0043DF84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FE61BEA145F0043DF84 /* ViewController.swift */; };
@@ -25,10 +27,7 @@
 		D588FC0A1D3B2FD700BF003B /* Interpolable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57975671D25A4A200AD3901 /* Interpolable+UIKit.swift */; };
 		D593A8DD1BEA72E500AFA257 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
 		D593A8DE1BEA72E500AFA257 /* Popsicle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D5AE37E41D3BF49A0015557C /* KeyPathRepresentable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D579756D1D25C72A00AD3901 /* KeyPathRepresentable+UIKit.swift */; };
-		D5AE37E51D3BF49C0015557C /* KeyPathRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D579756B1D25C70000AD3901 /* KeyPathRepresentable.swift */; };
-		D5AE37E61D3BF49E0015557C /* KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D593A8E41BEA88B600AFA257 /* KeyPath.swift */; };
-		D5AE37E71D3BF4A10015557C /* KeyPath+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57975691D25C4EB00AD3901 /* KeyPath+UIKit.swift */; };
+		D5AE37E41D3BF49A0015557C /* KeyPath+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D579756D1D25C72A00AD3901 /* KeyPath+UIKit.swift */; };
 		D5AE37E91D3BFC070015557C /* KeyPathRepresentable+UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AE37E81D3BFC070015557C /* KeyPathRepresentable+UIKitTests.swift */; };
 		D5D5B35A1D3C3D8A00F8D736 /* InterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D5B3591D3C3D8A00F8D736 /* InterpolationTests.swift */; };
 		D5D5B35B1D3C4E3400F8D736 /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FDA1BEA13600043DF84 /* Interpolation.swift */; };
@@ -70,6 +69,8 @@
 		D5175C411D36AAD900C7D0FE /* PopsicleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopsicleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5175C451D36AAD900C7D0FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5175C521D36B64400C7D0FE /* EasingFunctionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasingFunctionTests.swift; sourceTree = "<group>"; };
+		D536D75F1DBC4BC300B2E786 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
+		D536D7651DBC7B1900B2E786 /* KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPath.swift; sourceTree = "<group>"; };
 		D53B324B1BE65FF800A1820B /* Interpolable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolable.swift; sourceTree = "<group>"; };
 		D53E5FD81BEA12340043DF84 /* EasingFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasingFunction.swift; sourceTree = "<group>"; };
 		D53E5FDA1BEA13600043DF84 /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
@@ -87,12 +88,9 @@
 		D53E5FFF1BEA199C0043DF84 /* PageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageScrollView.swift; sourceTree = "<group>"; };
 		D53E60041BEA67790043DF84 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		D57975671D25A4A200AD3901 /* Interpolable+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Interpolable+UIKit.swift"; sourceTree = "<group>"; };
-		D57975691D25C4EB00AD3901 /* KeyPath+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyPath+UIKit.swift"; sourceTree = "<group>"; };
-		D579756B1D25C70000AD3901 /* KeyPathRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPathRepresentable.swift; sourceTree = "<group>"; };
-		D579756D1D25C72A00AD3901 /* KeyPathRepresentable+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyPathRepresentable+UIKit.swift"; sourceTree = "<group>"; };
+		D579756D1D25C72A00AD3901 /* KeyPath+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyPath+UIKit.swift"; sourceTree = "<group>"; };
 		D588FC031D3AEF5D00BF003B /* InterpolableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpolableTests.swift; sourceTree = "<group>"; };
 		D588FC051D3B1D0200BF003B /* Interpolable+UIKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Interpolable+UIKitTests.swift"; sourceTree = "<group>"; };
-		D593A8E41BEA88B600AFA257 /* KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPath.swift; sourceTree = "<group>"; };
 		D5AE37E81D3BFC070015557C /* KeyPathRepresentable+UIKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyPathRepresentable+UIKitTests.swift"; sourceTree = "<group>"; };
 		D5D5B3591D3C3D8A00F8D736 /* InterpolationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpolationTests.swift; sourceTree = "<group>"; };
 		D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Popsicle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,10 +209,9 @@
 				D53B324B1BE65FF800A1820B /* Interpolable.swift */,
 				D57975671D25A4A200AD3901 /* Interpolable+UIKit.swift */,
 				D53E5FD81BEA12340043DF84 /* EasingFunction.swift */,
-				D579756B1D25C70000AD3901 /* KeyPathRepresentable.swift */,
-				D579756D1D25C72A00AD3901 /* KeyPathRepresentable+UIKit.swift */,
-				D593A8E41BEA88B600AFA257 /* KeyPath.swift */,
-				D57975691D25C4EB00AD3901 /* KeyPath+UIKit.swift */,
+				D536D75F1DBC4BC300B2E786 /* Property.swift */,
+				D536D7651DBC7B1900B2E786 /* KeyPath.swift */,
+				D579756D1D25C72A00AD3901 /* KeyPath+UIKit.swift */,
 				D579756F1D25CC4900AD3901 /* Supporting Files */,
 			);
 			path = Popsicle;
@@ -422,14 +419,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5AE37E41D3BF49A0015557C /* KeyPathRepresentable+UIKit.swift in Sources */,
+				D5AE37E41D3BF49A0015557C /* KeyPath+UIKit.swift in Sources */,
+				D536D7601DBC4BC300B2E786 /* Property.swift in Sources */,
 				D588FC0A1D3B2FD700BF003B /* Interpolable+UIKit.swift in Sources */,
-				D5AE37E61D3BF49E0015557C /* KeyPath.swift in Sources */,
 				D5175C511D36B61100C7D0FE /* Interpolable.swift in Sources */,
-				D5AE37E71D3BF4A10015557C /* KeyPath+UIKit.swift in Sources */,
 				D53E5FD91BEA12340043DF84 /* EasingFunction.swift in Sources */,
+				D536D7661DBC7B1900B2E786 /* KeyPath.swift in Sources */,
 				D5D5B35B1D3C4E3400F8D736 /* Interpolation.swift in Sources */,
-				D5AE37E51D3BF49C0015557C /* KeyPathRepresentable.swift in Sources */,
 				D50B91EA1D3D074C00AAE64E /* InterpolationSet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

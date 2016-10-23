@@ -28,7 +28,7 @@ class KeyPathRepresentableUIKitTests: XCTestCase {
 		superview.addConstraint(layoutConstraint)
 
 		XCTAssert(attribute.object(from: view) == layoutConstraint)
-		XCTAssert(attribute.keyPath() == "constant")
+		XCTAssert(attribute.keyPath == "constant")
 	}
 
 	class func test(parentlessAttribute attribute: NSLayoutAttribute) {
@@ -46,7 +46,7 @@ class KeyPathRepresentableUIKitTests: XCTestCase {
 		view.addConstraint(layoutConstraint)
 
 		XCTAssert(attribute.object(from: view) == layoutConstraint)
-		XCTAssert(attribute.keyPath() == "constant")
+		XCTAssert(attribute.keyPath == "constant")
 	}
 
 	func testLayoutAttributeKeyPathRepresentables() {

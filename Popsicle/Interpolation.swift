@@ -22,32 +22,16 @@ struct Pole<I: Interpolable> where I.ValueType == I {
 	}
 }
 
-/// `Interpolation` defines an interpolation which changes some `NSObject` value given by a key path.
-public class Interpolation<I: Interpolable>: Timeable, Hashable, CustomStringConvertible where I.ValueType == I {
+/// `Interpolation` defines an interpolation of an object property.
+public class Interpolation<I: Interpolable, P: PropertyProtocol>: Timeable where I == I.ValueType, P.Value == I {
 
-	// I was originally going to use a simple typealias to represent `Pole`s
-	// however this seems to produce a compiler segmentation fault.
-	// Uncomment this line and see for yourself.
-	// typealias Pole = (time: Time, value: I, easingFunction: EasingFunction)
+	let object: P.Object
+	let property: P
+	var poles = [Pole<P.Value>]()
 
-	let object: NSObject
-	let keyPath: String
-	var poles = [Pole<I>]()
-
-	public init<O: NSObject>(_ object: O, _ keyPath: KeyPath<O, I>) {
-		self.object = keyPath.keyPathRepresentable.object(from: object)
-		self.keyPath = keyPath.keyPathRepresentable.keyPath()
-
-		if !self.object.responds(to: NSSelectorFromString(self.keyPath)) {
-			fatalError("Please make sure the key path \"\(self.keyPath)\" you're referring to for an object of type <\(type(of: self.object))> is valid")
-		}
-	}
-
-	/// An initializer with `keyPath` as a `KeyPathRepresentable` parameter.
-	/// You should try to avoid this method unless absolutely necessary, due to its unsafety.
-	/// Otherwise please consider using #keyPath, introduced in Swift 3 for higher compile-time safety.
-	public convenience init(_ object: NSObject, _ keyPath: KeyPathRepresentable) {
-		self.init(object, KeyPath(keyPath))
+	public init(_ object: P.Object, _ property: P) {
+		self.object = object
+		self.property = property
 	}
 
 	public subscript(times: Time...) -> I {
@@ -102,19 +86,25 @@ public class Interpolation<I: Interpolable>: Timeable, Hashable, CustomStringCon
 
 	public var time: Time = 0 {
 		didSet {
-			self.object.setValue(self[time], forKeyPath: self.keyPath)
+			property.bindingClosure(object, self[time])
 		}
-	}
-
-	public var hashValue: Int {
-		return description.hashValue
-	}
-
-	public var description: String {
-		return "\(self.object) | \(self.keyPath)"
 	}
 }
 
-public func == <T: Interpolable>(lhs: Interpolation<T>, rhs: Interpolation<T>) -> Bool {
-	return lhs.hashValue == rhs.hashValue
+extension Interpolation: Equatable {
+	public static func == (lhs: Interpolation, rhs: Interpolation) -> Bool {
+		return lhs.hashValue == rhs.hashValue
+	}
+}
+
+extension Interpolation: Hashable {
+	public var hashValue: Int {
+		return description.hashValue
+	}
+}
+
+extension Interpolation: CustomStringConvertible {
+	public var description: String {
+		return "\(object) | \(property) | \(poles)"
+	}
 }
