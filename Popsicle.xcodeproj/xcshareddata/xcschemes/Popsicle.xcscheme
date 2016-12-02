@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D596503E1D24380D00BEC4E7"
+               BlueprintIdentifier = "D5175C401D36AAD900C7D0FE"
                BuildableName = "PopsicleTests.xctest"
                BlueprintName = "PopsicleTests"
                ReferencedContainer = "container:Popsicle.xcodeproj">

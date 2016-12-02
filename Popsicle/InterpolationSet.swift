@@ -19,7 +19,7 @@ public class InterpolationSet {
 
 	public var time: Time = 0 {
 		didSet {
-			interpolations.forEach { (var timeable) in timeable.time = time }
+			interpolations.forEach { timeable in var timeable = timeable; timeable.time = time }
 		}
 	}
 
