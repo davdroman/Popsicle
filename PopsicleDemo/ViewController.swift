@@ -42,7 +42,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 
 		if let imageView = self.pageScrollView.firstPageView.imageView {
 			let xInterpolation = Interpolation(imageView, centerXConstraint)
-			xInterpolation[f: 0] = (0, easeInQuadEasingFunction)
+			xInterpolation[f: 0] = (0, easeInQuad)
 			xInterpolation[1] = -self.pageScrollView.frame.width
 			xInterpolation[2] = -self.pageScrollView.frame.width*2
 			xInterpolation[3] = -self.pageScrollView.frame.width*3

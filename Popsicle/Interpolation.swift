@@ -63,7 +63,7 @@ public class Interpolation<I: Interpolable, P: PropertyProtocol>: Timeable where
 		return value
 	}
 
-	func setPole(at time: Time, value: I, easingFunction: @escaping EasingFunction = linearEasingFunction) {
+	func setPole(at time: Time, value: I, easingFunction: @escaping EasingFunction = linear) {
 		let index = indexOfPole(after: time) ?? poles.count
 		poles.insert(Pole(time: time, value: value, easingFunction: easingFunction), at: index)
 	}
