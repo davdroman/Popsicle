@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://www.dropbox.com/s/26i17fvh2ersrcs/header.png?raw=1" alt="Popsicle header" width="520px" />
+	<img src="https://www.dropbox.com/s/tf8dsdegfl5pcr4/header.png?raw=1" alt="Popsicle header" width="520px" />
 </p>
 
 <p align="center">
@@ -10,10 +10,8 @@
 </p>
 
 <p align="center">
-	<img src="https://www.dropbox.com/s/fgonke0ro98o1ge/1.gif?raw=1" alt="GIF 1" width="320px" />
+	<img src="https://www.dropbox.com/s/xm8vzq16eg7f95a/1.gif?raw=1" alt="GIF 1" width="320px" />
 </p>
-
-Popsicle is a Swift framework for creating and managing interpolations of different value types with built-in UIKit support.
 
 ## Installation
 
@@ -35,38 +33,38 @@ Drag and copy all files in the [__Popsicle__](Popsicle) folder into your project
 
 ## At a glance
 
-#### Interpolating UIView (or any other NSObject) values
+#### Interpolating UIView values
 
-First, you need an `Interpolator` instance:
+First, you need an `InterpolationSet` (think of it as `[Interpolation]`, which hopefully will be the case with Swift 4):
 
 ```swift
-let interpolator = Interpolator()
+let interpolations = InterpolationSet()
 ```
 
-Next, you need to add some `Interpolation<T>` instances to your interpolator. In the example below, we are going to interpolate the alpha value of a UIView for times between 0 and 150:
+Next, you need to add some `Interpolation` instances to your set. In the example below, we are going to interpolate the alpha value of a UIView for times between 0 and 150:
 
 ```swift
 let interpolation = Interpolation(yourView, alpha)
 interpolation[0] = 0
 interpolation[150] = 1
-self.interpolator.addInterpolation(interpolation)
+interpolations.append(interpolation)
 ```
 
-Note `alpha` is a built-in `KeyPath<T, U>` constant. Popsicle offers a nice set of [__UIKit-related KeyPaths__](Popsicle/KeyPath.swift) ready to be used. You may also use a completely custom key path.
+Note `alpha` is a `KeyPath` constant. Popsicle offers a built-in set of [__UIKit KeyPaths__](Popsicle/KeyPath+UIKit.swift) ready to be used. You may also use your own custom key paths.
 
 You can also modify the easing function used at a given time:
 
 ```swift
-interpolation.setEasingFunction(EasingFunctionEaseOutQuad, forTime: 0)
+interpolation[f: 0] = (0, easeOutQuad)
 ```
 
 There's a bunch of [__built-in easing functions__](Popsicle/EasingFunction.swift) to choose from.
 
-Finally, just make your `interpolator` vary its `time` depending on whatever you want. For example, the content offset of a `UITableView`:
+Finally, just make your `interpolations` vary their `time` depending on any parameter you consider appropriate. For example, the content offset of a `UITableView`:
 
 ```swift
 func scrollViewDidScroll(scrollView: UIScrollView) {
-	interpolator.time = Double(scrollView.contentOffset.y)
+	interpolations.time = Time(scrollView.contentOffset.y)
 }
 ```
 
@@ -77,16 +75,12 @@ You can declare a value type as interpolable by making it conform to the `Interp
 As an example, check out how `CGPoint` conforms to `Interpolable`:
 
 ```swift
-extension CGSize: Interpolable {
-	public static func interpolate(from fromValue: CGSize, to toValue: CGSize, withProgress progress: Progress) -> CGSize {
-		let width = CGFloat.interpolate(from: fromValue.width, to: toValue.width, withProgress: progress)
-		let height = CGFloat.interpolate(from: fromValue.height, to: toValue.height, withProgress: progress)
+extension CGPoint: Interpolable {
+	static func interpolate(from fromValue: CGPoint, to toValue: CGPoint, at time: Time) -> CGPoint {
+		let x = CGFloat.interpolate(from: fromValue.x, to: toValue.x, at: time)
+		let y = CGFloat.interpolate(from: fromValue.y, to: toValue.y, at: time)
 
-		return CGSizeMake(width, height)
-	}
-
-	public static func objectify(value: CGSize) -> AnyObject {
-		return NSValue(CGSize: value)
+		return CGPoint(x: x, y: y)
 	}
 }
 ```
