@@ -7,29 +7,28 @@
 //
 
 extension UIView {
-	static func viewsByClassInNibNamed(_ name: String) -> [String: UIView] {
+	static func viewsByClassInNib(named name: String) -> [String: UIView] {
 		guard let nibs = Bundle.main.loadNibNamed(name, owner: self, options: nil) else {
 			return [:]
 		}
 
 		return nibs
-			.filter { $0 is UIView }
-			.map { $0 as! UIView }
+			.flatMap { $0 as? UIView }
 			.map { (NSStringFromClass(type(of: $0)), $0) }
 			.reduce([String: UIView]()) { acc, element in
 				var acc = acc
-				acc[element.0] = element.1 as! UIView
+				acc[element.0] = element.1 as? UIView
 				return acc
 			}
 	}
 
 	func pinToSuperviewEdges() {
-		self.translatesAutoresizingMaskIntoConstraints = false
+		translatesAutoresizingMaskIntoConstraints = false
 
 		for attribute in [.top, .left, .bottom, .right] as [NSLayoutAttribute] {
 			let constraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: .equal, toItem: self.superview, attribute: attribute, multiplier: 1, constant: 0)
 
-			self.superview?.addConstraint(constraint)
+			superview?.addConstraint(constraint)
 		}
 	}
 }

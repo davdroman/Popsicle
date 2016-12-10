@@ -6,15 +6,18 @@ included:
     - PopsicleTests
 disabled_rules:
     - conditional_binding_cascade
-
-force_cast: warning
-force_try: warning
+    - force_cast
+    - force_try
 
 leading_whitespace: warning
 trailing_whitespace: warning
 
 line_length:
     warning: 175
+
+function_body_length:
+    warning: 300
+    error: 400
 
 type_body_length:
     warning: 300

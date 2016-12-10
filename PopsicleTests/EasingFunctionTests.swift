@@ -9,7 +9,7 @@
 import XCTest
 import Popsicle
 
-infix operator ~= { }
+infix operator ~=
 
 func ~= <T: BinaryFloatingPoint>(lhs: T, rhs: T) -> Bool {
 	return abs(lhs - rhs) <= 0.02

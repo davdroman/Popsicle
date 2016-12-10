@@ -33,26 +33,24 @@ class PageScrollView: DRPageScrollView {
 	let fourthPageView: FourthPageView
 
 	override init(frame: CGRect) {
-		let views = UIView.viewsByClassInNibNamed("PageViews")
-		self.firstPageView = views["PopsicleDemo.FirstPageView"] as! FirstPageView
-		self.secondPageView = views["PopsicleDemo.SecondPageView"] as! SecondPageView
-		self.thirdPageView = views["PopsicleDemo.ThirdPageView"] as! ThirdPageView
-		self.fourthPageView = views["PopsicleDemo.FourthPageView"] as! FourthPageView
+		let views = UIView.viewsByClassInNib(named: "PageViews")
+		firstPageView = views["PopsicleDemo.FirstPageView"] as! FirstPageView
+		secondPageView = views["PopsicleDemo.SecondPageView"] as! SecondPageView
+		thirdPageView = views["PopsicleDemo.ThirdPageView"] as! ThirdPageView
+		fourthPageView = views["PopsicleDemo.FourthPageView"] as! FourthPageView
 		super.init(frame: frame)
 	}
 
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
-
 	override func didMoveToSuperview() {
-		if self.superview != nil {
-			for pv in [firstPageView, secondPageView, thirdPageView, fourthPageView] {
-				self.addPage { pageView in
+		if superview != nil {
+			[firstPageView, secondPageView, thirdPageView, fourthPageView].forEach { pv in
+				addPage { pageView in
 					pageView?.addSubview(pv)
 					pv.pinToSuperviewEdges()
 				}
 			}
 		}
 	}
+
+	@available(*, unavailable) required init?(coder aDecoder: NSCoder) { fatalError() }
 }
