@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name                  = "Popsicle"
-  s.version               = "2.0.1"
-  s.summary               = "Delightful, extensible Swift value interpolation framework"
+  s.version               = "3.0.0-beta.1"
+  s.summary               = "Simple, extensible interpolation framework"
   s.homepage              = "https://github.com/DavdRoman/Popsicle"
   s.author                = { "David Román" => "d@vidroman.me" }
   s.license               = { :type => 'MIT', :file => 'LICENSE' }
