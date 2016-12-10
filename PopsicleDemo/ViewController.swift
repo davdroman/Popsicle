@@ -63,7 +63,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
 			let transformInterpolation = Interpolation(imageView, transform)
 			transformInterpolation[0, 1, 2] = .identity
 			transformInterpolation[0.25] = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
-			transformInterpolation[3] = CGAffineTransform.identity.scaledBy(x: 1.4, y: 1.4).rotated(by: .pi)
+			transformInterpolation[3] = CGAffineTransform.identity.scaledBy(x: 1.4, y: 1.4).rotated(by: .pi/6) // pi/6 radians = 30 degrees
 			interpolations.append(transformInterpolation)
 		}
 
