@@ -16,28 +16,28 @@ extension CGFloat: Interpolable {
 
 extension CGPoint: Interpolable {
 	public static func interpolate(from fromValue: CGPoint, to toValue: CGPoint, at time: Time) -> CGPoint {
-		let x = CGFloat.interpolate(from: fromValue.x, to: toValue.x, at: time)
-		let y = CGFloat.interpolate(from: fromValue.y, to: toValue.y, at: time)
-
-		return CGPoint(x: x, y: y)
+		return CGPoint(
+			x: CGFloat.interpolate(from: fromValue.x, to: toValue.x, at: time),
+			y: CGFloat.interpolate(from: fromValue.y, to: toValue.y, at: time)
+		)
 	}
 }
 
 extension CGSize: Interpolable {
 	public static func interpolate(from fromValue: CGSize, to toValue: CGSize, at time: Time) -> CGSize {
-		let width = CGFloat.interpolate(from: fromValue.width, to: toValue.width, at: time)
-		let height = CGFloat.interpolate(from: fromValue.height, to: toValue.height, at: time)
-
-		return CGSize(width: width, height: height)
+		return CGSize(
+			width: CGFloat.interpolate(from: fromValue.width, to: toValue.width, at: time),
+			height: CGFloat.interpolate(from: fromValue.height, to: toValue.height, at: time)
+		)
 	}
 }
 
 extension CGRect: Interpolable {
 	public static func interpolate(from fromValue: CGRect, to toValue: CGRect, at time: Time) -> CGRect {
-		let origin = CGPoint.interpolate(from: fromValue.origin, to: toValue.origin, at: time)
-		let size = CGSize.interpolate(from: fromValue.size, to: toValue.size, at: time)
-
-		return CGRect(x: origin.x, y: origin.y, width: size.width, height: size.height)
+		return CGRect(
+			origin: CGPoint.interpolate(from: fromValue.origin, to: toValue.origin, at: time),
+			size: CGSize.interpolate(from: fromValue.size, to: toValue.size, at: time)
+		)
 	}
 }
 
@@ -51,38 +51,36 @@ extension CGAffineTransform {
 
 extension CGAffineTransform: Interpolable {
 	public static func interpolate(from fromValue: CGAffineTransform, to toValue: CGAffineTransform, at time: Time) -> CGAffineTransform {
-		let tx = CGFloat.interpolate(from: fromValue.translationX, to: toValue.translationX, at: time)
-		let ty = CGFloat.interpolate(from: fromValue.translationY, to: toValue.translationY, at: time)
+		return CGAffineTransform.identity
+			.translatedBy(
+				x: CGFloat.interpolate(from: fromValue.translationX, to: toValue.translationX, at: time),
+				y: CGFloat.interpolate(from: fromValue.translationY, to: toValue.translationY, at: time)
+			)
+			.scaledBy(
+				x: CGFloat.interpolate(from: fromValue.scaleX, to: toValue.scaleX, at: time),
+				y: CGFloat.interpolate(from: fromValue.scaleY, to: toValue.scaleY, at: time)
+			)
+			.rotated(
+				by: CGFloat.interpolate(from: fromValue.angle, to: toValue.angle, at: time)
+			)
+	}
+}
 
-		let sx = CGFloat.interpolate(from: fromValue.scaleX, to: toValue.scaleX, at: time)
-		let sy = CGFloat.interpolate(from: fromValue.scaleY, to: toValue.scaleY, at: time)
-
-		let angle = CGFloat.interpolate(from: fromValue.angle, to: toValue.angle, at: time)
-
-		return CGAffineTransform.identity.translatedBy(x: tx, y: ty).scaledBy(x: sx, y: sy).rotated(by: angle)
+extension UIColor {
+	var components: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+		var (red, green, blue, alpha) = (CGFloat(), CGFloat(), CGFloat(), CGFloat())
+		getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+		return (red, green, blue, alpha)
 	}
 }
 
 extension UIColor: Interpolable {
 	public static func interpolate(from fromValue: UIColor, to toValue: UIColor, at time: Time) -> UIColor {
-		var fromRed = CGFloat()
-		var fromGreen = CGFloat()
-		var fromBlue = CGFloat()
-		var fromAlpha = CGFloat()
-
-		var toRed = CGFloat()
-		var toGreen = CGFloat()
-		var toBlue = CGFloat()
-		var toAlpha = CGFloat()
-
-		fromValue.getRed(&fromRed, green: &fromGreen, blue: &fromBlue, alpha: &fromAlpha)
-		toValue.getRed(&toRed, green: &toGreen, blue: &toBlue, alpha: &toAlpha)
-
-		let red = CGFloat.interpolate(from: fromRed, to: toRed, at: time)
-		let green = CGFloat.interpolate(from: fromGreen, to: toGreen, at: time)
-		let blue = CGFloat.interpolate(from: fromBlue, to: toBlue, at: time)
-		let alpha = CGFloat.interpolate(from: fromAlpha, to: toAlpha, at: time)
-
-		return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+		return UIColor(
+			red: CGFloat.interpolate(from: fromValue.components.red, to: toValue.components.red, at: time),
+			green: CGFloat.interpolate(from: fromValue.components.green, to: toValue.components.green, at: time),
+			blue: CGFloat.interpolate(from: fromValue.components.blue, to: toValue.components.blue, at: time),
+			alpha: CGFloat.interpolate(from: fromValue.components.alpha, to: toValue.components.alpha, at: time)
+		)
 	}
 }
