@@ -1,5 +1,5 @@
 //
-//  KeyPathRepresentable+UIKitTests.swift
+//  KeyPath+UIKitTests.swift
 //  Popsicle
 //
 //  Created by David Román Aguirre on 17/07/16.
@@ -9,7 +9,7 @@
 import XCTest
 import Popsicle
 
-class KeyPathRepresentableUIKitTests: XCTestCase {
+class KeyPathUIKitTests: XCTestCase {
 
 	class func test(attribute: NSLayoutAttribute) {
 		let superview = UIView()
@@ -28,7 +28,7 @@ class KeyPathRepresentableUIKitTests: XCTestCase {
 		superview.addConstraint(layoutConstraint)
 
 		XCTAssert(attribute.object(from: view) == layoutConstraint)
-		XCTAssert(attribute.keyPath == "constant")
+		XCTAssert(attribute.keyPath == #keyPath(NSLayoutConstraint.constant))
 	}
 
 	class func test(parentlessAttribute attribute: NSLayoutAttribute) {
@@ -46,7 +46,7 @@ class KeyPathRepresentableUIKitTests: XCTestCase {
 		view.addConstraint(layoutConstraint)
 
 		XCTAssert(attribute.object(from: view) == layoutConstraint)
-		XCTAssert(attribute.keyPath == "constant")
+		XCTAssert(attribute.keyPath == #keyPath(NSLayoutConstraint.constant))
 	}
 
 	func testLayoutAttributeKeyPathRepresentables() {
@@ -71,13 +71,13 @@ class KeyPathRepresentableUIKitTests: XCTestCase {
 			.trailingMargin,
 			.centerXWithinMargins,
 			.centerYWithinMargins
-		]).forEach { KeyPathRepresentableUIKitTests.test(attribute: $0) }
+		]).forEach { KeyPathUIKitTests.test(attribute: $0) }
 	}
 
 	func testParentlessLayoutAttributeKeyPathRepresentables() {
 		[NSLayoutAttribute]([
 			.width,
 			.height
-		]).forEach { KeyPathRepresentableUIKitTests.test(parentlessAttribute: $0) }
+		]).forEach { KeyPathUIKitTests.test(parentlessAttribute: $0) }
 	}
 }

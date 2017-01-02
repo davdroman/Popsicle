@@ -28,7 +28,7 @@
 		D593A8DD1BEA72E500AFA257 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
 		D593A8DE1BEA72E500AFA257 /* Popsicle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D5AE37E41D3BF49A0015557C /* KeyPath+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D579756D1D25C72A00AD3901 /* KeyPath+UIKit.swift */; };
-		D5AE37E91D3BFC070015557C /* KeyPathRepresentable+UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AE37E81D3BFC070015557C /* KeyPathRepresentable+UIKitTests.swift */; };
+		D5AE37E91D3BFC070015557C /* KeyPath+UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AE37E81D3BFC070015557C /* KeyPath+UIKitTests.swift */; };
 		D5D5B35A1D3C3D8A00F8D736 /* InterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D5B3591D3C3D8A00F8D736 /* InterpolationTests.swift */; };
 		D5D5B35B1D3C4E3400F8D736 /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FDA1BEA13600043DF84 /* Interpolation.swift */; };
 		D5FBF53E1BE65BB500F3CB79 /* Popsicle.h in Headers */ = {isa = PBXBuildFile; fileRef = D5FBF53D1BE65BB500F3CB79 /* Popsicle.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -91,7 +91,7 @@
 		D579756D1D25C72A00AD3901 /* KeyPath+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyPath+UIKit.swift"; sourceTree = "<group>"; };
 		D588FC031D3AEF5D00BF003B /* InterpolableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpolableTests.swift; sourceTree = "<group>"; };
 		D588FC051D3B1D0200BF003B /* Interpolable+UIKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Interpolable+UIKitTests.swift"; sourceTree = "<group>"; };
-		D5AE37E81D3BFC070015557C /* KeyPathRepresentable+UIKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyPathRepresentable+UIKitTests.swift"; sourceTree = "<group>"; };
+		D5AE37E81D3BFC070015557C /* KeyPath+UIKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyPath+UIKitTests.swift"; sourceTree = "<group>"; };
 		D5D5B3591D3C3D8A00F8D736 /* InterpolationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpolationTests.swift; sourceTree = "<group>"; };
 		D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Popsicle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FBF53D1BE65BB500F3CB79 /* Popsicle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Popsicle.h; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 				D588FC031D3AEF5D00BF003B /* InterpolableTests.swift */,
 				D588FC051D3B1D0200BF003B /* Interpolable+UIKitTests.swift */,
 				D5175C521D36B64400C7D0FE /* EasingFunctionTests.swift */,
-				D5AE37E81D3BFC070015557C /* KeyPathRepresentable+UIKitTests.swift */,
+				D5AE37E81D3BFC070015557C /* KeyPath+UIKitTests.swift */,
 				D5175C451D36AAD900C7D0FE /* Info.plist */,
 			);
 			path = PopsicleTests;
@@ -398,7 +398,7 @@
 				D588FC041D3AEF5D00BF003B /* InterpolableTests.swift in Sources */,
 				D5175C531D36B64400C7D0FE /* EasingFunctionTests.swift in Sources */,
 				D588FC091D3B2FCC00BF003B /* Interpolable+UIKitTests.swift in Sources */,
-				D5AE37E91D3BFC070015557C /* KeyPathRepresentable+UIKitTests.swift in Sources */,
+				D5AE37E91D3BFC070015557C /* KeyPath+UIKitTests.swift in Sources */,
 				D5D5B35A1D3C3D8A00F8D736 /* InterpolationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

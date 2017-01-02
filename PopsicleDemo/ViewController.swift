@@ -9,7 +9,7 @@
 import UIKit
 import Popsicle
 
-class ViewController: UIViewController, UIScrollViewDelegate {
+final class ViewController: UIViewController, UIScrollViewDelegate {
 
 	let pageScrollView = PageScrollView(frame: .zero)
 	var interpolations = InterpolationSet()
