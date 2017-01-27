@@ -8,6 +8,7 @@ disabled_rules:
     - conditional_binding_cascade
     - force_cast
     - force_try
+    - large_tuple
 
 leading_whitespace: warning
 trailing_whitespace: warning
