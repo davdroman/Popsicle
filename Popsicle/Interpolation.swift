@@ -6,8 +6,21 @@
 //  Copyright © 2015 David Román Aguirre. All rights reserved.
 //
 
-public protocol Timeable {
+public protocol AnyInterpolation {
 	var time: Time { get set }
+}
+
+extension Collection where Iterator.Element == AnyInterpolation {
+	public var time: Time {
+		get {
+			// TODO: improve (pick the most repeated time in the collection)
+			return first?.time ?? 0
+		}
+
+		set {
+			forEach { var interpolation = $0; interpolation.time = newValue }
+		}
+	}
 }
 
 struct Pole<I: Interpolable> where I.ValueType == I {
@@ -23,7 +36,7 @@ struct Pole<I: Interpolable> where I.ValueType == I {
 }
 
 /// `Interpolation` defines an interpolation of an object property.
-public class Interpolation<I: Interpolable, P: PropertyProtocol>: Timeable where I == I.ValueType, P.Value == I {
+public class Interpolation<I: Interpolable, P: PropertyProtocol>: AnyInterpolation where I == I.ValueType, P.Value == I {
 
 	let object: P.Object
 	let property: P
