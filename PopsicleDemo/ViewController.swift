@@ -12,7 +12,7 @@ import Popsicle
 final class ViewController: UIViewController, UIScrollViewDelegate {
 
 	let pageScrollView = PageScrollView(frame: .zero)
-	var interpolations = InterpolationSet()
+	var interpolations = [AnyInterpolation]()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
