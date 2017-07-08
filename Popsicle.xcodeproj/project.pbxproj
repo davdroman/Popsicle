@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D5D4F6DD1F10606C00CCFBE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4F6DC1F10606C00CCFBE1 /* AppDelegate.swift */; };
+		D5D4F6DF1F10606C00CCFBE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D4F6DE1F10606C00CCFBE1 /* ViewController.swift */; };
+		D5D4F6E21F10606C00CCFBE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5D4F6E01F10606C00CCFBE1 /* Main.storyboard */; };
+		D5D4F6E41F10606C00CCFBE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5D4F6E31F10606C00CCFBE1 /* Assets.xcassets */; };
+		D5D4F6E71F10606C00CCFBE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5D4F6E51F10606C00CCFBE1 /* LaunchScreen.storyboard */; };
 		OBJ_28 /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* EasingFunction.swift */; };
 		OBJ_29 /* Interpolable+CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Interpolable+CoreGraphics.swift */; };
 		OBJ_30 /* Interpolable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Interpolable+UIKit.swift */; };
@@ -31,6 +36,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D5D4F6DA1F10606C00CCFBE1 /* PopsicleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopsicleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5D4F6DC1F10606C00CCFBE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D5D4F6DE1F10606C00CCFBE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D5D4F6E11F10606C00CCFBE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D5D4F6E31F10606C00CCFBE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D5D4F6E61F10606C00CCFBE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D5D4F6E81F10606C00CCFBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		OBJ_10 /* Interpolable+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interpolable+UIKit.swift"; sourceTree = "<group>"; };
 		OBJ_11 /* Interpolable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolable.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Interpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
@@ -47,6 +59,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D5D4F6D71F10606C00CCFBE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		OBJ_33 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
@@ -65,6 +84,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D5D4F6DB1F10606C00CCFBE1 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				D5D4F6DC1F10606C00CCFBE1 /* AppDelegate.swift */,
+				D5D4F6DE1F10606C00CCFBE1 /* ViewController.swift */,
+				D5D4F6E01F10606C00CCFBE1 /* Main.storyboard */,
+				D5D4F6E31F10606C00CCFBE1 /* Assets.xcassets */,
+				D5D4F6E51F10606C00CCFBE1 /* LaunchScreen.storyboard */,
+				D5D4F6E81F10606C00CCFBE1 /* Info.plist */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
 		OBJ_13 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,19 +123,20 @@
 			children = (
 				OBJ_21 /* Popsicle.framework */,
 				OBJ_22 /* PopsicleTests.xctest */,
+				D5D4F6DA1F10606C00CCFBE1 /* PopsicleDemo.app */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
 				OBJ_13 /* Tests */,
+				D5D4F6DB1F10606C00CCFBE1 /* Demo */,
 				OBJ_20 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -121,6 +154,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D5D4F6D91F10606C00CCFBE1 /* PopsicleDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5D4F6EB1F10606C00CCFBE1 /* Build configuration list for PBXNativeTarget "PopsicleDemo" */;
+			buildPhases = (
+				D5D4F6D61F10606C00CCFBE1 /* Sources */,
+				D5D4F6D71F10606C00CCFBE1 /* Frameworks */,
+				D5D4F6D81F10606C00CCFBE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PopsicleDemo;
+			productName = PopsicleDemo;
+			productReference = D5D4F6DA1F10606C00CCFBE1 /* PopsicleDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		OBJ_23 /* Popsicle */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_24 /* Build configuration list for PBXNativeTarget "Popsicle" */;
@@ -160,8 +210,12 @@
 		OBJ_1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 9999;
 				TargetAttributes = {
+					D5D4F6D91F10606C00CCFBE1 = {
+						CreatedOnToolsVersion = 9.0;
+					};
 					OBJ_23 = {
 						LastSwiftMigration = 0900;
 					};
@@ -176,19 +230,43 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_20 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				OBJ_23 /* Popsicle */,
 				OBJ_34 /* PopsicleTests */,
+				D5D4F6D91F10606C00CCFBE1 /* PopsicleDemo */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		D5D4F6D81F10606C00CCFBE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D4F6E71F10606C00CCFBE1 /* LaunchScreen.storyboard in Resources */,
+				D5D4F6E41F10606C00CCFBE1 /* Assets.xcassets in Resources */,
+				D5D4F6E21F10606C00CCFBE1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		D5D4F6D61F10606C00CCFBE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5D4F6DF1F10606C00CCFBE1 /* ViewController.swift in Sources */,
+				D5D4F6DD1F10606C00CCFBE1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		OBJ_27 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
@@ -223,7 +301,134 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		D5D4F6E01F10606C00CCFBE1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5D4F6E11F10606C00CCFBE1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D5D4F6E51F10606C00CCFBE1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5D4F6E61F10606C00CCFBE1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		D5D4F6E91F10606C00CCFBE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D5D4F6EA1F10606C00CCFBE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		OBJ_25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -355,6 +560,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D5D4F6EB1F10606C00CCFBE1 /* Build configuration list for PBXNativeTarget "PopsicleDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D5D4F6E91F10606C00CCFBE1 /* Debug */,
+				D5D4F6EA1F10606C00CCFBE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		OBJ_2 /* Build configuration list for PBXProject "Popsicle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
