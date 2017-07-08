@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_25"
+               BlueprintIdentifier = "OBJ_23"
                BuildableName = "Popsicle.framework"
                BlueprintName = "Popsicle"
                ReferencedContainer = "container:Popsicle.xcodeproj">
@@ -33,7 +33,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "OBJ_38"
+               BlueprintIdentifier = "OBJ_34"
                BuildableName = "PopsicleTests.xctest"
                BlueprintName = "PopsicleTests"
                ReferencedContainer = "container:Popsicle.xcodeproj">
@@ -57,7 +57,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "OBJ_25"
+            BlueprintIdentifier = "OBJ_23"
             BuildableName = "Popsicle.framework"
             BlueprintName = "Popsicle"
             ReferencedContainer = "container:Popsicle.xcodeproj">

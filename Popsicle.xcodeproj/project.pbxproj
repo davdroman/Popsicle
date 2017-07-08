@@ -7,112 +7,113 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D5F09F671F1043B1006AFE9B /* Interpolable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F09F661F1043B1006AFE9B /* Interpolable+UIKit.swift */; };
-		D5F09F691F10465F006AFE9B /* Interpolable+CoreGraphicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F09F681F10465F006AFE9B /* Interpolable+CoreGraphicsTests.swift */; };
-		OBJ_30 /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* EasingFunction.swift */; };
-		OBJ_31 /* Interpolable+CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Interpolable+CoreGraphics.swift */; };
-		OBJ_32 /* Interpolable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Interpolable.swift */; };
-		OBJ_33 /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Interpolation.swift */; };
-		OBJ_43 /* EasingFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* EasingFunctionTests.swift */; };
-		OBJ_44 /* Interpolable+UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Interpolable+UIKitTests.swift */; };
-		OBJ_45 /* InterpolableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* InterpolableTests.swift */; };
-		OBJ_46 /* InterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* InterpolationTests.swift */; };
-		OBJ_49 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* Popsicle.framework */; };
+		OBJ_28 /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* EasingFunction.swift */; };
+		OBJ_29 /* Interpolable+CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Interpolable+CoreGraphics.swift */; };
+		OBJ_30 /* Interpolable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Interpolable+UIKit.swift */; };
+		OBJ_31 /* Interpolable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Interpolable.swift */; };
+		OBJ_32 /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Interpolation.swift */; };
+		OBJ_39 /* EasingFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* EasingFunctionTests.swift */; };
+		OBJ_40 /* Interpolable+CoreGraphicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Interpolable+CoreGraphicsTests.swift */; };
+		OBJ_41 /* Interpolable+UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Interpolable+UIKitTests.swift */; };
+		OBJ_42 /* InterpolableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* InterpolableTests.swift */; };
+		OBJ_43 /* InterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* InterpolationTests.swift */; };
+		OBJ_45 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Popsicle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D5F09F651F104385006AFE9B /* PBXContainerItemProxy */ = {
+		D5F09F741F105E31006AFE9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = OBJ_25;
+			remoteGlobalIDString = OBJ_23;
 			remoteInfo = Popsicle;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D5F09F661F1043B1006AFE9B /* Interpolable+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interpolable+UIKit.swift"; sourceTree = "<group>"; };
-		D5F09F681F10465F006AFE9B /* Interpolable+CoreGraphicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interpolable+CoreGraphicsTests.swift"; sourceTree = "<group>"; };
-		OBJ_10 /* Interpolable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolable.swift; sourceTree = "<group>"; };
-		OBJ_11 /* Interpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
-		OBJ_17 /* EasingFunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasingFunctionTests.swift; sourceTree = "<group>"; };
-		OBJ_18 /* Interpolable+UIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interpolable+UIKitTests.swift"; sourceTree = "<group>"; };
-		OBJ_19 /* InterpolableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpolableTests.swift; sourceTree = "<group>"; };
-		OBJ_20 /* InterpolationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpolationTests.swift; sourceTree = "<group>"; };
-		OBJ_23 /* Popsicle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Popsicle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		OBJ_24 /* PopsicleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = PopsicleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_10 /* Interpolable+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interpolable+UIKit.swift"; sourceTree = "<group>"; };
+		OBJ_11 /* Interpolable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolable.swift; sourceTree = "<group>"; };
+		OBJ_12 /* Interpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
+		OBJ_15 /* EasingFunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasingFunctionTests.swift; sourceTree = "<group>"; };
+		OBJ_16 /* Interpolable+CoreGraphicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interpolable+CoreGraphicsTests.swift"; sourceTree = "<group>"; };
+		OBJ_17 /* Interpolable+UIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interpolable+UIKitTests.swift"; sourceTree = "<group>"; };
+		OBJ_18 /* InterpolableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpolableTests.swift; sourceTree = "<group>"; };
+		OBJ_19 /* InterpolationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpolationTests.swift; sourceTree = "<group>"; };
+		OBJ_21 /* Popsicle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Popsicle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_22 /* PopsicleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = PopsicleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_8 /* EasingFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasingFunction.swift; sourceTree = "<group>"; };
 		OBJ_9 /* Interpolable+CoreGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interpolable+CoreGraphics.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_37 /* Frameworks */ = {
+		OBJ_33 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_48 /* Frameworks */ = {
+		OBJ_44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_49 /* Popsicle.framework in Frameworks */,
+				OBJ_45 /* Popsicle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		OBJ_15 /* Tests */ = {
+		OBJ_13 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_16 /* PopsicleTests */,
+				OBJ_14 /* PopsicleTests */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_16 /* PopsicleTests */ = {
+		OBJ_14 /* PopsicleTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_17 /* EasingFunctionTests.swift */,
-				D5F09F681F10465F006AFE9B /* Interpolable+CoreGraphicsTests.swift */,
-				OBJ_18 /* Interpolable+UIKitTests.swift */,
-				OBJ_19 /* InterpolableTests.swift */,
-				OBJ_20 /* InterpolationTests.swift */,
+				OBJ_15 /* EasingFunctionTests.swift */,
+				OBJ_16 /* Interpolable+CoreGraphicsTests.swift */,
+				OBJ_17 /* Interpolable+UIKitTests.swift */,
+				OBJ_18 /* InterpolableTests.swift */,
+				OBJ_19 /* InterpolationTests.swift */,
 			);
 			name = PopsicleTests;
 			path = Tests/PopsicleTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_22 /* Products */ = {
+		OBJ_20 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_23 /* Popsicle.framework */,
-				OBJ_24 /* PopsicleTests.xctest */,
+				OBJ_21 /* Popsicle.framework */,
+				OBJ_22 /* PopsicleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_15 /* Tests */,
-				OBJ_22 /* Products */,
+				OBJ_13 /* Tests */,
+				OBJ_20 /* Products */,
 			);
+			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_8 /* EasingFunction.swift */,
-				OBJ_10 /* Interpolable.swift */,
 				OBJ_9 /* Interpolable+CoreGraphics.swift */,
-				D5F09F661F1043B1006AFE9B /* Interpolable+UIKit.swift */,
-				OBJ_11 /* Interpolation.swift */,
+				OBJ_10 /* Interpolable+UIKit.swift */,
+				OBJ_11 /* Interpolable.swift */,
+				OBJ_12 /* Interpolation.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -120,12 +121,12 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		OBJ_25 /* Popsicle */ = {
+		OBJ_23 /* Popsicle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_26 /* Build configuration list for PBXNativeTarget "Popsicle" */;
+			buildConfigurationList = OBJ_24 /* Build configuration list for PBXNativeTarget "Popsicle" */;
 			buildPhases = (
-				OBJ_29 /* Sources */,
-				OBJ_37 /* Frameworks */,
+				OBJ_27 /* Sources */,
+				OBJ_33 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,24 +134,24 @@
 			);
 			name = Popsicle;
 			productName = Popsicle;
-			productReference = OBJ_23 /* Popsicle.framework */;
+			productReference = OBJ_21 /* Popsicle.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		OBJ_38 /* PopsicleTests */ = {
+		OBJ_34 /* PopsicleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_39 /* Build configuration list for PBXNativeTarget "PopsicleTests" */;
+			buildConfigurationList = OBJ_35 /* Build configuration list for PBXNativeTarget "PopsicleTests" */;
 			buildPhases = (
-				OBJ_42 /* Sources */,
-				OBJ_48 /* Frameworks */,
+				OBJ_38 /* Sources */,
+				OBJ_44 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_50 /* PBXTargetDependency */,
+				OBJ_46 /* PBXTargetDependency */,
 			);
 			name = PopsicleTests;
 			productName = PopsicleTests;
-			productReference = OBJ_24 /* PopsicleTests.xctest */;
+			productReference = OBJ_22 /* PopsicleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -161,10 +162,10 @@
 			attributes = {
 				LastUpgradeCheck = 9999;
 				TargetAttributes = {
-					OBJ_25 = {
+					OBJ_23 = {
 						LastSwiftMigration = 0900;
 					};
-					OBJ_38 = {
+					OBJ_34 = {
 						LastSwiftMigration = 0900;
 					};
 				};
@@ -176,54 +177,54 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5;
-			productRefGroup = OBJ_22 /* Products */;
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_20 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				OBJ_25 /* Popsicle */,
-				OBJ_38 /* PopsicleTests */,
+				OBJ_23 /* Popsicle */,
+				OBJ_34 /* PopsicleTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_29 /* Sources */ = {
+		OBJ_27 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_30 /* EasingFunction.swift in Sources */,
-				OBJ_31 /* Interpolable+CoreGraphics.swift in Sources */,
-				OBJ_32 /* Interpolable.swift in Sources */,
-				OBJ_33 /* Interpolation.swift in Sources */,
-				D5F09F671F1043B1006AFE9B /* Interpolable+UIKit.swift in Sources */,
+				OBJ_28 /* EasingFunction.swift in Sources */,
+				OBJ_29 /* Interpolable+CoreGraphics.swift in Sources */,
+				OBJ_30 /* Interpolable+UIKit.swift in Sources */,
+				OBJ_31 /* Interpolable.swift in Sources */,
+				OBJ_32 /* Interpolation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_42 /* Sources */ = {
+		OBJ_38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				D5F09F691F10465F006AFE9B /* Interpolable+CoreGraphicsTests.swift in Sources */,
-				OBJ_43 /* EasingFunctionTests.swift in Sources */,
-				OBJ_44 /* Interpolable+UIKitTests.swift in Sources */,
-				OBJ_45 /* InterpolableTests.swift in Sources */,
-				OBJ_46 /* InterpolationTests.swift in Sources */,
+				OBJ_39 /* EasingFunctionTests.swift in Sources */,
+				OBJ_40 /* Interpolable+CoreGraphicsTests.swift in Sources */,
+				OBJ_41 /* Interpolable+UIKitTests.swift in Sources */,
+				OBJ_42 /* InterpolableTests.swift in Sources */,
+				OBJ_43 /* InterpolationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_50 /* PBXTargetDependency */ = {
+		OBJ_46 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = OBJ_25 /* Popsicle */;
-			targetProxy = D5F09F651F104385006AFE9B /* PBXContainerItemProxy */;
+			target = OBJ_23 /* Popsicle */;
+			targetProxy = D5F09F741F105E31006AFE9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_27 /* Debug */ = {
+		OBJ_25 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -246,7 +247,7 @@
 			};
 			name = Debug;
 		};
-		OBJ_28 /* Release */ = {
+		OBJ_26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -292,6 +293,44 @@
 			};
 			name = Debug;
 		};
+		OBJ_36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Popsicle.xcodeproj/PopsicleTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = PopsicleTests;
+			};
+			name = Debug;
+		};
+		OBJ_37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Popsicle.xcodeproj/PopsicleTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = PopsicleTests;
+			};
+			name = Release;
+		};
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -313,44 +352,6 @@
 			};
 			name = Release;
 		};
-		OBJ_40 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Popsicle.xcodeproj/PopsicleTests_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = PopsicleTests;
-			};
-			name = Debug;
-		};
-		OBJ_41 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Popsicle.xcodeproj/PopsicleTests_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = PopsicleTests;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -363,20 +364,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_26 /* Build configuration list for PBXNativeTarget "Popsicle" */ = {
+		OBJ_24 /* Build configuration list for PBXNativeTarget "Popsicle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_27 /* Debug */,
-				OBJ_28 /* Release */,
+				OBJ_25 /* Debug */,
+				OBJ_26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		OBJ_39 /* Build configuration list for PBXNativeTarget "PopsicleTests" */ = {
+		OBJ_35 /* Build configuration list for PBXNativeTarget "PopsicleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_40 /* Debug */,
-				OBJ_41 /* Release */,
+				OBJ_36 /* Debug */,
+				OBJ_37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
