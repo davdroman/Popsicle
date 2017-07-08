@@ -3,7 +3,6 @@
 //  Popsicle
 //
 //  Created by David Román Aguirre on 01/11/15.
-//  Copyright © 2015 David Román Aguirre. All rights reserved.
 //
 
 /// Pointer to a specific moment in the tweening of two `Interpolable` values.
@@ -11,10 +10,10 @@ public typealias Time = Double
 
 /// `Interpolable` values can be tweened and mutated throughout time.
 public protocol Interpolable {
-	associatedtype ValueType
+	associatedtype Value
 
 	/// Returns the result of tweening two values at a specific moment in time.
-	static func interpolate(from fromValue: ValueType, to toValue: ValueType, at: Time) -> ValueType
+	static func interpolate(from fromValue: Value, to toValue: Value, at: Time) -> Value
 }
 
 extension Bool: Interpolable {

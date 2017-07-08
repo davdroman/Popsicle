@@ -3,7 +3,6 @@
 //  Popsicle
 //
 //  Created by David Román Aguirre on 18/07/16.
-//  Copyright © 2016 David Román Aguirre. All rights reserved.
 //
 
 import XCTest
@@ -11,23 +10,12 @@ import Popsicle
 
 class InterpolationTests: XCTestCase {
 
-	func testEquality() {
-		let view = UIView()
-		let interpolation1 = Interpolation(view, alpha)
-		let interpolation2 = Interpolation(view, alpha)
-
-		XCTAssert(interpolation1 == interpolation2, "\(interpolation1) != \(interpolation2)")
-	}
-
-	func testInequality() {
-		let interpolation1 = Interpolation(UIView(), alpha)
-		let interpolation2 = Interpolation(UIView(), alpha)
-
-		XCTAssert(interpolation1 != interpolation2, "\(interpolation1) == \(interpolation2)")
+	class DummyObject {
+		var value: Float = 0
 	}
 
 	func testPolesOrder() {
-		let interpolation = Interpolation(UIView(), alpha)
+		let interpolation = Interpolation(DummyObject(), \.value)
 		interpolation[1] = 25
 		interpolation[2] = 50
 		interpolation[0] = 10

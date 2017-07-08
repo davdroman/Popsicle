@@ -7,273 +7,125 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D5175C461D36AAD900C7D0FE /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
-		D5175C511D36B61100C7D0FE /* Interpolable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53B324B1BE65FF800A1820B /* Interpolable.swift */; };
-		D5175C531D36B64400C7D0FE /* EasingFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5175C521D36B64400C7D0FE /* EasingFunctionTests.swift */; };
-		D536D7601DBC4BC300B2E786 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = D536D75F1DBC4BC300B2E786 /* Property.swift */; };
-		D536D7661DBC7B1900B2E786 /* KeyPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = D536D7651DBC7B1900B2E786 /* KeyPath.swift */; };
-		D53E5FD91BEA12340043DF84 /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FD81BEA12340043DF84 /* EasingFunction.swift */; };
-		D53E5FE51BEA145F0043DF84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FE41BEA145F0043DF84 /* AppDelegate.swift */; };
-		D53E5FE71BEA145F0043DF84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FE61BEA145F0043DF84 /* ViewController.swift */; };
-		D53E5FEC1BEA145F0043DF84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D53E5FEB1BEA145F0043DF84 /* Assets.xcassets */; };
-		D53E5FEF1BEA145F0043DF84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D53E5FED1BEA145F0043DF84 /* LaunchScreen.storyboard */; };
-		D53E5FF71BEA16D70043DF84 /* PageViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = D53E5FF61BEA16D70043DF84 /* PageViews.xib */; };
-		D53E60011BEA203B0043DF84 /* PageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FFF1BEA199C0043DF84 /* PageScrollView.swift */; };
-		D53E60021BEA227D0043DF84 /* DRPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FFA1BEA18140043DF84 /* DRPageScrollView.m */; };
-		D53E60051BEA67790043DF84 /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E60041BEA67790043DF84 /* UIView+Utils.swift */; };
-		D588FC041D3AEF5D00BF003B /* InterpolableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D588FC031D3AEF5D00BF003B /* InterpolableTests.swift */; };
-		D588FC091D3B2FCC00BF003B /* Interpolable+UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D588FC051D3B1D0200BF003B /* Interpolable+UIKitTests.swift */; };
-		D588FC0A1D3B2FD700BF003B /* Interpolable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57975671D25A4A200AD3901 /* Interpolable+UIKit.swift */; };
-		D593A8DD1BEA72E500AFA257 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; };
-		D593A8DE1BEA72E500AFA257 /* Popsicle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D5AE37E41D3BF49A0015557C /* KeyPath+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D579756D1D25C72A00AD3901 /* KeyPath+UIKit.swift */; };
-		D5AE37E91D3BFC070015557C /* KeyPath+UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AE37E81D3BFC070015557C /* KeyPath+UIKitTests.swift */; };
-		D5D5B35A1D3C3D8A00F8D736 /* InterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D5B3591D3C3D8A00F8D736 /* InterpolationTests.swift */; };
-		D5D5B35B1D3C4E3400F8D736 /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53E5FDA1BEA13600043DF84 /* Interpolation.swift */; };
-		D5FBF53E1BE65BB500F3CB79 /* Popsicle.h in Headers */ = {isa = PBXBuildFile; fileRef = D5FBF53D1BE65BB500F3CB79 /* Popsicle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D5F09F671F1043B1006AFE9B /* Interpolable+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F09F661F1043B1006AFE9B /* Interpolable+UIKit.swift */; };
+		D5F09F691F10465F006AFE9B /* Interpolable+CoreGraphicsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F09F681F10465F006AFE9B /* Interpolable+CoreGraphicsTests.swift */; };
+		OBJ_30 /* EasingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* EasingFunction.swift */; };
+		OBJ_31 /* Interpolable+CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Interpolable+CoreGraphics.swift */; };
+		OBJ_32 /* Interpolable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Interpolable.swift */; };
+		OBJ_33 /* Interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Interpolation.swift */; };
+		OBJ_43 /* EasingFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* EasingFunctionTests.swift */; };
+		OBJ_44 /* Interpolable+UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* Interpolable+UIKitTests.swift */; };
+		OBJ_45 /* InterpolableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* InterpolableTests.swift */; };
+		OBJ_46 /* InterpolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* InterpolationTests.swift */; };
+		OBJ_49 /* Popsicle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* Popsicle.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D5175C471D36AAD900C7D0FE /* PBXContainerItemProxy */ = {
+		D5F09F651F104385006AFE9B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D5FBF5311BE65BB500F3CB79 /* Project object */;
+			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D5FBF5391BE65BB500F3CB79;
-			remoteInfo = Popsicle;
-		};
-		D593A8DF1BEA72E500AFA257 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5FBF5311BE65BB500F3CB79 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D5FBF5391BE65BB500F3CB79;
+			remoteGlobalIDString = OBJ_25;
 			remoteInfo = Popsicle;
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		D593A8E11BEA72E500AFA257 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				D593A8DE1BEA72E500AFA257 /* Popsicle.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		D5175C411D36AAD900C7D0FE /* PopsicleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopsicleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5175C451D36AAD900C7D0FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D5175C521D36B64400C7D0FE /* EasingFunctionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasingFunctionTests.swift; sourceTree = "<group>"; };
-		D536D75F1DBC4BC300B2E786 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
-		D536D7651DBC7B1900B2E786 /* KeyPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPath.swift; sourceTree = "<group>"; };
-		D53B324B1BE65FF800A1820B /* Interpolable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolable.swift; sourceTree = "<group>"; };
-		D53E5FD81BEA12340043DF84 /* EasingFunction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasingFunction.swift; sourceTree = "<group>"; };
-		D53E5FDA1BEA13600043DF84 /* Interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
-		D53E5FE21BEA145F0043DF84 /* PopsicleDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopsicleDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D53E5FE41BEA145F0043DF84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D53E5FE61BEA145F0043DF84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D53E5FEB1BEA145F0043DF84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D53E5FEE1BEA145F0043DF84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D53E5FF01BEA145F0043DF84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D53E5FF61BEA16D70043DF84 /* PageViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageViews.xib; sourceTree = "<group>"; };
-		D53E5FF81BEA18130043DF84 /* PopsicleDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PopsicleDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		D53E5FF91BEA18140043DF84 /* DRPageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRPageScrollView.h; sourceTree = "<group>"; };
-		D53E5FFA1BEA18140043DF84 /* DRPageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRPageScrollView.m; sourceTree = "<group>"; };
-		D53E5FFF1BEA199C0043DF84 /* PageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageScrollView.swift; sourceTree = "<group>"; };
-		D53E60041BEA67790043DF84 /* UIView+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
-		D57975671D25A4A200AD3901 /* Interpolable+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Interpolable+UIKit.swift"; sourceTree = "<group>"; };
-		D579756D1D25C72A00AD3901 /* KeyPath+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyPath+UIKit.swift"; sourceTree = "<group>"; };
-		D588FC031D3AEF5D00BF003B /* InterpolableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpolableTests.swift; sourceTree = "<group>"; };
-		D588FC051D3B1D0200BF003B /* Interpolable+UIKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Interpolable+UIKitTests.swift"; sourceTree = "<group>"; };
-		D5AE37E81D3BFC070015557C /* KeyPath+UIKitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KeyPath+UIKitTests.swift"; sourceTree = "<group>"; };
-		D5D5B3591D3C3D8A00F8D736 /* InterpolationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterpolationTests.swift; sourceTree = "<group>"; };
-		D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Popsicle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5FBF53D1BE65BB500F3CB79 /* Popsicle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Popsicle.h; sourceTree = "<group>"; };
-		D5FBF53F1BE65BB500F3CB79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5F09F661F1043B1006AFE9B /* Interpolable+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interpolable+UIKit.swift"; sourceTree = "<group>"; };
+		D5F09F681F10465F006AFE9B /* Interpolable+CoreGraphicsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interpolable+CoreGraphicsTests.swift"; sourceTree = "<group>"; };
+		OBJ_10 /* Interpolable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolable.swift; sourceTree = "<group>"; };
+		OBJ_11 /* Interpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interpolation.swift; sourceTree = "<group>"; };
+		OBJ_17 /* EasingFunctionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasingFunctionTests.swift; sourceTree = "<group>"; };
+		OBJ_18 /* Interpolable+UIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interpolable+UIKitTests.swift"; sourceTree = "<group>"; };
+		OBJ_19 /* InterpolableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpolableTests.swift; sourceTree = "<group>"; };
+		OBJ_20 /* InterpolationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterpolationTests.swift; sourceTree = "<group>"; };
+		OBJ_23 /* Popsicle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Popsicle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_24 /* PopsicleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = PopsicleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_8 /* EasingFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasingFunction.swift; sourceTree = "<group>"; };
+		OBJ_9 /* Interpolable+CoreGraphics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interpolable+CoreGraphics.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D5175C3E1D36AAD900C7D0FE /* Frameworks */ = {
+		OBJ_37 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				D5175C461D36AAD900C7D0FE /* Popsicle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D53E5FDF1BEA145F0043DF84 /* Frameworks */ = {
+		OBJ_48 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				D593A8DD1BEA72E500AFA257 /* Popsicle.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D5FBF5361BE65BB500F3CB79 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				OBJ_49 /* Popsicle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D516D8DF1D1A90910086E8E6 /* Supporting Files */ = {
+		OBJ_15 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D53E5FEB1BEA145F0043DF84 /* Assets.xcassets */,
-				D53E5FED1BEA145F0043DF84 /* LaunchScreen.storyboard */,
-				D53E5FF01BEA145F0043DF84 /* Info.plist */,
+				OBJ_16 /* PopsicleTests */,
 			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
 		};
-		D5175C421D36AAD900C7D0FE /* PopsicleTests */ = {
+		OBJ_16 /* PopsicleTests */ = {
 			isa = PBXGroup;
 			children = (
-				D5D5B3591D3C3D8A00F8D736 /* InterpolationTests.swift */,
-				D588FC031D3AEF5D00BF003B /* InterpolableTests.swift */,
-				D588FC051D3B1D0200BF003B /* Interpolable+UIKitTests.swift */,
-				D5175C521D36B64400C7D0FE /* EasingFunctionTests.swift */,
-				D5AE37E81D3BFC070015557C /* KeyPath+UIKitTests.swift */,
-				D5175C451D36AAD900C7D0FE /* Info.plist */,
+				OBJ_17 /* EasingFunctionTests.swift */,
+				D5F09F681F10465F006AFE9B /* Interpolable+CoreGraphicsTests.swift */,
+				OBJ_18 /* Interpolable+UIKitTests.swift */,
+				OBJ_19 /* InterpolableTests.swift */,
+				OBJ_20 /* InterpolationTests.swift */,
 			);
-			path = PopsicleTests;
-			sourceTree = "<group>";
+			name = PopsicleTests;
+			path = Tests/PopsicleTests;
+			sourceTree = SOURCE_ROOT;
 		};
-		D53E5FE31BEA145F0043DF84 /* PopsicleDemo */ = {
+		OBJ_22 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D53E5FE41BEA145F0043DF84 /* AppDelegate.swift */,
-				D53E5FE61BEA145F0043DF84 /* ViewController.swift */,
-				D5F2E3E11BEB720B00008043 /* Page Scroll View */,
-				D516D8DF1D1A90910086E8E6 /* Supporting Files */,
-			);
-			path = PopsicleDemo;
-			sourceTree = "<group>";
-		};
-		D579756F1D25CC4900AD3901 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				D5FBF53F1BE65BB500F3CB79 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		D5F2E3E11BEB720B00008043 /* Page Scroll View */ = {
-			isa = PBXGroup;
-			children = (
-				D53E5FF81BEA18130043DF84 /* PopsicleDemo-Bridging-Header.h */,
-				D53E5FF91BEA18140043DF84 /* DRPageScrollView.h */,
-				D53E5FFA1BEA18140043DF84 /* DRPageScrollView.m */,
-				D53E5FFF1BEA199C0043DF84 /* PageScrollView.swift */,
-				D53E5FF61BEA16D70043DF84 /* PageViews.xib */,
-				D53E60041BEA67790043DF84 /* UIView+Utils.swift */,
-			);
-			name = "Page Scroll View";
-			sourceTree = "<group>";
-		};
-		D5FBF5301BE65BB500F3CB79 = {
-			isa = PBXGroup;
-			children = (
-				D53E5FE31BEA145F0043DF84 /* PopsicleDemo */,
-				D5FBF53C1BE65BB500F3CB79 /* Popsicle */,
-				D5175C421D36AAD900C7D0FE /* PopsicleTests */,
-				D5FBF53B1BE65BB500F3CB79 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		D5FBF53B1BE65BB500F3CB79 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */,
-				D53E5FE21BEA145F0043DF84 /* PopsicleDemo.app */,
-				D5175C411D36AAD900C7D0FE /* PopsicleTests.xctest */,
+				OBJ_23 /* Popsicle.framework */,
+				OBJ_24 /* PopsicleTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D5FBF53C1BE65BB500F3CB79 /* Popsicle */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				D5FBF53D1BE65BB500F3CB79 /* Popsicle.h */,
-				D53E5FDA1BEA13600043DF84 /* Interpolation.swift */,
-				D53B324B1BE65FF800A1820B /* Interpolable.swift */,
-				D57975671D25A4A200AD3901 /* Interpolable+UIKit.swift */,
-				D53E5FD81BEA12340043DF84 /* EasingFunction.swift */,
-				D536D75F1DBC4BC300B2E786 /* Property.swift */,
-				D536D7651DBC7B1900B2E786 /* KeyPath.swift */,
-				D579756D1D25C72A00AD3901 /* KeyPath+UIKit.swift */,
-				D579756F1D25CC4900AD3901 /* Supporting Files */,
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_15 /* Tests */,
+				OBJ_22 /* Products */,
 			);
-			path = Popsicle;
 			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* EasingFunction.swift */,
+				OBJ_10 /* Interpolable.swift */,
+				OBJ_9 /* Interpolable+CoreGraphics.swift */,
+				D5F09F661F1043B1006AFE9B /* Interpolable+UIKit.swift */,
+				OBJ_11 /* Interpolation.swift */,
+			);
+			path = Sources;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		D5FBF5371BE65BB500F3CB79 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D5FBF53E1BE65BB500F3CB79 /* Popsicle.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		D5175C401D36AAD900C7D0FE /* PopsicleTests */ = {
+		OBJ_25 /* Popsicle */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D5175C491D36AAD900C7D0FE /* Build configuration list for PBXNativeTarget "PopsicleTests" */;
+			buildConfigurationList = OBJ_26 /* Build configuration list for PBXNativeTarget "Popsicle" */;
 			buildPhases = (
-				D5175C3D1D36AAD900C7D0FE /* Sources */,
-				D5175C3E1D36AAD900C7D0FE /* Frameworks */,
-				D588FC021D3AEDC200BF003B /* SwiftLint */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D5175C481D36AAD900C7D0FE /* PBXTargetDependency */,
-			);
-			name = PopsicleTests;
-			productName = PopsicleTests;
-			productReference = D5175C411D36AAD900C7D0FE /* PopsicleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		D53E5FE11BEA145F0043DF84 /* PopsicleDemo */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D53E5FF11BEA145F0043DF84 /* Build configuration list for PBXNativeTarget "PopsicleDemo" */;
-			buildPhases = (
-				D53E5FDE1BEA145F0043DF84 /* Sources */,
-				D53E5FDF1BEA145F0043DF84 /* Frameworks */,
-				D53E5FE01BEA145F0043DF84 /* Resources */,
-				D593A8E11BEA72E500AFA257 /* Embed Frameworks */,
-				D5BBD9EE1D24517500FE83D4 /* SwiftLint */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D593A8E01BEA72E500AFA257 /* PBXTargetDependency */,
-			);
-			name = PopsicleDemo;
-			productName = PopsicleDemo;
-			productReference = D53E5FE21BEA145F0043DF84 /* PopsicleDemo.app */;
-			productType = "com.apple.product-type.application";
-		};
-		D5FBF5391BE65BB500F3CB79 /* Popsicle */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D5FBF54E1BE65BB600F3CB79 /* Build configuration list for PBXNativeTarget "Popsicle" */;
-			buildPhases = (
-				D5FBF5351BE65BB500F3CB79 /* Sources */,
-				D5FBF5361BE65BB500F3CB79 /* Frameworks */,
-				D5FBF5371BE65BB500F3CB79 /* Headers */,
-				D5BBD9EF1D24518100FE83D4 /* SwiftLint */,
+				OBJ_29 /* Sources */,
+				OBJ_37 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -281,418 +133,255 @@
 			);
 			name = Popsicle;
 			productName = Popsicle;
-			productReference = D5FBF53A1BE65BB500F3CB79 /* Popsicle.framework */;
+			productReference = OBJ_23 /* Popsicle.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		OBJ_38 /* PopsicleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_39 /* Build configuration list for PBXNativeTarget "PopsicleTests" */;
+			buildPhases = (
+				OBJ_42 /* Sources */,
+				OBJ_48 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_50 /* PBXTargetDependency */,
+			);
+			name = PopsicleTests;
+			productName = PopsicleTests;
+			productReference = OBJ_24 /* PopsicleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D5FBF5311BE65BB500F3CB79 /* Project object */ = {
+		OBJ_1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
-				ORGANIZATIONNAME = "David Román Aguirre";
+				LastUpgradeCheck = 9999;
 				TargetAttributes = {
-					D5175C401D36AAD900C7D0FE = {
-						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+					OBJ_25 = {
+						LastSwiftMigration = 0900;
 					};
-					D53E5FE11BEA145F0043DF84 = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
-					};
-					D5FBF5391BE65BB500F3CB79 = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
+					OBJ_38 = {
+						LastSwiftMigration = 0900;
 					};
 				};
 			};
-			buildConfigurationList = D5FBF5341BE65BB500F3CB79 /* Build configuration list for PBXProject "Popsicle" */;
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Popsicle" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
-			mainGroup = D5FBF5301BE65BB500F3CB79;
-			productRefGroup = D5FBF53B1BE65BB500F3CB79 /* Products */;
+			mainGroup = OBJ_5;
+			productRefGroup = OBJ_22 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D53E5FE11BEA145F0043DF84 /* PopsicleDemo */,
-				D5FBF5391BE65BB500F3CB79 /* Popsicle */,
-				D5175C401D36AAD900C7D0FE /* PopsicleTests */,
+				OBJ_25 /* Popsicle */,
+				OBJ_38 /* PopsicleTests */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		D53E5FE01BEA145F0043DF84 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D53E5FEF1BEA145F0043DF84 /* LaunchScreen.storyboard in Resources */,
-				D53E5FEC1BEA145F0043DF84 /* Assets.xcassets in Resources */,
-				D53E5FF71BEA16D70043DF84 /* PageViews.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		D588FC021D3AEDC200BF003B /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, please run \\`brew install swiftlint\\`\"\nfi";
-		};
-		D5BBD9EE1D24517500FE83D4 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, please run \\`brew install swiftlint\\`\"\nfi";
-		};
-		D5BBD9EF1D24518100FE83D4 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, please run \\`brew install swiftlint\\`\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		D5175C3D1D36AAD900C7D0FE /* Sources */ = {
+		OBJ_29 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				D588FC041D3AEF5D00BF003B /* InterpolableTests.swift in Sources */,
-				D5175C531D36B64400C7D0FE /* EasingFunctionTests.swift in Sources */,
-				D588FC091D3B2FCC00BF003B /* Interpolable+UIKitTests.swift in Sources */,
-				D5AE37E91D3BFC070015557C /* KeyPath+UIKitTests.swift in Sources */,
-				D5D5B35A1D3C3D8A00F8D736 /* InterpolationTests.swift in Sources */,
+				OBJ_30 /* EasingFunction.swift in Sources */,
+				OBJ_31 /* Interpolable+CoreGraphics.swift in Sources */,
+				OBJ_32 /* Interpolable.swift in Sources */,
+				OBJ_33 /* Interpolation.swift in Sources */,
+				D5F09F671F1043B1006AFE9B /* Interpolable+UIKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D53E5FDE1BEA145F0043DF84 /* Sources */ = {
+		OBJ_42 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				D53E5FE71BEA145F0043DF84 /* ViewController.swift in Sources */,
-				D53E5FE51BEA145F0043DF84 /* AppDelegate.swift in Sources */,
-				D53E60051BEA67790043DF84 /* UIView+Utils.swift in Sources */,
-				D53E60021BEA227D0043DF84 /* DRPageScrollView.m in Sources */,
-				D53E60011BEA203B0043DF84 /* PageScrollView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D5FBF5351BE65BB500F3CB79 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D5AE37E41D3BF49A0015557C /* KeyPath+UIKit.swift in Sources */,
-				D536D7601DBC4BC300B2E786 /* Property.swift in Sources */,
-				D588FC0A1D3B2FD700BF003B /* Interpolable+UIKit.swift in Sources */,
-				D5175C511D36B61100C7D0FE /* Interpolable.swift in Sources */,
-				D53E5FD91BEA12340043DF84 /* EasingFunction.swift in Sources */,
-				D536D7661DBC7B1900B2E786 /* KeyPath.swift in Sources */,
-				D5D5B35B1D3C4E3400F8D736 /* Interpolation.swift in Sources */,
+				D5F09F691F10465F006AFE9B /* Interpolable+CoreGraphicsTests.swift in Sources */,
+				OBJ_43 /* EasingFunctionTests.swift in Sources */,
+				OBJ_44 /* Interpolable+UIKitTests.swift in Sources */,
+				OBJ_45 /* InterpolableTests.swift in Sources */,
+				OBJ_46 /* InterpolationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D5175C481D36AAD900C7D0FE /* PBXTargetDependency */ = {
+		OBJ_50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D5FBF5391BE65BB500F3CB79 /* Popsicle */;
-			targetProxy = D5175C471D36AAD900C7D0FE /* PBXContainerItemProxy */;
-		};
-		D593A8E01BEA72E500AFA257 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D5FBF5391BE65BB500F3CB79 /* Popsicle */;
-			targetProxy = D593A8DF1BEA72E500AFA257 /* PBXContainerItemProxy */;
+			target = OBJ_25 /* Popsicle */;
+			targetProxy = D5F09F651F104385006AFE9B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		D53E5FED1BEA145F0043DF84 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D53E5FEE1BEA145F0043DF84 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		D5175C4A1D36AAD900C7D0FE /* Debug */ = {
+		OBJ_27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				INFOPLIST_FILE = PopsicleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		D5175C4B1D36AAD900C7D0FE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				INFOPLIST_FILE = PopsicleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INCLUDE_PATHS = "";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		D53E5FF21BEA145F0043DF84 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = PopsicleDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "PopsicleDemo/PopsicleDemo-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		D53E5FF31BEA145F0043DF84 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = PopsicleDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.PopsicleDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "PopsicleDemo/PopsicleDemo-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		D5FBF54C1BE65BB600F3CB79 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
+				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Popsicle.xcodeproj/Popsicle_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Popsicle;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Popsicle;
 			};
 			name = Debug;
 		};
-		D5FBF54D1BE65BB600F3CB79 /* Release */ = {
+		OBJ_28 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Popsicle.xcodeproj/Popsicle_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Popsicle;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Popsicle;
 			};
 			name = Release;
 		};
-		D5FBF54F1BE65BB600F3CB79 /* Debug */ = {
+		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Popsicle/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.Popsicle;
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
-		D5FBF5501BE65BB600F3CB79 /* Release */ = {
+		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Popsicle/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.davidroman.Popsicle;
+				GCC_OPTIMIZATION_LEVEL = s;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		OBJ_40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Popsicle.xcodeproj/PopsicleTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = PopsicleTests;
+			};
+			name = Debug;
+		};
+		OBJ_41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Popsicle.xcodeproj/PopsicleTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = PopsicleTests;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D5175C491D36AAD900C7D0FE /* Build configuration list for PBXNativeTarget "PopsicleTests" */ = {
+		OBJ_2 /* Build configuration list for PBXProject "Popsicle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D5175C4A1D36AAD900C7D0FE /* Debug */,
-				D5175C4B1D36AAD900C7D0FE /* Release */,
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		D53E5FF11BEA145F0043DF84 /* Build configuration list for PBXNativeTarget "PopsicleDemo" */ = {
+		OBJ_26 /* Build configuration list for PBXNativeTarget "Popsicle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D53E5FF21BEA145F0043DF84 /* Debug */,
-				D53E5FF31BEA145F0043DF84 /* Release */,
+				OBJ_27 /* Debug */,
+				OBJ_28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		D5FBF5341BE65BB500F3CB79 /* Build configuration list for PBXProject "Popsicle" */ = {
+		OBJ_39 /* Build configuration list for PBXNativeTarget "PopsicleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D5FBF54C1BE65BB600F3CB79 /* Debug */,
-				D5FBF54D1BE65BB600F3CB79 /* Release */,
+				OBJ_40 /* Debug */,
+				OBJ_41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D5FBF54E1BE65BB600F3CB79 /* Build configuration list for PBXNativeTarget "Popsicle" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D5FBF54F1BE65BB600F3CB79 /* Debug */,
-				D5FBF5501BE65BB600F3CB79 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D5FBF5311BE65BB500F3CB79 /* Project object */;
+	rootObject = OBJ_1 /* Project object */;
 }

@@ -3,7 +3,6 @@
 //  Popsicle
 //
 //  Created by David Román Aguirre on 04/11/15.
-//  Copyright © 2015 David Román Aguirre. All rights reserved.
 //
 
 public protocol AnyInterpolation {
@@ -23,38 +22,23 @@ extension Collection where Iterator.Element == AnyInterpolation {
 	}
 }
 
-struct Pole<I: Interpolable> where I.ValueType == I {
-	let time: Time
-	let value: I
-	let easingFunction: EasingFunction
-
-	init(time: Time, value: I, easingFunction: @escaping EasingFunction) {
-		self.time = time
-		self.value = value
-		self.easingFunction = easingFunction
-	}
-}
-
 /// `Interpolation` defines an interpolation of an object property.
-public class Interpolation<I: Interpolable, P: PropertyProtocol>: AnyInterpolation where I == I.ValueType, P.Value == I {
+public class Interpolation<O: AnyObject, I: Interpolable>: AnyInterpolation where I.Value == I {
 
-	let object: P.Object
-	let property: P
-	var poles = [Pole<P.Value>]()
+	typealias Pole = (time: Time, value: I, easingFunction: EasingFunction)
 
-	public init(_ object: P.Object, _ property: P) {
+	unowned let object: O
+	let keyPath: ReferenceWritableKeyPath<O, I>
+	var poles: [Pole] = []
+
+	public init(_ object: O, _ keyPath: ReferenceWritableKeyPath<O, I>) {
 		self.object = object
-		self.property = property
+		self.keyPath = keyPath
 	}
 
 	public subscript(times: Time...) -> I {
 		get { return poleValue(at: times.first!) }
 		set { times.forEach { setPole(at: $0, value: newValue) } }
-	}
-
-	public subscript(f times: Time...) -> (I, EasingFunction) {
-		get { fatalError("`Interpolation[f]` can only be used as a setter.") }
-		set { times.forEach { setPole(at: $0, value: newValue.0, easingFunction: newValue.1) } }
 	}
 
 	func poleValue(at time: Time) -> I {
@@ -99,25 +83,13 @@ public class Interpolation<I: Interpolable, P: PropertyProtocol>: AnyInterpolati
 
 	public var time: Time = 0 {
 		didSet {
-			property.bindingClosure(object, self[time])
+			object[keyPath: keyPath] = self[time]
 		}
-	}
-}
-
-extension Interpolation: Equatable {
-	public static func == (lhs: Interpolation, rhs: Interpolation) -> Bool {
-		return lhs.hashValue == rhs.hashValue
-	}
-}
-
-extension Interpolation: Hashable {
-	public var hashValue: Int {
-		return description.hashValue
 	}
 }
 
 extension Interpolation: CustomStringConvertible {
 	public var description: String {
-		return "\(object) | \(property) | \(poles)"
+		return "\(object) | \(keyPath) | \(poles)"
 	}
 }

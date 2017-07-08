@@ -3,7 +3,6 @@
 //  Popsicle
 //
 //  Created by David Román Aguirre on 17/07/16.
-//  Copyright © 2016 David Román Aguirre. All rights reserved.
 //
 
 import XCTest
@@ -11,7 +10,7 @@ import Popsicle
 
 class InterpolableTests: XCTestCase {
 
-	class func test<I: Interpolable>(initialValue: I, finalValue: I, interpolatedValues: [I], times: [Time], function: (I, I) -> Bool) where I.ValueType == I {
+	class func test<I: Interpolable>(initialValue: I, finalValue: I, interpolatedValues: [I], times: [Time], function: (I, I) -> Bool) where I.Value == I {
 		for (index, time) in times.enumerated() {
 			let interpolatedValue = interpolatedValues[index]
 			let computedInterpolatedValue = I.interpolate(from: initialValue, to: finalValue, at: time)

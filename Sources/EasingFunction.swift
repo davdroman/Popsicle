@@ -3,8 +3,9 @@
 //  Popsicle
 //
 //  Created by David Román Aguirre on 06/15/15.
-//  Copyright © 2015 David Román Aguirre. All rights reserved.
 //
+
+import Foundation
 
 /// `EasingFunction`s specify the rate of change of a parameter over `Time`.
 public typealias EasingFunction = (Time) -> (Time)

@@ -3,7 +3,6 @@
 //  Popsicle
 //
 //  Created by David Román Aguirre on 13/07/16.
-//  Copyright © 2016 David Román Aguirre. All rights reserved.
 //
 
 import XCTest
