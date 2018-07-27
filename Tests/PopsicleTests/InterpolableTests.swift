@@ -10,7 +10,7 @@ import Popsicle
 
 class InterpolableTests: XCTestCase {
 
-	class func test<I: Interpolable>(initialValue: I, finalValue: I, interpolatedValues: [I], times: [Time], function: (I, I) -> Bool) where I.Value == I {
+	class func test<I: Interpolable>(initialValue: I, finalValue: I, interpolatedValues: [I], times: [Time], function: (I, I) -> Bool) {
 		for (index, time) in times.enumerated() {
 			let interpolatedValue = interpolatedValues[index]
 			let computedInterpolatedValue = I.interpolate(from: initialValue, to: finalValue, at: time)

@@ -5,11 +5,11 @@
 //  Created by David Román Aguirre on 04/11/15.
 //
 
-public protocol AnyInterpolation {
+public protocol Timable {
 	var time: Time { get set }
 }
 
-extension Collection where Iterator.Element == AnyInterpolation {
+extension Array: Timable where Iterator.Element: Timable {
 	public var time: Time {
 		get {
 			// TODO: improve (pick the most repeated time in the collection)
@@ -23,7 +23,7 @@ extension Collection where Iterator.Element == AnyInterpolation {
 }
 
 /// `Interpolation` defines an interpolation of an object property.
-public class Interpolation<O: AnyObject, I: Interpolable>: AnyInterpolation where I.Value == I {
+public class Interpolation<O: AnyObject, I: Interpolable>: Timable {
 
 	typealias Pole = (time: Time, value: I, easingFunction: EasingFunction)
 
@@ -53,14 +53,14 @@ public class Interpolation<O: AnyObject, I: Interpolable>: AnyInterpolation wher
 			let poleBefore = poles[indexAfter - 1]
 			let poleAfter = poles[indexAfter]
 			let simplifiedTime = self.time(from: poleBefore.time, to: poleAfter.time, at: time)
-			value = I.interpolate(from: poleBefore.value, to: poleAfter.value, at: poleBefore.easingFunction(simplifiedTime))
+			value = I.interpolate(from: poleBefore.value, to: poleAfter.value, at: poleBefore.easingFunction.time(for: simplifiedTime))
 		default:
 			value = poles.last!.value
 		}
 		return value
 	}
 
-	func setPole(at time: Time, value: I, easingFunction: @escaping EasingFunction = linear) {
+	func setPole(at time: Time, value: I, easingFunction: EasingFunction = .linear) {
 		let index = indexOfPole(after: time) ?? poles.count
 		poles.insert(Pole(time: time, value: value, easingFunction: easingFunction), at: index)
 	}

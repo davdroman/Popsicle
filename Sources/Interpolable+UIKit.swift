@@ -5,7 +5,7 @@
 //  Created by David Roman on 07/07/2017.
 //
 
-#if os(iOS) || os(watchOS) || os(tvOS)
+#if canImport(UIKit)
 
 import UIKit
 
@@ -18,12 +18,15 @@ extension UIColor {
 }
 
 extension UIColor: Interpolable {
-	public static func interpolate(from fromValue: UIColor, to toValue: UIColor, at time: Time) -> UIColor {
-		return UIColor(
-			red: CGFloat.interpolate(from: fromValue.components.red, to: toValue.components.red, at: time),
-			green: CGFloat.interpolate(from: fromValue.components.green, to: toValue.components.green, at: time),
-			blue: CGFloat.interpolate(from: fromValue.components.blue, to: toValue.components.blue, at: time),
-			alpha: CGFloat.interpolate(from: fromValue.components.alpha, to: toValue.components.alpha, at: time)
+	public static func interpolate(from fromValue: UIColor, to toValue: UIColor, at time: Time) -> Self {
+		let fromComponents = fromValue.components
+		let toComponents = toValue.components
+
+		return self.init(
+			red: CGFloat.interpolate(from: fromComponents.red, to: toComponents.red, at: time),
+			green: CGFloat.interpolate(from: fromComponents.green, to: toComponents.green, at: time),
+			blue: CGFloat.interpolate(from: fromComponents.blue, to: toComponents.blue, at: time),
+			alpha: CGFloat.interpolate(from: fromComponents.alpha, to: toComponents.alpha, at: time)
 		)
 	}
 }
