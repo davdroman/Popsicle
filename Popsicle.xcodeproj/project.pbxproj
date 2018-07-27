@@ -567,6 +567,7 @@
 				D5D4F6EA1F10606C00CCFBE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		OBJ_2 /* Build configuration list for PBXProject "Popsicle" */ = {
 			isa = XCConfigurationList;
