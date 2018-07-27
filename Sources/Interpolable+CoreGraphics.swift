@@ -5,9 +5,10 @@
 //  Created by David Román Aguirre on 30/06/16.
 //
 
-#if os(iOS) || os(macOS) || os(watchOS) || os(tvOS)
+#if canImport(CoreGraphics) && canImport(QuartzCore)
 
 import CoreGraphics
+import QuartzCore
 
 extension CGFloat: Interpolable {
 	public static func interpolate(from fromValue: CGFloat, to toValue: CGFloat, at time: Time) -> CGFloat {
