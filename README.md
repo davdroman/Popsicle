@@ -1,3 +1,7 @@
+> **THIS PROJECT IS NO LONGER MAINTAINED.**
+
+---
+
 <p align="center">
 	<img src="Assets/header.png" alt="Popsicle header" width="520px" />
 </p>
