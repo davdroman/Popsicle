@@ -5,7 +5,7 @@
 //  Created by David Román Aguirre on 17/07/16.
 //
 
-#if os(iOS) || os(watchOS) || os(tvOS)
+#if canImport(UIKit)
 
 import XCTest
 @testable import Popsicle

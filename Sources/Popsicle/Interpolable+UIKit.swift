@@ -18,7 +18,7 @@ extension UIColor {
 }
 
 extension UIColor: Interpolable {
-	public static func interpolate(from fromValue: UIColor, to toValue: UIColor, at time: Time) -> Self {
+	public static func interpolate(from fromValue: UIColor, to toValue: UIColor, at time: Time) -> UIColor {
 		let fromComponents = fromValue.components
 		let toComponents = toValue.components
 

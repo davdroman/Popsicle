@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol LinearTimeConverter {
-	func time(for linearTime: Time) -> Time
+	func time(forLinearTime time: Time) -> Time
 }
 
 public enum EasingFunction: LinearTimeConverter {
@@ -31,8 +31,7 @@ public enum EasingFunction: LinearTimeConverter {
 	/// Bounce easing out function — exponentially decreasing bounce.
 	case easeOutBounce
 
-	public func time(for linearTime: Time) -> Time {
-		let t = linearTime
+	public func time(forLinearTime t: Time) -> Time {
 		switch self {
 		case .linear:
 			return t
@@ -51,7 +50,7 @@ public enum EasingFunction: LinearTimeConverter {
 			if t < 0.5 { return 4 * pow(t, 3) }
 			return ((t - 1) * pow((2 * t) - 2, 2)) + 1
 		case .easeInBounce:
-			return 1 - EasingFunction.easeOutBounce.time(for: 1 - t)
+			return 1 - EasingFunction.easeOutBounce.time(forLinearTime: 1 - t)
 		case .easeOutBounce:
 			if t < (4.0 / 11.0) {
 				return pow((11.0 / 4.0), 2) * pow(t, 2)

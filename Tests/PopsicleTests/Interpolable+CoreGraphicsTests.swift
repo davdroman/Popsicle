@@ -5,30 +5,30 @@
 //  Created by David Roman on 07/07/2017.
 //
 
-#if os(iOS) || os(macOS) || os(watchOS) || os(tvOS)
-
 import XCTest
 @testable import Popsicle
 
-func ~= (lhs: CGPoint, rhs: CGPoint) -> Bool {
-	return lhs.x ~= rhs.x && lhs.y ~= rhs.y
+extension CGPoint {
+	static func ~= (lhs: CGPoint, rhs: CGPoint) -> Bool {
+		lhs.x ~= rhs.x && lhs.y ~= rhs.y
+	}
 }
 
 func ~= (lhs: CGSize, rhs: CGSize) -> Bool {
-	return lhs.width ~= rhs.width && lhs.height ~= rhs.height
+	lhs.width ~= rhs.width && lhs.height ~= rhs.height
 }
 
 func ~= (lhs: CGRect, rhs: CGRect) -> Bool {
-	return lhs.origin ~= rhs.origin && lhs.size ~= rhs.size
+	lhs.origin ~= rhs.origin && lhs.size ~= rhs.size
 }
 
 extension FloatingPoint {
-	var radians: Self { return self * .pi / 180 }
-	var degrees: Self { return self * 180 / .pi }
+	var radians: Self { self * .pi / 180 }
+	var degrees: Self { self * 180 / .pi }
 }
 
 func ~= (lhs: CGAffineTransform, rhs: CGAffineTransform) -> Bool {
-	return lhs.translationX ~= rhs.translationX
+	lhs.translationX ~= rhs.translationX
 		&& lhs.translationY ~= rhs.translationY
 		&& lhs.scaleX ~= rhs.scaleX
 		&& lhs.scaleY ~= rhs.scaleY
@@ -175,5 +175,3 @@ class InterpolableCoreGraphicsTests: XCTestCase {
 		)
 	}
 }
-
-#endif

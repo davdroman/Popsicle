@@ -8,18 +8,17 @@
 import XCTest
 import Popsicle
 
-infix operator ~=
-
-func ~= <T: BinaryFloatingPoint>(lhs: T, rhs: T) -> Bool {
-	return abs(lhs - rhs) <= 0.02
+extension BinaryFloatingPoint {
+	static func ~= (lhs: Self, rhs: Self) -> Bool {
+		abs(lhs - rhs) <= 0.02
+	}
 }
 
 class EasingFunctionTests: XCTestCase {
-
 	class func test(easingFunction: EasingFunction, initialValues: [Double], easingValues: [Double]) {
 		for (index, initialValue) in initialValues.enumerated() {
 			let easingValue = easingValues[index]
-			let computedEasingValue = easingFunction.time(for: initialValue)
+			let computedEasingValue = easingFunction.time(forLinearTime: initialValue)
 			XCTAssert(easingValue ~= computedEasingValue, "\(easingValue) != \(computedEasingValue)")
 		}
 	}

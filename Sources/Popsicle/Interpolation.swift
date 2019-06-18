@@ -53,7 +53,7 @@ public class Interpolation<O: AnyObject, I: Interpolable>: Timable {
 			let poleBefore = poles[indexAfter - 1]
 			let poleAfter = poles[indexAfter]
 			let simplifiedTime = self.time(from: poleBefore.time, to: poleAfter.time, at: time)
-			value = I.interpolate(from: poleBefore.value, to: poleAfter.value, at: poleBefore.easingFunction.time(for: simplifiedTime))
+			value = I.interpolate(from: poleBefore.value, to: poleAfter.value, at: poleBefore.easingFunction.time(forLinearTime: simplifiedTime))
 		default:
 			value = poles.last!.value
 		}
