@@ -1,5 +1,7 @@
 import Collections
 
+public typealias Time = Double
+
 typealias Timeline<Value> = OrderedDictionary<Time, Value>
 
 extension Timeline where Key == Time {

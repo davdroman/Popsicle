@@ -1,7 +1,9 @@
-import Collections
 import UIKit
 
-//typealias TimingCurves = OrderedDictionary<Time, TimingCurve>
+public typealias Keyframe = () -> Void
+public typealias TimingCurve = UITimingCurveProvider
+
+//typealias TimingCurves = Timeline<TimingCurve>
 
 public final class Interpolator {
     public var time: Time = 0 {
@@ -14,6 +16,9 @@ public final class Interpolator {
     public init() {}
 
     public func setKeyframe(_ time: Time, _ keyframe: Keyframe?) {
+        if time == self.time {
+            keyframe?()
+        }
         keyframes[time] = keyframe
     }
 
