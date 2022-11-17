@@ -16,10 +16,6 @@ extension Timeline where Key == Time {
     }
 
     func next(for time: Time) -> (Time, Value)? {
-        if let value = self[time] {
-            return (time, value)
-        }
-
         if let time = keys.first(where: { $0 > time }), let value = self[time] {
             return (time, value)
         }
