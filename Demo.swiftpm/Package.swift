@@ -17,10 +17,11 @@ let package = Package(
             name: "Demo",
             targets: ["AppModule"],
             bundleIdentifier: "mn.dro.Demo",
+            teamIdentifier: "895A67RTTU",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .running),
-            accentColor: .presetColor(.blue),
+            appIcon: .placeholder(icon: .sparkle),
+            accentColor: .presetColor(.orange),
             supportedDeviceFamilies: [
                 .pad,
                 .phone
