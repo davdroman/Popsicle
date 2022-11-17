@@ -7,3 +7,9 @@ struct AppView: UIViewControllerRepresentable {
 
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {}
 }
+
+struct AppView_Previews: PreviewProvider {
+    static var previews: some View {
+        AppView()
+    }
+}
