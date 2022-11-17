@@ -13,6 +13,7 @@
 		D5B041A22926AAFF0019620D /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B0419F2926AAFF0019620D /* App.swift */; };
 		D5B041A52926AB3A0019620D /* Popsicle in Frameworks */ = {isa = PBXBuildFile; productRef = D5B041A42926AB3A0019620D /* Popsicle */; };
 		D5B041A72926AE8A0019620D /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B041A62926AE8A0019620D /* Helpers.swift */; };
+		D5B041AB2926D5D40019620D /* DRPageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5B041AA2926D5D40019620D /* DRPageScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		D5B0419E2926AAFF0019620D /* AppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewController.swift; sourceTree = "<group>"; };
 		D5B0419F2926AAFF0019620D /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		D5B041A62926AE8A0019620D /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		D5B041A82926D5D30019620D /* Demo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-Bridging-Header.h"; sourceTree = "<group>"; };
+		D5B041A92926D5D40019620D /* DRPageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRPageScrollView.h; sourceTree = "<group>"; };
+		D5B041AA2926D5D40019620D /* DRPageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRPageScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +63,11 @@
 				D5B0419F2926AAFF0019620D /* App.swift */,
 				D5B0419D2926AAFF0019620D /* AppView.swift */,
 				D5B0419E2926AAFF0019620D /* AppViewController.swift */,
+				D5B041A92926D5D40019620D /* DRPageScrollView.h */,
+				D5B041AA2926D5D40019620D /* DRPageScrollView.m */,
 				D5B041A62926AE8A0019620D /* Helpers.swift */,
 				D5B041932926AA680019620D /* Assets.xcassets */,
+				D5B041A82926D5D30019620D /* Demo-Bridging-Header.h */,
 			);
 			path = Demo;
 			sourceTree = "<group>";
@@ -149,6 +156,7 @@
 				D5B041A12926AAFF0019620D /* AppViewController.swift in Sources */,
 				D5B041A02926AAFF0019620D /* AppView.swift in Sources */,
 				D5B041A72926AE8A0019620D /* Helpers.swift in Sources */,
+				D5B041AB2926D5D40019620D /* DRPageScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +302,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mn.dro.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Demo/Demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -325,6 +334,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mn.dro.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Demo/Demo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
