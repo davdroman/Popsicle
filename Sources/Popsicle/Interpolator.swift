@@ -46,7 +46,7 @@ public final class Interpolator {
             latestKeytime = currentKeytime
 
             animator?.stopAnimation(true)
-            if currentKeytime >= (latestKeytime ?? 0) {
+            if currentKeytime > (latestKeytime ?? 0) {
                 animator?.finishAnimation(at: .end)
             } else {
                 animator?.finishAnimation(at: .start)
@@ -54,11 +54,19 @@ public final class Interpolator {
             currentKeyframe()
             animator = UIViewPropertyAnimator(duration: .zero, curve: .linear, animations: nextKeyframe)
             animator?.scrubsLinearly = false
+            animator?.startAnimation()
+            animator?.pauseAnimation()
         }
 
         let relativeTime = (time - currentKeytime) / (nextKeytime - currentKeytime)
 
         animator?.fractionComplete = relativeTime
+    }
+
+    deinit {
+        animator?.stopAnimation(true)
+        animator?.finishAnimation(at: .current)
+        animator = nil
     }
 }
 
