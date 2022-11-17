@@ -33,7 +33,7 @@ public final class Interpolator {
             return
         }
 
-        guard let (nextKeytime, nextKeyframe) = keyframes.next(for: time) else {
+        guard let (nextKeytime, nextKeyframe) = keyframes.next(after: time) else {
             return
         }
 
@@ -41,6 +41,11 @@ public final class Interpolator {
             latestKeytime = currentKeytime
 
             animator?.stopAnimation(true)
+            if currentKeytime >= (latestKeytime ?? 0) {
+                animator?.finishAnimation(at: .end)
+            } else {
+                animator?.finishAnimation(at: .start)
+            }
             currentKeyframe()
             animator = UIViewPropertyAnimator(duration: .zero, curve: .linear, animations: nextKeyframe)
             animator?.scrubsLinearly = false

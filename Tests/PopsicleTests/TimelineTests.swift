@@ -35,26 +35,26 @@ final class TimelineTests: XCTestCase {
     }
 
     func testNext() {
-        XCTAssert(sut.next(for: -.greatestFiniteMagnitude)! == (0, "a"))
-        XCTAssert(sut.next(for: -1)! == (0, "a"))
-        XCTAssert(sut.next(for: 0)! == (250, "b"))
-        XCTAssert(sut.next(for: 1)! == (250, "b"))
+        XCTAssert(sut.next(after: -.greatestFiniteMagnitude)! == (0, "a"))
+        XCTAssert(sut.next(after: -1)! == (0, "a"))
+        XCTAssert(sut.next(after: 0)! == (250, "b"))
+        XCTAssert(sut.next(after: 1)! == (250, "b"))
 
-        XCTAssert(sut.next(for: 249)! == (250, "b"))
-        XCTAssert(sut.next(for: 250)! == (500, "c"))
-        XCTAssert(sut.next(for: 251)! == (500, "c"))
+        XCTAssert(sut.next(after: 249)! == (250, "b"))
+        XCTAssert(sut.next(after: 250)! == (500, "c"))
+        XCTAssert(sut.next(after: 251)! == (500, "c"))
 
-        XCTAssert(sut.next(for: 499)! == (500, "c"))
-        XCTAssert(sut.next(for: 500)! == (750, "d"))
-        XCTAssert(sut.next(for: 501)! == (750, "d"))
+        XCTAssert(sut.next(after: 499)! == (500, "c"))
+        XCTAssert(sut.next(after: 500)! == (750, "d"))
+        XCTAssert(sut.next(after: 501)! == (750, "d"))
 
-        XCTAssert(sut.next(for: 749)! == (750, "d"))
-        XCTAssert(sut.next(for: 750)! == (1000, "e"))
-        XCTAssert(sut.next(for: 751)! == (1000, "e"))
+        XCTAssert(sut.next(after: 749)! == (750, "d"))
+        XCTAssert(sut.next(after: 750)! == (1000, "e"))
+        XCTAssert(sut.next(after: 751)! == (1000, "e"))
 
-        XCTAssert(sut.next(for: 999)! == (1000, "e"))
-        XCTAssert(sut.next(for: 1000)! == (1000, "e"))
-        XCTAssert(sut.next(for: 1001)! == (1000, "e"))
-        XCTAssert(sut.next(for: .greatestFiniteMagnitude)! == (1000, "e"))
+        XCTAssert(sut.next(after: 999)! == (1000, "e"))
+        XCTAssert(sut.next(after: 1000)! == (1000, "e"))
+        XCTAssert(sut.next(after: 1001)! == (1000, "e"))
+        XCTAssert(sut.next(after: .greatestFiniteMagnitude)! == (1000, "e"))
     }
 }

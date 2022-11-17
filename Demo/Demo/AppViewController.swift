@@ -33,6 +33,9 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
         pagingView.addPage { view in
 //            view?.backgroundColor = .purple
         }
+        pagingView.addPage { view in
+//            view?.backgroundColor = .purple
+        }
         pagingView.delegate = self
         pagingView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pagingView)
@@ -106,7 +109,9 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        print(scrollView.contentOffset.x / scrollView.frame.width)
-        animator.time = scrollView.contentOffset.x / scrollView.frame.width
+        let time = scrollView.contentOffset.x / scrollView.frame.width
+//        print(time)
+        interpolator.time = time
     }
 
 //    override func viewDidLayoutSubviews() {
