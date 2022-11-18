@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D5934B1829272EF2002FFC24 /* PageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5934B1729272EF2002FFC24 /* PageScrollView.swift */; };
+		D5934B1B29284AE2002FFC24 /* EasingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5934B1A29284AE2002FFC24 /* EasingFunctions.swift */; };
 		D5B041942926AA680019620D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B041932926AA680019620D /* Assets.xcassets */; };
 		D5B041A02926AAFF0019620D /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B0419D2926AAFF0019620D /* AppView.swift */; };
 		D5B041A12926AAFF0019620D /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B0419E2926AAFF0019620D /* AppViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		D5934B1729272EF2002FFC24 /* PageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageScrollView.swift; sourceTree = "<group>"; };
 		D5934B19292845D7002FFC24 /* Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Demo.entitlements; sourceTree = "<group>"; };
+		D5934B1A29284AE2002FFC24 /* EasingFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasingFunctions.swift; sourceTree = "<group>"; };
 		D5B0418C2926AA670019620D /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B041932926AA680019620D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5B0419D2926AAFF0019620D /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				D5B0419D2926AAFF0019620D /* AppView.swift */,
 				D5B0419E2926AAFF0019620D /* AppViewController.swift */,
 				D5934B1729272EF2002FFC24 /* PageScrollView.swift */,
+				D5934B1A29284AE2002FFC24 /* EasingFunctions.swift */,
 				D5B041A92926D5D40019620D /* DRPageScrollView.h */,
 				D5B041AA2926D5D40019620D /* DRPageScrollView.m */,
 				D5B041A62926AE8A0019620D /* Helpers.swift */,
@@ -161,6 +164,7 @@
 				D5B041A22926AAFF0019620D /* App.swift in Sources */,
 				D5B041A12926AAFF0019620D /* AppViewController.swift in Sources */,
 				D5B041A02926AAFF0019620D /* AppView.swift in Sources */,
+				D5934B1B29284AE2002FFC24 /* EasingFunctions.swift in Sources */,
 				D5B041A72926AE8A0019620D /* Helpers.swift in Sources */,
 				D5B041AB2926D5D40019620D /* DRPageScrollView.m in Sources */,
 			);
