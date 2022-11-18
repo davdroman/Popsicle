@@ -22,7 +22,6 @@ let package = Package(
             name: "PopsicleTests",
             dependencies: [
                 "Popsicle",
-                .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
             ]
         ),
     ]
@@ -30,5 +29,4 @@ let package = Package(
 
 package.dependencies = [
     .package(url: "https://github.com/apple/swift-collections", from: "1.0.3"),
-    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.10.0"),
 ]
