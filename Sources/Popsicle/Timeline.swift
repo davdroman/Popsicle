@@ -26,11 +26,15 @@ extension Timeline where Key == Time {
     }
 
     func next(after time: Time) -> (Time, Value)? {
+        if time < initialTime! {
+            return nil
+        }
+
         if let time = keys.first(where: { $0 > time }), let value = self[time] {
             return (time, value)
         }
 
-        return last
+        return nil
     }
 
     func allPrevious(before time: Time) -> [(Time, Value)] {

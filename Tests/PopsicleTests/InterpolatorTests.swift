@@ -102,7 +102,7 @@ extension UIView {
         file: StaticString = #file,
         line: UInt = #line
     ) throws -> Void {
-        RunLoop.main.run(until: Date())
+        RunLoop.main.run(until: Date() + 0.1)
         let layer = try XCTUnwrap(self.layer.presentation(), file: file, line: line)
         assertions(layer)
     }

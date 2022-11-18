@@ -35,8 +35,8 @@ final class TimelineTests: XCTestCase {
     }
 
     func testNext() {
-        XCTAssert(sut.next(after: -.greatestFiniteMagnitude)! == (0, "a"))
-        XCTAssert(sut.next(after: -1)! == (0, "a"))
+        XCTAssert(sut.next(after: -.greatestFiniteMagnitude) == nil)
+        XCTAssert(sut.next(after: -1) == nil)
         XCTAssert(sut.next(after: 0)! == (250, "b"))
         XCTAssert(sut.next(after: 1)! == (250, "b"))
 
@@ -53,9 +53,9 @@ final class TimelineTests: XCTestCase {
         XCTAssert(sut.next(after: 751)! == (1000, "e"))
 
         XCTAssert(sut.next(after: 999)! == (1000, "e"))
-        XCTAssert(sut.next(after: 1000)! == (1000, "e"))
-        XCTAssert(sut.next(after: 1001)! == (1000, "e"))
-        XCTAssert(sut.next(after: .greatestFiniteMagnitude)! == (1000, "e"))
+        XCTAssert(sut.next(after: 1000) == nil)
+        XCTAssert(sut.next(after: 1001) == nil)
+        XCTAssert(sut.next(after: .greatestFiniteMagnitude) == nil)
     }
 
     func testAllPrevious() {
