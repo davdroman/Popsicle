@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 /// The type of block used to define what to display on each page view.
-typedef void(^DRPageHandlerBlock)(UIView *pageView);
+typedef void(^DRPageHandlerBlock)(UIView * _Nonnull pageView);
 
 @interface DRPageScrollView : UIScrollView
 
@@ -27,6 +27,6 @@ typedef void(^DRPageHandlerBlock)(UIView *pageView);
  *
  * @param handler A block that defines what to display on the page.
 **/
-- (void)addPageWithHandler:(DRPageHandlerBlock)handler;
+- (void)addPageWithHandler:(DRPageHandlerBlock _Nonnull)handler;
 
 @end

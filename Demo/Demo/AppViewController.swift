@@ -3,22 +3,22 @@ import UIKit
 
 final class AppViewController: UIViewController, UIScrollViewDelegate {
 
-//    let pageScrollView: PageScrollView
-//    let interpolator: Interpolator
-
-//    let animator = UIViewPropertyAnimator(duration: .zero, curve: .linear)
-    let interpolator = Interpolator()
-    let square = UIView {
-        $0.backgroundColor = .blue
-        $0.frame.size = .init(width: 100, height: 100)
-    }
     let pagingView = DRPageScrollView()
+    let interpolator = Interpolator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        pagingView.addPage { view in
-//            view?.backgroundColor = .green
+        pagingView.addPage { [self] view in
+            let square = UIView {
+                $0.backgroundColor = .blue
+                $0.frame.size = .init(width: 100, height: 100)
+            }
+            view.addSubview(square)
+
+            interpolator.setKeyframe(0) {
+                square.center = view.center
+            }
         }
         pagingView.addPage { view in
 //            view?.backgroundColor = .purple
@@ -36,14 +36,6 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
             pagingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
 
-        square.center = view.center
-        view.addSubview(square)
-
-//        let pan = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(tap)
-//        view.addGestureRecognizer(pan)
-
         interpolator.setKeyframe(0) {
             self.pagingView.backgroundColor = .orange
         }
@@ -55,52 +47,10 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
         interpolator.setKeyframe(2) {
             self.pagingView.backgroundColor = .purple
         }
-
-//        animator.addAnimations {
-//            self.square.center.x = 0
-//        }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-//        animator.startAnimation()
-//        animator.pauseAnimation()
-
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//            self.animator.fractionComplete = 0.5
-//
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//                self.animator.fractionComplete = 0.75
-//            }
-//
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-//                self.animator.fractionComplete = 1
-//            }
-//        }
-    }
-
-    @objc private func handlePan(_ pan: UIPanGestureRecognizer) {
-//        let translation = pan.translation(in: pan.view)
-//        let x = translation.x
-//        let fraction = x / view.frame.size.width
-//        print(fraction)
-
-    }
-
-    @objc private func handleTap() {
-//        animator.stopAnimation(true)
-//        animator.startAnimation()
-//        animator.pauseAnimation()
-//        animator.continueAnimation(withTimingParameters: nil, durationFactor: 1)
-//        square.center.x = .random(in: 40...320)
-//        square.center.y = .random(in: 40...600)
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        print(scrollView.contentOffset.x / scrollView.frame.width)
-        let time = scrollView.contentOffset.x / scrollView.frame.width
-        interpolator.time = time
+        interpolator.time = scrollView.contentOffset.x / scrollView.frame.width
     }
 
 //    override func viewDidLayoutSubviews() {

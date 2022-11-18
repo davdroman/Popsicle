@@ -16,11 +16,23 @@ public final class Interpolator {
     public init() {}
 
     public func setKeyframe(_ time: Time, _ keyframe: Keyframe?) {
-        if time == self.time {
-            keyframe?()
+        if time == self.time, let keyframe = keyframe {
+            DispatchQueue.main.async(execute: keyframe)
         }
         keyframes[time] = keyframe
     }
+
+//    public func setKeyframe<Root: AnyObject, Value>(
+//        _ time: Time,
+//        _ root: Root,
+//        _ keyPath: ReferenceWritableKeyPath<Root, Value>,
+//        _ value: @autoclosure @escaping () -> Value
+//    ) {
+//        let keyframe = {
+//            root[keyPath: keyPath] = value()
+//        }
+//        setKeyframe(0, keyframe)
+//    }
 
 //    public func setTimingCurve(_ time: Time, _ timingCurve: TimingCurve?) {
 //        timingCurves[time] = timingCurve
