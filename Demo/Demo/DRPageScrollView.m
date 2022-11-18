@@ -38,7 +38,9 @@
 
 - (void)commonInit {
 	previousPage = -1;
+#if !TARGET_OS_TV
 	self.pagingEnabled = YES;
+#endif
 	self.showsHorizontalScrollIndicator = NO;
 	self.showsVerticalScrollIndicator = NO;
 

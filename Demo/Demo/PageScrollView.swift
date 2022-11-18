@@ -70,5 +70,9 @@ final class ThirdPageView: PageView {
 final class FourthPageView: PageView {
     init(in scrollView: PageScrollView, interpolator: Interpolator) {
         super.init()
+
+        interpolator.addKeyframe(3) {
+            scrollView.backgroundColor = .red
+        }
     }
 }
