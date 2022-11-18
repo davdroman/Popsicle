@@ -69,7 +69,7 @@ final class InterpolatorTests: XCTestCase {
                 }
             },
             {
-                sut.time = 1000
+                sut.time = 1200
                 try view.assertOnPresentationLayer {
                     XCTAssertEqual($0.frame.origin.x, 1000, accuracy: 0.0001)
                     XCTAssertEqual($0.opacity, 1, accuracy: 0.0001)
@@ -94,6 +94,13 @@ final class InterpolatorTests: XCTestCase {
                 try view.assertOnPresentationLayer {
                     XCTAssertEqual($0.frame.origin.x, 150, accuracy: 0.0001)
                     XCTAssertEqual($0.opacity, 0.25, accuracy: 0.0001)
+                }
+            },
+            {
+                sut.time = -100
+                try view.assertOnPresentationLayer {
+                    XCTAssertEqual($0.frame.origin.x, 100, accuracy: 0.0001)
+                    XCTAssertEqual($0.opacity, 0, accuracy: 0.0001)
                 }
             },
         ]

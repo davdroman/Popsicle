@@ -34,6 +34,12 @@ public final class Interpolator {
             return
         }
 
+        guard let initialTime = keyframes.initialTime, let finalTime = keyframes.finalTime else {
+            return
+        }
+
+        let time = time.clamped(to: initialTime...finalTime)
+
         guard let (currentKeytime, currentKeyframe) = keyframes.current(for: time) else {
             return
         }
@@ -61,6 +67,12 @@ public final class Interpolator {
     deinit {
         animator?.stopAnimation(true)
         animator = nil
+    }
+}
+
+extension Comparable {
+    func clamped(to range: ClosedRange<Self>) -> Self {
+        min(max(range.lowerBound, self), range.upperBound)
     }
 }
 

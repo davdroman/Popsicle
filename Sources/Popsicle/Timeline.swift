@@ -5,6 +5,14 @@ public typealias Time = Double
 typealias Timeline<Value> = OrderedDictionary<Time, Value>
 
 extension Timeline where Key == Time {
+    var initialTime: Time? {
+        self.elements.first?.key
+    }
+
+    var finalTime: Time? {
+        self.elements.last?.key
+    }
+
     func current(for time: Time) -> (Time, Value)? {
         if let value = self[time] {
             return (time, value)
