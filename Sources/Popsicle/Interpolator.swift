@@ -10,7 +10,7 @@ public final class Interpolator {
         didSet { timeDidChange(time) }
     }
 
-    var keyframes: Timeline<Keyframe> = [:]
+    var keyframes: Timeline<[Keyframe]> = [:]
 //    var timingCurves: TimingCurves = [:]
 
     public init() {}
@@ -19,12 +19,13 @@ public final class Interpolator {
         if time == self.time {
             DispatchQueue.main.async(execute: keyframe)
         }
-        let existingKeyframe = keyframes[time]
-        keyframes[time] = {
-            existingKeyframe?()
-            keyframe()
-        }
+        keyframes[time, default: []].append(keyframe)
     }
+
+//    public subscript(time: Time) -> [Keyframe] {
+//        _read { yield keyframes[time, default: []] }
+//        _modify { yield &keyframes[time, default: []] }
+//    }
 
     private var animator: UIViewPropertyAnimator?
     private var latestKeytime: Time?
@@ -50,10 +51,10 @@ public final class Interpolator {
         if currentKeytime != latestKeytime {
             animator?.stopAnimation(true)
 
-            keyframes.allPrevious(before: currentKeytime).lazy.map(\.1)()
+            keyframes.allPrevious(before: currentKeytime).lazy.flatMap(\.1)()
             currentKeyframe()
 
-            animator = UIViewPropertyAnimator(duration: .zero, curve: .linear, animations: nextKeyframe)
+            animator = UIViewPropertyAnimator(duration: .zero, curve: .linear, animations: nextKeyframe.callAsFunction)
             animator?.scrubsLinearly = false
 
             latestKeytime = currentKeytime
