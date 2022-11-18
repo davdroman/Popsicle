@@ -8,7 +8,7 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        PageScrollView(interpolator: interpolator) => {
+        PageScrollView(interpolator: interpolator) .. {
             $0.delegate = self
             view.addSubview($0)
             $0.pinToSuperviewEdges()

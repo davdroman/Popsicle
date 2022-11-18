@@ -1,6 +1,6 @@
 import UIKit
 
-infix operator =>
+infix operator ..
 
 extension UIView {
     convenience init(transform: (Self) -> Void) {
@@ -10,7 +10,7 @@ extension UIView {
 }
 
 @discardableResult
-func => <View: UIView>(
+func .. <View: UIView>(
     view: View,
     transform: (View) -> Void
 ) -> View {

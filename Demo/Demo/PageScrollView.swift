@@ -34,8 +34,7 @@ final class FirstPageView: PageView {
         super.init()
 
         let image = UIImage(named: "popsicle")!
-        let popsicle = UIImageView(image: image) => {
-            $0.backgroundColor = .blue
+        let popsicle = UIImageView(image: image) .. {
             $0.contentMode = .scaleAspectFit
             $0.frame.size = .init(width: image.size.width / 1.5, height: image.size.height / 1.5)
         }
