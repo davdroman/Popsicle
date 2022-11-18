@@ -26,7 +26,7 @@ extension Timeline where Key == Time {
     }
 
     func next(after time: Time) -> (Time, Value)? {
-        if time < initialTime! {
+        if let initialTime = initialTime, time < initialTime {
             return nil
         }
 

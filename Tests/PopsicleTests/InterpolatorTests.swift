@@ -123,8 +123,8 @@ struct WyRand: RandomNumberGenerator {
 }
 
 
-extension Collection {
-    func callAsFunction() throws where Element == () throws -> Void {
+extension Collection where Element == () throws -> Void {
+    func callAsFunction() throws {
         try forEach { try $0() }
     }
 }

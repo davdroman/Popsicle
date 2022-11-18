@@ -83,6 +83,8 @@ final class TimelineTests: XCTestCase {
     }
 }
 
+// TODO: remove when tuples conform to Equatable
+// https://github.com/apple/swift-evolution/blob/main/proposals/0283-tuples-are-equatable-comparable-hashable.md
 extension Array where Element == (Time, Character) {
     static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.elementsEqual(rhs, by: { $0 == $1 })

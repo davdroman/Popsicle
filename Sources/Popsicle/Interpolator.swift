@@ -58,8 +58,8 @@ public final class Interpolator {
     }
 }
 
-extension Collection {
-    func callAsFunction(_ time: Time? = nil) where Element == Keyframe {
+extension Collection where Element == Keyframe {
+    func callAsFunction(_ time: Time? = nil) {
         forEach { $0(time) }
     }
 }
