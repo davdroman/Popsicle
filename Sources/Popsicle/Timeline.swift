@@ -1,16 +1,16 @@
-import Collections
+import SortedCollections
 
 public typealias Time = Double
 
-typealias Timeline<Value> = OrderedDictionary<Time, Value>
+typealias Timeline<Value> = SortedDictionary<Time, Value>
 
 extension Timeline where Key == Time {
     var initialTime: Time? {
-        self.elements.first?.key
+        keys.first
     }
 
     var finalTime: Time? {
-        self.elements.last?.key
+        keys.last
     }
 
     func current(for time: Time) -> (Time, Value)? {
@@ -22,7 +22,7 @@ extension Timeline where Key == Time {
             return (time, value)
         }
 
-        return self.elements.first
+        return first
     }
 
     func next(after time: Time) -> (Time, Value)? {
@@ -30,10 +30,10 @@ extension Timeline where Key == Time {
             return (time, value)
         }
 
-        return self.elements.last
+        return last
     }
 
     func allPrevious(before time: Time) -> [(Time, Value)] {
-        self.elements.filter { $0.key < time }
+        filter { $0.key < time }
     }
 }

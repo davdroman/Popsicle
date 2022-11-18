@@ -15,11 +15,15 @@ public final class Interpolator {
 
     public init() {}
 
-    public func setKeyframe(_ time: Time, _ keyframe: Keyframe?) {
-        if time == self.time, let keyframe = keyframe {
+    public func addKeyframe(_ time: Time, _ keyframe: @escaping Keyframe) {
+        if time == self.time {
             DispatchQueue.main.async(execute: keyframe)
         }
-        keyframes[time] = keyframe
+        let existingKeyframe = keyframes[time]
+        keyframes[time] = {
+            existingKeyframe?()
+            keyframe()
+        }
     }
 
 //    public func setKeyframe<Root: AnyObject, Value>(

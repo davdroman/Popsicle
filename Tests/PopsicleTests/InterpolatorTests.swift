@@ -11,19 +11,19 @@ final class InterpolatorTests: XCTestCase {
         }
 
         let sut = Interpolator()
-        sut.setKeyframe(0) {
+        sut.addKeyframe(0) {
             view.frame.origin.x = 100
             view.alpha = 0
         }
-        sut.setKeyframe(100) {
+        sut.addKeyframe(100) {
             view.frame.origin.x = 200
             view.alpha = 0.5
         }
-        sut.setKeyframe(200) {
+        sut.addKeyframe(200) {
             view.frame.origin.x = 300
             // no alpha
         }
-        sut.setKeyframe(400) {
+        sut.addKeyframe(400) {
             view.frame.origin.x = 1000
             view.alpha = 1
         }

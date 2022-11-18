@@ -10,14 +10,17 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
 
         pagingView.addPage { [self] view in
-            let square = UIView {
+            let image = UIImage(named: "popsicle")!
+            let popsicle = UIImageView(image: image) => {
                 $0.backgroundColor = .blue
-                $0.frame.size = .init(width: 100, height: 100)
+                $0.contentMode = .scaleAspectFit
+                $0.frame.size = .init(width: image.size.width / 1.5, height: image.size.height / 1.5)
             }
-            view.addSubview(square)
+            view.addSubview(popsicle)
 
-            interpolator.setKeyframe(0) {
-                square.center = view.center
+            interpolator.addKeyframe(0) {
+                pagingView.backgroundColor = .white
+                popsicle.center = view.center
             }
         }
         pagingView.addPage { view in
@@ -36,17 +39,17 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
             pagingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
 
-        interpolator.setKeyframe(0) {
-            self.pagingView.backgroundColor = .orange
+        interpolator.addKeyframe(0) {
+            self.pagingView.backgroundColor = .white
         }
 
-        interpolator.setKeyframe(1) {
-            self.pagingView.backgroundColor = .green
-        }
-
-        interpolator.setKeyframe(2) {
+        interpolator.addKeyframe(1) {
             self.pagingView.backgroundColor = .purple
         }
+
+//        interpolator.addKeyframe(2) {
+//            self.pagingView.backgroundColor = .purple
+//        }
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -15,7 +15,7 @@ let package = Package(
         .target(
             name: "Popsicle",
             dependencies: [
-                .product(name: "Collections", package: "swift-collections")
+                .product(name: "SortedCollections", package: "swift-collections")
             ]
         ),
         .testTarget(
@@ -28,5 +28,5 @@ let package = Package(
 )
 
 package.dependencies = [
-    .package(url: "https://github.com/apple/swift-collections", from: "1.0.3"),
+    .package(url: "https://github.com/apple/swift-collections", branch: "main"),
 ]
