@@ -92,7 +92,7 @@ final class InterpolatorTests: XCTestCase {
         ]
 
         var rng = WyRand()
-        try [assertions, assertions].flatMap { $0 }.shuffled(using: &rng)()
+        try Array(repeating: assertions, count: 5).flatMap { $0 }.shuffled(using: &rng)()
     }
 }
 
