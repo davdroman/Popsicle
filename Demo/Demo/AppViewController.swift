@@ -3,45 +3,16 @@ import UIKit
 
 final class AppViewController: UIViewController, UIScrollViewDelegate {
 
-    let pagingView = DRPageScrollView()
     let interpolator = Interpolator()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        pagingView.addPage { [self] view in
-            let image = UIImage(named: "popsicle")!
-            let popsicle = UIImageView(image: image) => {
-                $0.backgroundColor = .blue
-                $0.contentMode = .scaleAspectFit
-                $0.frame.size = .init(width: image.size.width / 1.5, height: image.size.height / 1.5)
-            }
-            view.addSubview(popsicle)
-
-            interpolator.addKeyframe(0) { [self] in
-                pagingView.backgroundColor = .white
-                popsicle.center = view.center
-            }
+        PageScrollView(interpolator: interpolator) => {
+            $0.delegate = self
+            view.addSubview($0)
+            $0.pinToSuperviewEdges()
         }
-        pagingView.addPage { [self] view in
-            interpolator.addKeyframe(1) { [self] in
-                pagingView.backgroundColor = .purple
-            }
-        }
-        pagingView.addPage { [self] view in
-            interpolator.addKeyframe(2) { [self] in
-                pagingView.backgroundColor = .green
-            }
-        }
-        pagingView.delegate = self
-        pagingView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(pagingView)
-        NSLayoutConstraint.activate([
-            pagingView.topAnchor.constraint(equalTo: view.topAnchor),
-            pagingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            pagingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            pagingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

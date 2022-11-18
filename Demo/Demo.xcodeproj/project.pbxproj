@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D5934B1829272EF2002FFC24 /* PageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5934B1729272EF2002FFC24 /* PageScrollView.swift */; };
 		D5B041942926AA680019620D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5B041932926AA680019620D /* Assets.xcassets */; };
 		D5B041A02926AAFF0019620D /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B0419D2926AAFF0019620D /* AppView.swift */; };
 		D5B041A12926AAFF0019620D /* AppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B0419E2926AAFF0019620D /* AppViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D5934B1729272EF2002FFC24 /* PageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageScrollView.swift; sourceTree = "<group>"; };
 		D5B0418C2926AA670019620D /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B041932926AA680019620D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5B0419D2926AAFF0019620D /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				D5B0419F2926AAFF0019620D /* App.swift */,
 				D5B0419D2926AAFF0019620D /* AppView.swift */,
 				D5B0419E2926AAFF0019620D /* AppViewController.swift */,
+				D5934B1729272EF2002FFC24 /* PageScrollView.swift */,
 				D5B041A92926D5D40019620D /* DRPageScrollView.h */,
 				D5B041AA2926D5D40019620D /* DRPageScrollView.m */,
 				D5B041A62926AE8A0019620D /* Helpers.swift */,
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5934B1829272EF2002FFC24 /* PageScrollView.swift in Sources */,
 				D5B041A22926AAFF0019620D /* App.swift in Sources */,
 				D5B041A12926AAFF0019620D /* AppViewController.swift in Sources */,
 				D5B041A02926AAFF0019620D /* AppView.swift in Sources */,

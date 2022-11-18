@@ -26,22 +26,6 @@ public final class Interpolator {
         }
     }
 
-//    public func setKeyframe<Root: AnyObject, Value>(
-//        _ time: Time,
-//        _ root: Root,
-//        _ keyPath: ReferenceWritableKeyPath<Root, Value>,
-//        _ value: @autoclosure @escaping () -> Value
-//    ) {
-//        let keyframe = {
-//            root[keyPath: keyPath] = value()
-//        }
-//        setKeyframe(0, keyframe)
-//    }
-
-//    public func setTimingCurve(_ time: Time, _ timingCurve: TimingCurve?) {
-//        timingCurves[time] = timingCurve
-//    }
-
     private var animator: UIViewPropertyAnimator?
     private var latestKeytime: Time?
 
