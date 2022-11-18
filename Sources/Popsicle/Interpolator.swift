@@ -12,7 +12,7 @@ public final class Interpolator {
     public func addKeyframe(
         _ time: Time,
         _ curve: UIView.AnimationCurve = .linear,
-        _ content: @escaping Keyframe.Content
+        _ content: @escaping () -> Void
     ) {
         addKeyframe(time, UICubicTimingParameters(animationCurve: curve), content)
     }
@@ -20,7 +20,7 @@ public final class Interpolator {
     public func addKeyframe(
         _ time: Time,
         _ curve: UITimingCurveProvider,
-        _ content: @escaping Keyframe.Content
+        _ content: @escaping () -> Void
     ) {
         let keyframe = Keyframe(curve: curve, content: content)
         if time == self.time {
@@ -28,11 +28,6 @@ public final class Interpolator {
         }
         keyframes[time, default: []].append(keyframe)
     }
-
-//    public subscript(time: Time) -> [Keyframe] {
-//        _read { yield keyframes[time, default: []] }
-//        _modify { yield &keyframes[time, default: []] }
-//    }
 
     private func timeDidChange(_ time: Time) {
         guard

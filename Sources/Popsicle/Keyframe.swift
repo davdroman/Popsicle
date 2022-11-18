@@ -1,12 +1,10 @@
 import UIKit
 
-public struct Keyframe {
-    public typealias Content = () -> Void
-
+struct Keyframe {
     var curve: UITimingCurveProvider
-    var content: Content
+    var content: () -> Void
 
-    init(curve: UITimingCurveProvider, content: @escaping Content) {
+    init(curve: UITimingCurveProvider, content: @escaping () -> Void) {
         self.curve = curve
         self.content = content
     }
