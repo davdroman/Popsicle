@@ -14,16 +14,6 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
     }
     let pagingView = DRPageScrollView()
 
-    init() {
-//        self.pageScrollView = PageScrollView(frame: CGRectZero)
-//        self.interpolator = Interpolator()
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -110,7 +100,6 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        print(scrollView.contentOffset.x / scrollView.frame.width)
         let time = scrollView.contentOffset.x / scrollView.frame.width
-//        print(time)
         interpolator.time = time
     }
 

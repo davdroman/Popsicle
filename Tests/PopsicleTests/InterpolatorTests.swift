@@ -98,9 +98,7 @@ final class InterpolatorTests: XCTestCase {
             },
         ]
 
-        for assertion in assertions.shuffled() {
-            try assertion()
-        }
+        try assertions.shuffled()()
     }
 }
 
@@ -113,5 +111,11 @@ extension UIView {
         RunLoop.main.run(until: Date())
         let layer = try XCTUnwrap(self.layer.presentation(), file: file, line: line)
         assertions(layer)
+    }
+}
+
+extension Collection {
+    func callAsFunction() throws where Element == () throws -> Void {
+        try forEach { try $0() }
     }
 }

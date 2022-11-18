@@ -45,7 +45,7 @@ public final class Interpolator {
         if currentKeytime != latestKeytime {
             animator?.stopAnimation(true)
 
-            keyframes.allPrevious(before: currentKeytime).forEach { $0.1() }
+            keyframes.allPrevious(before: currentKeytime).lazy.map(\.1)()
             currentKeyframe()
 
             animator = UIViewPropertyAnimator(duration: .zero, curve: .linear, animations: nextKeyframe)
@@ -64,6 +64,8 @@ public final class Interpolator {
     }
 }
 
-//extension OrderedDictionary where Key == Time, Value == TimingCurve {
-//    func timingCurve()
-//}
+extension Collection {
+    func callAsFunction() where Element == () -> Void {
+        forEach { $0() }
+    }
+}
