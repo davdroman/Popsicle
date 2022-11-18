@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "**"
+  schedule:
+    - cron: '3 3 * * 2'  # 3:03 AM, every Tuesday
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  macOS:
+    name: ${{ matrix.platform }} (Swift ${{ matrix.swift }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-12
+        platform:
+          - iOS
+          - mac-catalyst
+          - tvOS
+        swift:
+          - 5.5
+          - 5.6
+          - 5.7
+    steps:
+    - uses: actions/checkout@v2
+    - name: Test Popsicle
+      uses: mxcl/xcodebuild@v1
+      with:
+        platform: ${{ matrix.platform }}
+        swift: ~${{ matrix.swift }}
+        action: test
+        scheme: Popsicle
+    - if: ${{ matrix.swift >= 5.7 }}
+      name: Build Demo
+      uses: mxcl/xcodebuild@v1
+      with:
+        platform: ${{ matrix.platform }}
+        swift: ~${{ matrix.swift }}
+        action: build
+        scheme: Demo

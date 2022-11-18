@@ -18,16 +18,20 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
             }
             view.addSubview(popsicle)
 
-            interpolator.addKeyframe(0) {
+            interpolator.addKeyframe(0) { [self] in
                 pagingView.backgroundColor = .white
                 popsicle.center = view.center
             }
         }
-        pagingView.addPage { view in
-//            view?.backgroundColor = .purple
+        pagingView.addPage { [self] view in
+            interpolator.addKeyframe(1) { [self] in
+                pagingView.backgroundColor = .purple
+            }
         }
-        pagingView.addPage { view in
-//            view?.backgroundColor = .purple
+        pagingView.addPage { [self] view in
+            interpolator.addKeyframe(2) { [self] in
+                pagingView.backgroundColor = .green
+            }
         }
         pagingView.delegate = self
         pagingView.translatesAutoresizingMaskIntoConstraints = false
@@ -38,18 +42,6 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
             pagingView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             pagingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
-
-        interpolator.addKeyframe(0) {
-            self.pagingView.backgroundColor = .white
-        }
-
-        interpolator.addKeyframe(1) {
-            self.pagingView.backgroundColor = .purple
-        }
-
-//        interpolator.addKeyframe(2) {
-//            self.pagingView.backgroundColor = .purple
-//        }
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
