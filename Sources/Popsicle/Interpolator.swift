@@ -30,21 +30,20 @@ public final class Interpolator {
     private var latestKeytime: Time?
 
     private func timeDidChange(_ time: Time) {
-        guard keyframes.count >= 2 else {
-            return
-        }
-
-        guard let initialTime = keyframes.initialTime, let finalTime = keyframes.finalTime else {
+        guard
+            keyframes.count >= 2,
+            let initialTime = keyframes.initialTime,
+            let finalTime = keyframes.finalTime
+        else {
             return
         }
 
         let time = time.clamped(to: initialTime...finalTime)
 
-        guard let (currentKeytime, currentKeyframe) = keyframes.current(for: time) else {
-            return
-        }
-
-        guard let (nextKeytime, nextKeyframe) = keyframes.next(after: time) else {
+        guard
+            let (currentKeytime, currentKeyframe) = keyframes.current(for: time),
+            let (nextKeytime, nextKeyframe) = keyframes.next(after: time)
+        else {
             return
         }
 
