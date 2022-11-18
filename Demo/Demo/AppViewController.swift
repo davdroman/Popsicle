@@ -179,8 +179,4 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
 //            self.interpolator.addInterpolation(translateInterpolation2)
 //        }
 //    }
-//
-//    func scrollViewDidScroll(scrollView: UIScrollView) {
-//        self.interpolator.time = Double(scrollView.contentOffset.x/scrollView.frame.size.width)
-//    }
 }

@@ -34,6 +34,20 @@ final class InterpolatorTests: XCTestCase {
 
         let assertions: [() throws -> Void] = [
             {
+                sut.time = -100
+                try view.assertOnPresentationLayer {
+                    XCTAssertEqual($0.frame.origin.x, 100, accuracy: 0.0001)
+                    XCTAssertEqual($0.opacity, 0, accuracy: 0.0001)
+                }
+            },
+            {
+                sut.time = 0
+                try view.assertOnPresentationLayer {
+                    XCTAssertEqual($0.frame.origin.x, 100, accuracy: 0.0001)
+                    XCTAssertEqual($0.opacity, 0, accuracy: 0.0001)
+                }
+            },
+            {
                 sut.time = 50
                 try view.assertOnPresentationLayer {
                     XCTAssertEqual($0.frame.origin.x, 150, accuracy: 0.0001)
@@ -75,37 +89,10 @@ final class InterpolatorTests: XCTestCase {
                     XCTAssertEqual($0.opacity, 1, accuracy: 0.0001)
                 }
             },
-            {
-                sut.time = 400
-                try view.assertOnPresentationLayer {
-                    XCTAssertEqual($0.frame.origin.x, 1000, accuracy: 0.0001)
-                    XCTAssertEqual($0.opacity, 1, accuracy: 0.0001)
-                }
-            },
-            {
-                sut.time = 300
-                try view.assertOnPresentationLayer {
-                    XCTAssertEqual($0.frame.origin.x, 650, accuracy: 0.0001)
-                    XCTAssertEqual($0.opacity, 0.75, accuracy: 0.0001)
-                }
-            },
-            {
-                sut.time = 50
-                try view.assertOnPresentationLayer {
-                    XCTAssertEqual($0.frame.origin.x, 150, accuracy: 0.0001)
-                    XCTAssertEqual($0.opacity, 0.25, accuracy: 0.0001)
-                }
-            },
-            {
-                sut.time = -100
-                try view.assertOnPresentationLayer {
-                    XCTAssertEqual($0.frame.origin.x, 100, accuracy: 0.0001)
-                    XCTAssertEqual($0.opacity, 0, accuracy: 0.0001)
-                }
-            },
         ]
 
-        try assertions.shuffled()()
+        var rng = WyRand()
+        try [assertions, assertions].flatMap { $0 }.shuffled(using: &rng)()
     }
 }
 
@@ -120,6 +107,21 @@ extension UIView {
         assertions(layer)
     }
 }
+
+struct WyRand: RandomNumberGenerator {
+    private var state: UInt64
+
+    init(seed: UInt64 = .random(in: 0...100000)) {
+        state = seed
+    }
+
+    mutating func next() -> UInt64 {
+        state &+= 0xa0761d6478bd642f
+        let mul = state.multipliedFullWidth(by: state ^ 0xe7037ed1a0b428db)
+        return mul.high ^ mul.low
+    }
+}
+
 
 extension Collection {
     func callAsFunction() throws where Element == () throws -> Void {
