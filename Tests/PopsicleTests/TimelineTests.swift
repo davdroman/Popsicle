@@ -57,4 +57,34 @@ final class TimelineTests: XCTestCase {
         XCTAssert(sut.next(after: 1001)! == (1000, "e"))
         XCTAssert(sut.next(after: .greatestFiniteMagnitude)! == (1000, "e"))
     }
+
+    func testAllPrevious() {
+        XCTAssert(sut.allPrevious(before: -.greatestFiniteMagnitude) == [])
+        XCTAssert(sut.allPrevious(before: -1) == [])
+        XCTAssert(sut.allPrevious(before: 0) == [])
+        XCTAssert(sut.allPrevious(before: 1) == [(0, "a")])
+
+        XCTAssert(sut.allPrevious(before: 249) == [(0, "a")])
+        XCTAssert(sut.allPrevious(before: 250) == [(0, "a")])
+        XCTAssert(sut.allPrevious(before: 251) == [(0, "a"), (250, "b")])
+
+        XCTAssert(sut.allPrevious(before: 499) == [(0, "a"), (250, "b")])
+        XCTAssert(sut.allPrevious(before: 500) == [(0, "a"), (250, "b")])
+        XCTAssert(sut.allPrevious(before: 501) == [(0, "a"), (250, "b"), (500, "c")])
+
+        XCTAssert(sut.allPrevious(before: 749) == [(0, "a"), (250, "b"), (500, "c")])
+        XCTAssert(sut.allPrevious(before: 750) == [(0, "a"), (250, "b"), (500, "c")])
+        XCTAssert(sut.allPrevious(before: 751) == [(0, "a"), (250, "b"), (500, "c"), (750, "d")])
+
+        XCTAssert(sut.allPrevious(before: 999) == [(0, "a"), (250, "b"), (500, "c"), (750, "d")])
+        XCTAssert(sut.allPrevious(before: 1000) == [(0, "a"), (250, "b"), (500, "c"), (750, "d")])
+        XCTAssert(sut.allPrevious(before: 1001) == [(0, "a"), (250, "b"), (500, "c"), (750, "d"), (1000, "e")])
+        XCTAssert(sut.allPrevious(before: .greatestFiniteMagnitude) == [(0, "a"), (250, "b"), (500, "c"), (750, "d"), (1000, "e")])
+    }
+}
+
+extension Array where Element == (Time, Character) {
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.elementsEqual(rhs, by: { $0 == $1 })
+    }
 }

@@ -43,27 +43,23 @@ public final class Interpolator {
         }
 
         if currentKeytime != latestKeytime {
-            latestKeytime = currentKeytime
-
             animator?.stopAnimation(true)
-//            if currentKeytime > (latestKeytime ?? 0) {
-//                animator?.finishAnimation(at: .end)
-//            } else {
-//                animator?.finishAnimation(at: .start)
-//            }
+
+            keyframes.allPrevious(before: currentKeytime).forEach { $0.1() }
             currentKeyframe()
+
             animator = UIViewPropertyAnimator(duration: .zero, curve: .linear, animations: nextKeyframe)
             animator?.scrubsLinearly = false
+
+            latestKeytime = currentKeytime
         }
 
         let relativeTime = (time - currentKeytime) / (nextKeytime - currentKeytime)
-
         animator?.fractionComplete = relativeTime
     }
 
     deinit {
         animator?.stopAnimation(true)
-        animator?.finishAnimation(at: .current)
         animator = nil
     }
 }

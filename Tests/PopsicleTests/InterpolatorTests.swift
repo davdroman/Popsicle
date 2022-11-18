@@ -13,63 +13,93 @@ final class InterpolatorTests: XCTestCase {
         let sut = Interpolator()
         sut.setKeyframe(0) {
             view.frame.origin.x = 100
+            view.alpha = 0
         }
         sut.setKeyframe(100) {
             view.frame.origin.x = 200
+            view.alpha = 0.5
         }
         sut.setKeyframe(200) {
             view.frame.origin.x = 300
+            // no alpha
         }
-        sut.setKeyframe(600) {
+        sut.setKeyframe(400) {
             view.frame.origin.x = 1000
+            view.alpha = 1
         }
         try view.assertOnPresentationLayer {
             XCTAssertEqual($0.frame.origin.x, 100, accuracy: 0.0001)
+            XCTAssertEqual($0.opacity, 0, accuracy: 0.0001)
         }
 
-        sut.time = 50
-        try view.assertOnPresentationLayer {
-            XCTAssertEqual($0.frame.origin.x, 150, accuracy: 0.0001)
-        }
+        let assertions: [() throws -> Void] = [
+            {
+                sut.time = 50
+                try view.assertOnPresentationLayer {
+                    XCTAssertEqual($0.frame.origin.x, 150, accuracy: 0.0001)
+                    XCTAssertEqual($0.opacity, 0.25, accuracy: 0.0001)
+                }
+            },
+            {
+                sut.time = 100
+                try view.assertOnPresentationLayer {
+                    XCTAssertEqual($0.frame.origin.x, 200, accuracy: 0.0001)
+                    XCTAssertEqual($0.opacity, 0.5, accuracy: 0.0001)
+                }
+            },
+            {
+                sut.time = 150
+                try view.assertOnPresentationLayer {
+                    XCTAssertEqual($0.frame.origin.x, 250, accuracy: 0.0001)
+                    XCTAssertEqual($0.opacity, 0.5, accuracy: 0.0001)
+                }
+            },
+            {
+                sut.time = 300
+                try view.assertOnPresentationLayer {
+                    XCTAssertEqual($0.frame.origin.x, 650, accuracy: 0.0001)
+                    XCTAssertEqual($0.opacity, 0.75, accuracy: 0.0001)
+                }
+            },
+            {
+                sut.time = 400
+                try view.assertOnPresentationLayer {
+                    XCTAssertEqual($0.frame.origin.x, 1000, accuracy: 0.0001)
+                    XCTAssertEqual($0.opacity, 1, accuracy: 0.0001)
+                }
+            },
+            {
+                sut.time = 1000
+                try view.assertOnPresentationLayer {
+                    XCTAssertEqual($0.frame.origin.x, 1000, accuracy: 0.0001)
+                    XCTAssertEqual($0.opacity, 1, accuracy: 0.0001)
+                }
+            },
+            {
+                sut.time = 400
+                try view.assertOnPresentationLayer {
+                    XCTAssertEqual($0.frame.origin.x, 1000, accuracy: 0.0001)
+                    XCTAssertEqual($0.opacity, 1, accuracy: 0.0001)
+                }
+            },
+            {
+                sut.time = 300
+                try view.assertOnPresentationLayer {
+                    XCTAssertEqual($0.frame.origin.x, 650, accuracy: 0.0001)
+                    XCTAssertEqual($0.opacity, 0.75, accuracy: 0.0001)
+                }
+            },
+            {
+                sut.time = 50
+                try view.assertOnPresentationLayer {
+                    XCTAssertEqual($0.frame.origin.x, 150, accuracy: 0.0001)
+                    XCTAssertEqual($0.opacity, 0.25, accuracy: 0.0001)
+                }
+            },
+        ]
 
-        sut.time = 100
-        try view.assertOnPresentationLayer {
-            XCTAssertEqual($0.frame.origin.x, 200, accuracy: 0.0001)
-        }
-
-        sut.time = 150
-        try view.assertOnPresentationLayer {
-            XCTAssertEqual($0.frame.origin.x, 250, accuracy: 0.0001)
-        }
-
-        sut.time = 300
-        try view.assertOnPresentationLayer {
-            XCTAssertEqual($0.frame.origin.x, 475, accuracy: 0.0001)
-        }
-
-        sut.time = 600
-        try view.assertOnPresentationLayer {
-            XCTAssertEqual($0.frame.origin.x, 1000, accuracy: 0.0001)
-        }
-
-        sut.time = 1000
-        try view.assertOnPresentationLayer {
-            XCTAssertEqual($0.frame.origin.x, 1000, accuracy: 0.0001)
-        }
-
-        sut.time = 600
-        try view.assertOnPresentationLayer {
-            XCTAssertEqual($0.frame.origin.x, 1000, accuracy: 0.0001)
-        }
-
-        sut.time = 300
-        try view.assertOnPresentationLayer {
-            XCTAssertEqual($0.frame.origin.x, 475, accuracy: 0.0001)
-        }
-
-        sut.time = 0
-        try view.assertOnPresentationLayer {
-            XCTAssertEqual($0.frame.origin.x, 100, accuracy: 0.0001)
+        for assertion in assertions.shuffled() {
+            try assertion()
         }
     }
 }

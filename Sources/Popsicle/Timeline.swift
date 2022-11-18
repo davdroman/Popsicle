@@ -24,4 +24,8 @@ extension Timeline where Key == Time {
 
         return self.elements.last
     }
+
+    func allPrevious(before time: Time) -> [(Time, Value)] {
+        self.elements.filter { $0.key < time }
+    }
 }
