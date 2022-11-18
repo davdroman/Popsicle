@@ -6,7 +6,9 @@ import PackageDescription
 let package = Package(
     name: "Popsicle",
     platforms: [
-        .iOS(.v13),
+        .iOS(.v11),
+        .macCatalyst(.v13),
+        .tvOS(.v11),
     ],
     products: [
         .library(name: "Popsicle", targets: ["Popsicle"]),
