@@ -24,7 +24,7 @@ public final class Interpolator {
     ) {
         let keyframe = Keyframe(curve: curve, content: content)
         if time == self.time {
-            DispatchQueue.main.async { keyframe() }
+            keyframe()
         }
         keyframes[time, default: []].append(keyframe)
     }
