@@ -8,6 +8,7 @@ final class InterpolatorTests: XCTestCase {
 
         try view.assertOnPresentationLayer {
             XCTAssertEqual($0.frame.origin.x, 0)
+            XCTAssertEqual($0.opacity, 1, accuracy: 0.0001)
         }
 
         let sut = Interpolator()
@@ -26,10 +27,6 @@ final class InterpolatorTests: XCTestCase {
         sut.addKeyframe(400) {
             view.frame.origin.x = 1000
             view.alpha = 1
-        }
-        try view.assertOnPresentationLayer {
-            XCTAssertEqual($0.frame.origin.x, 100, accuracy: 0.0001)
-            XCTAssertEqual($0.opacity, 0, accuracy: 0.0001)
         }
 
         let assertions: [() throws -> Void] = [
