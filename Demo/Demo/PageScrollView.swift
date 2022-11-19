@@ -1,5 +1,6 @@
 import Popsicle
 import UIKit
+import struct SwiftUI.Angle
 
 final class PageScrollView: DRPageScrollView {
     init(interpolator: Interpolator) {
@@ -52,6 +53,7 @@ final class FirstPageView: PageView {
 
         interpolator.addKeyframe(0) {
             scrollView.backgroundColor = .white
+            popsicle.transform = .identity
         }
 
         interpolator.addKeyframe(0) {
@@ -66,6 +68,14 @@ final class FirstPageView: PageView {
             centerYConstraint.isActive = false
             bottomConstraint.isActive = true
             self.layoutIfNeeded()
+        }
+
+        interpolator.addKeyframe(2, .easeInQuad) {
+            centerXConstraint.constant = self.frame.width * 2
+            centerYConstraint.isActive = true
+            bottomConstraint.isActive = false
+            self.layoutIfNeeded()
+            popsicle.transform = .identity.rotated(by: Angle.degrees(90).radians)
         }
     }
 }
