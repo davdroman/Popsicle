@@ -26,3 +26,9 @@ struct Keyframe {
         }
     }
 }
+
+extension Collection where Element == Keyframe {
+    func callAsFunction(_ time: Time? = nil) {
+        forEach { $0(time) }
+    }
+}

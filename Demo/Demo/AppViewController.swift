@@ -15,7 +15,13 @@ final class AppViewController: UIViewController, UIScrollViewDelegate {
         }
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        interpolator(0)
+    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        interpolator.time = scrollView.contentOffset.x / scrollView.frame.width
+        interpolator(scrollView.contentOffset.x / scrollView.frame.width)
     }
 }
