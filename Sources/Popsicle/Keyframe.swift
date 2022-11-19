@@ -16,7 +16,9 @@ struct Keyframe {
             animator.scrubsLinearly = false
             animator.fractionComplete = time
             DispatchQueue.main.async {
-                animator.stopAnimation(true)
+                DispatchQueue.main.async {
+                    animator.stopAnimation(true)
+                }
             }
         } else {
             content()

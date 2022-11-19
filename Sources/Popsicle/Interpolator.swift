@@ -37,19 +37,13 @@ public final class Interpolator {
             return
         }
 
-        let previousKeyframes = keyframes.allPrevious(before: currentKeytime).lazy.flatMap(\.1)
-        let nextKeyframes = keyframes.next(after: time)
+        keyframes.allPrevious(before: currentKeytime).lazy.flatMap(\.1)()
+        currentKeyframe()
 
-        DispatchQueue.main.async {
-            previousKeyframes()
-            currentKeyframe()
-
-            if let (nextKeytime, nextKeyframe) = nextKeyframes {
-                let relativeTime = (time - currentKeytime) / (nextKeytime - currentKeytime)
-                nextKeyframe(relativeTime)
-            }
+        if let (nextKeytime, nextKeyframe) = keyframes.next(after: time) {
+            let relativeTime = (time - currentKeytime) / (nextKeytime - currentKeytime)
+            nextKeyframe(relativeTime)
         }
-
     }
 }
 
