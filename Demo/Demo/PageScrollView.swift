@@ -75,6 +75,9 @@ final class FirstPageView: PageView {
             centerYConstraint.isActive = true
             bottomConstraint.isActive = false
             self.layoutIfNeeded()
+        }
+
+        interpolator.addKeyframe(2) {
             popsicle.transform = .identity.rotated(by: Angle.degrees(90).radians)
         }
     }
