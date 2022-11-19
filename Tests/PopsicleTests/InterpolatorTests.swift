@@ -34,56 +34,56 @@ final class InterpolatorTests: XCTestCase {
 
         let assertions: [() throws -> Void] = [
             {
-                sut.time = -100
+                sut(-100)
                 try view.assertOnPresentationLayer {
                     XCTAssertEqual($0.frame.origin.x, 100, accuracy: 0.0001)
                     XCTAssertEqual($0.opacity, 0, accuracy: 0.0001)
                 }
             },
             {
-                sut.time = 0
+                sut(0)
                 try view.assertOnPresentationLayer {
                     XCTAssertEqual($0.frame.origin.x, 100, accuracy: 0.0001)
                     XCTAssertEqual($0.opacity, 0, accuracy: 0.0001)
                 }
             },
             {
-                sut.time = 50
+                sut(50)
                 try view.assertOnPresentationLayer {
                     XCTAssertEqual($0.frame.origin.x, 150, accuracy: 0.0001)
                     XCTAssertEqual($0.opacity, 0.25, accuracy: 0.0001)
                 }
             },
             {
-                sut.time = 100
+                sut(100)
                 try view.assertOnPresentationLayer {
                     XCTAssertEqual($0.frame.origin.x, 200, accuracy: 0.0001)
                     XCTAssertEqual($0.opacity, 0.5, accuracy: 0.0001)
                 }
             },
             {
-                sut.time = 150
+                sut(150)
                 try view.assertOnPresentationLayer {
                     XCTAssertEqual($0.frame.origin.x, 250, accuracy: 0.0001)
                     XCTAssertEqual($0.opacity, 0.5, accuracy: 0.0001)
                 }
             },
             {
-                sut.time = 300
+                sut(300)
                 try view.assertOnPresentationLayer {
                     XCTAssertEqual($0.frame.origin.x, 650, accuracy: 0.0001)
                     XCTAssertEqual($0.opacity, 0.75, accuracy: 0.0001)
                 }
             },
             {
-                sut.time = 400
+                sut(400)
                 try view.assertOnPresentationLayer {
                     XCTAssertEqual($0.frame.origin.x, 1000, accuracy: 0.0001)
                     XCTAssertEqual($0.opacity, 1, accuracy: 0.0001)
                 }
             },
             {
-                sut.time = 1200
+                sut(1200)
                 try view.assertOnPresentationLayer {
                     XCTAssertEqual($0.frame.origin.x, 1000, accuracy: 0.0001)
                     XCTAssertEqual($0.opacity, 1, accuracy: 0.0001)
