@@ -11,13 +11,14 @@ struct Keyframe {
 
     func callAsFunction(_ time: Time? = nil) {
         if let time = time {
-            let animator = UIViewPropertyAnimator(duration: .zero, timingParameters: curve)
+            var animator: UIViewPropertyAnimator! = .init(duration: .zero, timingParameters: curve)
             animator.addAnimations(content)
             animator.scrubsLinearly = false
             animator.fractionComplete = time
             DispatchQueue.main.async {
                 DispatchQueue.main.async {
                     animator.stopAnimation(true)
+                    animator = nil
                 }
             }
         } else {
