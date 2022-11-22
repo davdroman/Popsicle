@@ -43,7 +43,7 @@ final class FirstPageView: PageView {
 
         let centerXConstraint = popsicle.centerXAnchor.constraint(equalTo: centerXAnchor)
         let centerYConstraint = popsicle.centerYAnchor.constraint(equalTo: centerYAnchor)
-        let bottomConstraint = popsicle.centerYAnchor.constraint(equalTo: bottomAnchor)
+        let bottomConstraint = popsicle.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 50)
 
         NSLayoutConstraint.activate([
             centerXConstraint,
@@ -54,6 +54,7 @@ final class FirstPageView: PageView {
         interpolator.addKeyframe(0) {
             scrollView.backgroundColor = .white
             popsicle.transform = .identity
+            popsicle.alpha = 1
         }
 
         interpolator.addKeyframe(0) {
@@ -77,8 +78,14 @@ final class FirstPageView: PageView {
             self.layoutIfNeeded()
         }
 
+//        interpolator.addInterpolation(from: 1.7, to: 2) {
+//            scrollView.backgroundColor = .orange
+//        }
+
         interpolator.addKeyframe(2) {
-            popsicle.transform = .identity.rotated(by: Angle.degrees(90).radians)
+            scrollView.backgroundColor = .orange
+            popsicle.transform = .identity.rotated(by: Angle(degrees: 45).radians)
+            popsicle.alpha = 0.3
         }
     }
 }
@@ -88,7 +95,7 @@ final class SecondPageView: PageView {
         super.init()
 
         interpolator.addKeyframe(1) {
-            scrollView.backgroundColor = .purple
+//            scrollView.backgroundColor = .purple
         }
     }
 }
@@ -98,7 +105,7 @@ final class ThirdPageView: PageView {
         super.init()
 
         interpolator.addKeyframe(2) {
-            scrollView.backgroundColor = .green
+//            scrollView.backgroundColor = .green
         }
     }
 }
@@ -108,7 +115,7 @@ final class FourthPageView: PageView {
         super.init()
 
         interpolator.addKeyframe(3) {
-            scrollView.backgroundColor = .red
+//            scrollView.backgroundColor = .red
         }
     }
 }
