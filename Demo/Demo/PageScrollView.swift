@@ -83,7 +83,6 @@ final class FirstPageView: PageView {
 //        }
 
         interpolator.addKeyframe(2) {
-            scrollView.backgroundColor = .orange
             popsicle.transform = .identity.rotated(by: Angle(degrees: 45).radians)
             popsicle.alpha = 0.3
         }
