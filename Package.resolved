@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "swift-collections",
+        "repositoryURL": "https://github.com/apple/swift-collections",
+        "state": {
+          "branch": "main",
+          "revision": "0d4b9e3346eb0373ac6f85fe799b44b9b7e86d7e",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
